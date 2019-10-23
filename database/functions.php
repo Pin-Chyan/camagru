@@ -4,21 +4,16 @@ require("init.php");
 
 function Get_id($user){
 	$conn = Call_onee_san();
-	$sql = "SELECT id FROM users WHERE username = $user";
+	$sql = "SELECT id FROM users";
 	$result = $conn->query($sql);
 	return ($result);
 }
 
-
-//Get anything you want from any table (the key is the coloumn name and
-// the name is the row association i.e i have the username but i want the id)
-function get_specific($name,$key,$table) {
-	$conn = Call_onee_san();
-	$sth = $conn->prepare("SELECT $name FROM $table");
+function get_specific($target, $table, $pos, $value){
+	$senpai = Call_onee_san();
+	$sth = $senpai->prepare("SELECT * FROM $table WHERE $pos=$value");
 	$sth->execute();
-	$result = $sth->fetch(PDO::FETCH_OBJ);
-	return ($result);
+	$result = $sth->fetch(PDO::FETCH_ASSOC);
+	return ($result[$target]);
 }
-
-Get_id("")
 ?>
