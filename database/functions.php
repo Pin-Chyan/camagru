@@ -49,6 +49,8 @@ function hasher($password){
 function add_user($username, $email, $display, $password){
 	if (find_specific($username,"username","users"))
 		return ("username taken");
+	if ($display)
+		$display = base64_encode(file_get_contents($display));
 	$senpai = Call_onee_san();
 	$column = "(username,email,display,password,vkey)";
 	$hashed_pass = hasher($password);
