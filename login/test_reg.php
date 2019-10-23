@@ -25,14 +25,13 @@ if (isset($_POST['submit'])) {
         $insert = $mysqli->query("INSERT INTO accounts(username,password,email,vkey)
         VALUES('$u','$p','$e','$vkey')");
 
-
         if ($insert) {
             $to = $e;
             $subject = "Email Verification";
             $msg = "<a href='http://localhost:8080/shared_camagru/login/verify.php?vkey=$vkey'>Register Account</a>";
             $header = "From pc";
             $header .= "MIME-Version: 1.0:"."\r\n";
-            $header .= "Content-type:text/html;cahrset=UTF-8"."\r\n";
+            $header .= "Content-type:text/html;charset=UTF-8"."\r\n";
 
             mail($to,$subject,$msg, $header);
 

@@ -4,7 +4,7 @@ $error = NULL;
 if (isset($_POST['submit'])) {
     $mysqli = NEW MySQLI('localhost','root','Busteristop117','camagru_test');
 
-    $u = $u = $mysqli->real_escape_string($_POST['u']);
+    $u = $mysqli->real_escape_string($_POST['u']);
     $p = $mysqli->real_escape_string($_POST['p']);
 
     $p = md5($p);
