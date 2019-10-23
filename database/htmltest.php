@@ -12,7 +12,7 @@ function get_val($username,$value){
     <text>-------------------------html image display test 1---------------------------</text>
     <?php
         $binary_senpai = get_val("mai","display");
-        echo "<img src= 'data:image/jpeg;base64, $binary_senpai' />";
+        echo "<img src= 'data:image/jpeg; $binary_senpai' />";
         //echo "<img src='data:image/jpeg;base64, $imgData' />";
     ?>
 </body>
