@@ -31,7 +31,7 @@ $senpai->exec("CREATE TABLE users ($tuser,$temail,$tdpic,$tpass)");
 ////upload senpai bot
 $username = "mai";
 $email = "@noneofyourbusiness.com";
-$dpic = base64_encode(file_get_contents("senpai.php"));
+$dpic = base64_encode(file_get_contents("senpai.jpeg"));
 $password = "bunnygirl";
 $table = "(username,email,display,password)";
 $vars = "('$username','$email','$dpic','$password')";
