@@ -1,4 +1,7 @@
 <?php
+
+function call_Onee_san() {
+
 $user = "senpai";
 $pass = "noticeme";
 $host = "localhost:3306";
@@ -21,10 +24,12 @@ try{
 catch(PDOException $s){
     echo "ok fuck\n";//echo "\n".$e->getMessage();
 }
+return ($senpai);
+}
 
 ///created user table
 $def = 50;
-$id = "ID INT(11) AUTO_INCREMENT PRIMARY KEY";
+$id = "id INT(11) AUTO_INCREMENT PRIMARY KEY";
 $tuser = "username VARCHAR($def)";
 $temail = "email VARCHAR($def)";
 $tdpic = "display TEXT";
