@@ -6,7 +6,6 @@ $password = "noticeme";
 try {
 	$conn = new PDO("mysql:host=$servername;dbname=senpai", $username, $password);
 	$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-	$conn->exec($sql);
 	echo "The database have been created!\n";
 }
 catch (PDOException $e) {
@@ -21,5 +20,11 @@ $sql = "CREATE_TABLE User_card (
 	Email VARCHAR(50),
 	Image TEXT
 )";
+
+if ($conn->query($sql) === TRUE) {
+	echo "table User_card Created\n";
+}
+else
+	echo "you failed\n";
 
 ?>
