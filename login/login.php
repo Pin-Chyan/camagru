@@ -36,6 +36,9 @@ if (isset($_POST['submit'])) {
 <meta charset="UTF-8">
 <link href="styles/custom.css" rel="stylesheet" type="text/css" />
 </head>
+<style>
+    
+</style>
 <body>
 <form method="POST" action="">
     <table border="0" align="center" cellpadding="5">
