@@ -4,18 +4,14 @@ $error = NULL;
 
 if (isset($_POST['submit'])) {
     $mysqli = NEW MySQLI('localhost','root','Busteristop117','camagru_test');
-
-    $e = $mysqli->real_escape_string($_POST['e']);
-    $res = $mysqli->query("SELECT * FROM accounts WHERE email = '$e' LIMIT 1");
-
-    if ($res->num_ros == 1) {
-        $error = "successs";
+    
+    $email = $mysqli->real_escape_string($_POST['email']);
+    $res = $mysqli->query("SELECT * FROM accounts WHERE email = '$email' LIMIT 1");
+    if ($res->num_rows != 0) {
         $row = $res->fetch_assoc();
-        $verified = $row['verified'];
-        $email = $row['email'];
-        $vkey = $row['vkey'];
 
-        if ($verified == 1) {
+        if ($row['verified'] != 0) {
+            $vkey = $row['vkey'];
             $to = $email;
             $subject = "Password reset";
             $msg = "<a href='http://localhost:8080/shared_camagru/login/reset_pass.php?vkey=$vkey'>New Password</a>";
@@ -24,20 +20,20 @@ if (isset($_POST['submit'])) {
             $header .= "Content-type:text/html;charset=UTF-8"."\r\n";
 
             mail($to,$subject,$msg, $header);
-
-            header('Location: login.php');
+            header('location: login.php');
         } else {
-            $error = "User has not been verified yet";
+            $error = "User not verified yet";
         }
     } else {
-        $error = "No such user exists on our system and res = '$res'";
+        $error = "User doesn't exist";
     }
 }
+
 ?>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>1Forgot password</title>
+<title>Forgot password</title>
 <link href="styles/custom.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -45,7 +41,7 @@ if (isset($_POST['submit'])) {
     <table border="0" align="center" cellpadding="5">
         <tr>
             <td align="right">Please enter your email address:</td>
-            <td><input type="EMAIL" name="e" required></td>
+            <td><input type="EMAIL" name="email" required></td>
         </tr>
         <tr>
             <td colspan="2" align="center"><input type="SUBMIT" name="submit" value="submit" required/></td>
