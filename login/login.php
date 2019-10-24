@@ -32,20 +32,22 @@ if (isset($_POST['submit'])) {
 ?>
 
 <html lang="en">
+<link rel="stylesheet" href="../styles/login.css">
 <head>
 <title>1</title>
 <meta charset="UTF-8">
 <link href="styles/custom.css" rel="stylesheet" type="text/css" />
 </head>
-<body bgcolor="#333030">
-<form method="POST" action="">
+<body>
+<img class="img" src="https://photogrist.com/wp-content/uploads/2016/01/Aaron-Brimhall.jpg">
+<form class="container" method="POST" action="">
     <table border="0" align="center" cellpadding="5">
         <tr>
-            <td align="right">Username:</td>
+            <td class="h_font" align="right">Username:</td>
             <td><input type="TEXT" name="u" required></td>
         </tr>
         <tr>
-            <td align="right">Password:</td>
+            <td class="h_font" align="right">Password:</td>
             <td><input type="PASSWORD" name="p" required></td>
         </tr>
         <tr>
