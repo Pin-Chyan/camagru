@@ -7,7 +7,6 @@ $name = "senpai";
 try{
     $senpai = new PDO("mysql:host=$host;dbname=senpai",$user,$pass);
     $senpai->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    echo "connected\n";
 }
 catch(PDOException $s){
     echo "ok fuck\n";//echo "\n".$e->getMessage();

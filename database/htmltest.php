@@ -1,18 +1,17 @@
 <?php
-function get_val($username,$value){
-    $db = mysqli_connect("localhost:3306","senpai","noticeme","senpai");
-    $ret = mysqli_query($db,"SELECT $value FROM users WHERE username='$username'");
-    $ret2 = mysqli_fetch_array($ret);
-    return ($ret2[$value]);
-    mysqli_close($db);
-}
+//require("init.php");
+//require("image_functions.php");
+//require("database/functions");
 ?>
 <html>
 <body>
     <text>-------------------------html image display test 1---------------------------</text>
     <?php
-        $binary_senpai = get_val("mai","display");
-        echo "<img src= 'data:image/jpeg; $binary_senpai' />";
+        //get_img("users","username","mai");
+        //echo"<br />";
+        //get_img("images","id","1");
+        //echo "<br />";
+        //get_img("images","id","2");
         //echo "<img src='data:image/jpeg;base64, $imgData' />";
     ?>
 </body>
