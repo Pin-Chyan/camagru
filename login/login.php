@@ -21,7 +21,7 @@ if (isset($_POST['submit'])) {
         if ($verified == 1) {
             //continue to login
             echo "success";
-            header('location: thanks.php');
+            header('location: index.php');
         } else {
             $error = "This account has not been verified yet an email has been sent to : '$email' at : '$date'";
         }

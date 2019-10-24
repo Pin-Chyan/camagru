@@ -2,12 +2,38 @@
 
 $error = NULL;
 
-if(isset($_GET['vkey'])) {
-    $vkey = $_GET['vkey'];
-    $mysqli = NEW MySQLI('localhost','root','Busteristop117','camagru_test');
+// if(isset($_GET['vkey'])) {
+//     $vkey = $_GET['vkey'];
+//     $mysqli = NEW MySQLI('localhost','root','Busteristop117','camagru_test');
 
-    $res = $mysqli->query("SELECT password,vkey FROM accounts WHERE verified = 0 AND vkey = '$vkey' LIMIT 1");
-    if ($res->num_rows == 1) {
+//     $res = $mysqli->query("SELECT password,vkey FROM accounts WHERE verified = 0 AND vkey = '$vkey' LIMIT 1");
+//     if ($res->num_rows == 1) {
+//         if (isset($_POST['submit'])) {
+//             $p = $_POST['p'];
+//             $p2 = $_POST['p2'];
+            
+//             if ($p != $p2) {
+//                 $error = "<p>Your passwords don't match</p>";
+//             } else {
+//                 $p = $mysqli->real_escape_string($p);
+//                 $p = md5($p);
+//                 $update = $mysqli->query("UPDATE accounts SET password = '$p' WHERE vkey = '$vkey' LIMIT 1");
+//                 header('location: login.php');
+//             }
+//         }
+//     } else {
+//         echo "Stop messing around you fool";
+//     }
+// } else {
+//     header('location: forgot_password.php');
+// }
+
+if (isset($_GET['vkey'])) {
+    $mysqli = NEW MySQLI('localhost','root','Busteristop117','camagru_test');
+    $vkey = $mysqli->real_escape_string($_GET['vkey']);
+    $res = $mysqli->query("SELECT vkey FROM accounts WHERE  vkey = '$vkey' LIMIT 1");
+
+    if ($res->num_rows != 0) {
         if (isset($_POST['submit'])) {
             $p = $_POST['p'];
             $p2 = $_POST['p2'];
@@ -22,11 +48,12 @@ if(isset($_GET['vkey'])) {
             }
         }
     } else {
-        echo "Stop messing around you fool";
+        $error = "Invalid link";
     }
 } else {
-    die("you did something wrong stupid");
+    header('location: forgot_password.php');
 }
+
 ?>
 <html>
 <head>
