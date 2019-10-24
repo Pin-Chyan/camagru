@@ -1,4 +1,7 @@
 <?php
+require("../database/functions.php");
+require("../database/init.php");
+
 $error = NULL;
 
 if (isset($_POST['submit'])) {
@@ -12,33 +15,26 @@ if (isset($_POST['submit'])) {
     else if ($p2 != $p)
         $error .= "<p>Your passwords don't match</p>";
     else {
-        $mysqli = NEW MySQLI('localhost','root','Busteristop117','camagru_test');
+        $con = call_Onee_san();
+        //$u = $con->real_escape_string($u);
+        // $p = $con->real_escape_string($p);
+        // $e = $con->real_escape_string($e);
 
-        $u = $mysqli->real_escape_string($u);
-        $p = $mysqli->real_escape_string($p);
-        $p2 = $mysqli->real_escape_string($p2);
-        $e = $mysqli->real_escape_string($e);
-
-        $vkey = md5(time().$u);
-
-        $p = md5($p);
-        $insert = $mysqli->query("INSERT INTO accounts(username,password,email,vkey)
-        VALUES('$u','$p','$e','$vkey')");
-
-        if ($insert) {
-            $to = $e;
-            $subject = "Email Verification";
-            $msg = "<a href='http://localhost:8080/shared_camagru/login/verify.php?vkey=$vkey'>Register Account</a>";
-            $header = "From pc";
-            $header .= "MIME-Version: 1.0:"."\r\n";
-            $header .= "Content-type:text/html;charset=UTF-8"."\r\n";
-
-            mail($to,$subject,$msg, $header);
-
-            header('location:thanks.php');
-        }
-        else {
-            echo $mysqli->error;
+        if (find_specific($u, "username", "users")) {
+            $error = "Username already used";
+        } else if (find_specific($e, "email", "users")) {
+            $error = "Email already in use";
+        } else {
+            add_user($u, $e, $display, $p);
+            $vkey = get_specific("vkey", "users", "username", $u);
+            echo $vkey;
+            // $subject = "Email Verification";
+            // $msg = "<a href='http://localhost:8080/shared_camagru/login/verify.php?vkey=$vkey'>Register Account</a>";
+            // $header = "From pc";
+            // $header .= "MIME-Version: 1.0:"."\r\n";
+            // $header .= "Content-type:text/html;charset=UTF-8"."\r\n";
+            // mail($to,$subject,$msg, $header);
+            // header('location: thanks.php');
         }
     }
     

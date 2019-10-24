@@ -1,9 +1,10 @@
 <?php
 function get_specific($target, $table, $column, $value){
 	$senpai = Call_onee_san();
-	$sth = $senpai->prepare("SELECT * FROM $table WHERE $column=$value");
+	$sth = $senpai->prepare("SELECT * FROM $table WHERE $table.$column = :column");
 	$sth->execute();
 	$result = $sth->fetch(PDO::FETCH_ASSOC);
+	$senpai = NULL;
 	return ($result[$target]);
 }
 
@@ -11,6 +12,7 @@ function update_specific($target, $new_var, $table, $column, $value){
 	$senpai = Call_onee_san();
 	$sth = $senpai->prepare("UPDATE $table SET $target='$new_var' WHERE $column=$value");
 	$sth->execute();
+	$senpai = NULL;
 }
 
 function find_specific($var, $column, $table){
