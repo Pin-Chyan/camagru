@@ -1,4 +1,6 @@
 <?php
+require("init.php");
+
 function get_specific($target, $table, $column, $value){
 	$senpai = Call_onee_san();
 	$sth = $senpai->prepare("SELECT * FROM $table WHERE $column=$value");
@@ -59,4 +61,10 @@ function add_user($username, $email, $display, $password){
 	$onee_chan->execute();
 }
 //////
+
+add_user("Shane","shane@gmail.com", "", "shane");
+add_user("PC","PC@gmail.com", "", "PC");
+add_user("marvy","marthen@gmail.com", "", "marvan");
+add_user("Crillin","crillin@gmail.com", "", "DBZ");
+
 ?>
