@@ -30,13 +30,14 @@ if (isset($_POST['submit'])) {
     }
 }
 ?>
+
 <html lang="en">
 <head>
 <title>1</title>
 <meta charset="UTF-8">
 <link href="styles/custom.css" rel="stylesheet" type="text/css" />
 </head>
-<body>
+<body bgcolor="#333030">
 <form method="POST" action="">
     <table border="0" align="center" cellpadding="5">
         <tr>
