@@ -1,4 +1,7 @@
 <?php
+require("../init.php");
+require("getuser.php");
+
 function get_specific($target, $table, $column, $value){
 	$senpai = Call_onee_san();
 	$sth = $senpai->prepare("SELECT * FROM $table WHERE $table.$column = :column");
@@ -60,5 +63,13 @@ function add_user($username, $email, $display, $password){
 	$onee_chan = $senpai->prepare("INSERT INTO users $column VALUES ('$username','$email','$display','$hashed_pass','$vkey')");
 	$onee_chan->execute();
 }
-//////
+
+
+
+
+add_user("Shane","shane@gmail.com", "", "shane");
+add_user("PC","PC@gmail.com", "", "PC");
+add_user("marvy","marthen@gmail.com", "", "marvan");
+add_user("Crillin","crillin@gmail.com", "", "DBZ");
+
 ?>

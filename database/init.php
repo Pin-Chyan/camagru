@@ -8,8 +8,9 @@ try{
     $senpai = new PDO("mysql:host=$host;dbname=senpai",$user,$pass);
     $senpai->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 }
-catch(PDOException $s){
-    echo "ok fuck\n";//echo "\n".$e->getMessage();
+catch(PDOException $e){
+    echo "ok fuck\n".$e->getMessage();
+    die ();
 }
 return ($senpai);
 }
