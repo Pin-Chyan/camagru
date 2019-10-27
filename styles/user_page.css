@@ -57,6 +57,57 @@
 	object-fit: cover;
   }
 
+  /* info grid starts here */
+  .middle.infoblock {
+	  background-color: grey;
+	  grid-column: col 2 / span 2;
+	  grid-row: row 4;
+	  display: grid;
+	  grid-gap: 5px;
+	  grid-template-columns: 1fr 1fr;
+	  border: 1px solid black;
+  }
+
+  .middle.infoblock.title {
+	  /* text-align: right; */
+	  grid-column: span 2;
+	  grid-row: 1;
+  }
+
+  .middle.infoblock.name {
+	  grid-column: 1;
+	  grid-row: 2;
+  }
+
+  .middle.infoblock.user_n {
+	  grid-column: 2;
+	  grid-row: 2;
+  }
+  .middle.infoblock.surname {
+	  grid-column: 1;
+	  grid-row: 3;
+  }
+
+  .middle.infoblock.user_s {
+	  grid-column: 2;
+	  grid-row: 3;
+  }
+  .middle.infoblock.email {
+	  grid-column: 1;
+	  grid-row: 4;
+  }
+
+  .middle.infoblock.user_e {
+	  grid-column: 2;
+	  grid-row: 4;
+  }
+/* grid for information ends here */
+
+  .btn_edit {
+	  
+  }
+
+
   /* Style the right column */
   .right {
 	grid-area: right;
