@@ -29,7 +29,7 @@
   .middle,
   .right {
 	padding: 10px;
-	height: 300px; /* Should be removed. Only for demonstration */
+	/* height: 300px; Should be removed. Only for demonstration */
   }
   
   /* Style the left column */
@@ -42,6 +42,21 @@
 	grid-area: middle;
   }
   
+  .middle.problock {
+	/* min-width: 20%; */
+	max-width: 20%;
+	min-height: 6vw;
+	/* max-height: 800px; */
+	/* height: 800px; */
+	border: 2px solid black;
+	/* border-radius: 100%; */
+	/* background-color: black; */
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+	object-fit: cover;
+  }
+
   /* Style the right column */
   .right {
 	grid-area: right;
@@ -66,4 +81,9 @@
 		'footer footer footer footer footer footer';
 	}
   }
-  
+
+  h1 {
+	  font-size: 1.5vw;
+	  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+	  text-align: center;
+  }
