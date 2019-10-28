@@ -11,7 +11,7 @@ body {
 
 /* Style the header */
 .header {
-  background-color: #f1f1f1;
+  /* background-color: #f1f1f1; */
   padding: 5px;
   width: 100%;
   text-align: center;
@@ -19,6 +19,7 @@ body {
 
 .header.font {
   font-size: 2vw;
+  margin-top: 0.5vw;
   font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
 }
 
@@ -175,25 +176,12 @@ body {
   text-align: center;
 }
 
-/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
-@media (max-width: 600px) {
-  .column.side, .column.middle {
-    width: 100%;
-  }
-}
-
-
-
-
-
-
-
 /* ignore bottom */
 
 .navbar {
   background-color: skyblue;
   overflow: hidden;
-  height: 65px;
+  height: 3.5vw;
 }
 
 .navbar a{
@@ -205,7 +193,7 @@ body {
   text-decoration: none;
   font-size: 17px;
 }
-
+/* 
 .navbar ul{
   margin: 8px 0 0 0;
   list-style: none;
@@ -214,7 +202,7 @@ body {
 .navbar a:hover {
   background-color: lightgrey;
   color: #000;
-}
+} */
 
 .side-nav {
   height: 100%;
@@ -251,9 +239,9 @@ body {
   margin-left: 200px;
 }
 
-#main {
-  transition: margin-left 0.5s;
-  padding: 20px;
-  overflow: hidden;
-  width: 100%;
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media (max-width: 600px) {
+  .column.side, .column.middle {
+    width: 100%;
+  }
 }
