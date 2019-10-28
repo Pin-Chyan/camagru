@@ -15,9 +15,7 @@ function get_specific($target, $table, $column, $value){
 		$sth = $senpai->prepare("SELECT * FROM $table WHERE $column ='$value'");
 		$sth->execute();
 		$result = $sth->fetch(PDO::FETCH_ASSOC);
-	 print_r($result);
 		$sth->closeCursor();
-		echo ($result[$target])."\n";
 		return ($result[$target]);
 	} catch (PDOException $e) {
 		echo "failed to get_specific".$e->getMessage()."\n";
