@@ -1,5 +1,7 @@
 * {
   box-sizing: border-box;
+  margin: 0px;
+  padding: 0%;
 }
 
 body {
@@ -37,7 +39,7 @@ body {
 .column.side.problock {
   height: 25%;
   width: 50%;
-  border-radius: 50%;
+  border-radius: 100%;
   background-color: black;
   margin-left: 25%;
   margin-top: 10%;
@@ -179,3 +181,17 @@ body {
     width: 100%;
   }
 }
+
+
+
+
+
+
+
+/* ignore bottom */
+
+
+
+
+
+
