@@ -1,0 +1,149 @@
+* {
+	box-sizing: border-box;
+  }
+  
+  body {
+	font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  /* Style the header */
+  .header {
+	grid-area: header;
+	background-color: #f1f1f1;
+	padding: 30px;
+	text-align: center;
+	font-size: 35px;
+  }
+  
+  /* The grid container */
+  .grid-container {
+	display: grid;
+	grid-template-areas: 
+	  'header header header header header header' 
+	  'left middle middle middle middle right' 
+	  'footer footer footer footer footer footer';
+	/* grid-column-gap: 10px; - if you want gap between the columns */
+  } 
+  
+  .left,
+  .middle,
+  .right {
+	padding: 10px;
+	/* height: 300px; Should be removed. Only for demonstration */
+  }
+  
+  /* Style the left column */
+  .left {
+	grid-area: left;
+  }
+  
+  /* Style the middle column */
+  .middle {
+	grid-area: middle;
+  }
+  
+  .middle.problock {
+	/* min-width: 20%; */
+	max-width: 20%;
+	min-height: 6vw;
+	/* max-height: 800px; */
+	/* height: 800px; */
+	border: 2px solid black;
+	/* border-radius: 100%; */
+	/* background-color: black; */
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+	object-fit: cover;
+  }
+
+  /* info grid starts here */
+  .middle.infoblock {
+	  background-color: grey;
+	  grid-column: col 2 / span 2;
+	  grid-row: row 4;
+	  display: grid;
+	  grid-gap: 5px;
+	  grid-template-columns: 1fr 1fr;
+	  border: 1px solid black;
+  }
+
+  .middle.infoblock.title {
+	  /* text-align: right; */
+	  grid-column: span 2;
+	  grid-row: 1;
+  }
+
+  .middle.infoblock.name {
+	  grid-column: 1;
+	  grid-row: 2;
+  }
+
+  .middle.infoblock.user_n {
+	  grid-column: 2;
+	  grid-row: 2;
+  }
+  .middle.infoblock.surname {
+	  grid-column: 1;
+	  grid-row: 3;
+  }
+
+  .middle.infoblock.user_s {
+	  grid-column: 2;
+	  grid-row: 3;
+  }
+  .middle.infoblock.email {
+	  grid-column: 1;
+	  grid-row: 4;
+  }
+
+  .middle.infoblock.user_e {
+	  grid-column: 2;
+	  grid-row: 4;
+  }
+/* grid for information ends here */
+
+  .btn_edit {
+	background-color: grey;
+	border: none;
+	color: white;
+	padding: 10px 30px;
+	text-align: center;
+	text-decoration: none;
+	display: block;
+	font-size: 16px;
+	margin-left: auto;
+	margin-right: auto;
+  }
+
+
+  /* Style the right column */
+  .right {
+	grid-area: right;
+  }
+  
+  /* Style the footer */
+  .footer {
+	grid-area: footer;
+	background-color: #f1f1f1;
+	padding: 10px;
+	text-align: center;
+  }
+  
+  /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+  @media (max-width: 600px) {
+	.grid-container  {
+	  grid-template-areas: 
+		'header header header header header header' 
+		'left left left left left left' 
+		'middle middle middle middle middle middle' 
+		'right right right right right right' 
+		'footer footer footer footer footer footer';
+	}
+  }
+
+  h1 {
+	  font-size: 1.5vw;
+	  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+	  text-align: center;
+  }
