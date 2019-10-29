@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>
+            Editor
+        </title>
+        <script>
+            window.onload = function() {
+                var canvas = document.getElementById("myCanvas");
+                var ctx = canvas.getContext("2d");
+                var img = document.getElementById("scream");
+                ctx.drawImage(img, 10, 10);
+                };
+        </script>
+    </head>
+    <body bgcolor="#242424">
+        <img id="scream" width="220" height="277" src="http://images6.fanpop.com/image/photos/35200000/anime-sarafenix-35238505-1150-1624.jpg" alt="The Scream">
+    <canvas>
+        <img id="myCanvas" width="240" height="300" style="border: 1px solid #d3d3d3;">
+    </canvas>
+    </body>
+</html>
