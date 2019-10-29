@@ -1,6 +1,6 @@
 <?php
 
-require("database/init.php");
+include("database/init.php");
 require("functions/functions.php");
 
 function upload_img($id,$imglocal){

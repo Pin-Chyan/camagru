@@ -1,6 +1,6 @@
 <?php
 
-require ("database/init.php");
+include("database/init.php");
 
 function find_id($userid,$galleryid){
     try {
@@ -82,6 +82,6 @@ function count_likes($img) {
 	  }
 }
 
-add_like("1", "/images/Kirito.jpg", ".jpg");
+// add_like("1", "", ".jpg");
 
 ?>

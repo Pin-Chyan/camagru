@@ -1,6 +1,6 @@
 <?php
 
-require("database/init.php");
+include("database/init.php");
 
 function comment($userid, $imgSrc, $comment) {
 	try {

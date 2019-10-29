@@ -1,5 +1,5 @@
 <?php
-require("database/init.php");
+include("database/init.php");
 
 /* ok for get_specific:
 	target = what you want to get.

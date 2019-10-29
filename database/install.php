@@ -1,6 +1,6 @@
 <?php
 
-require("init.php");
+require("database/init.php");
 
 $user = "senpai";
 $pass = "noticeme";

@@ -1,5 +1,5 @@
 <?php
-include_once("database/init.php");
+include("database/init.php");
 
 function find_comment($userid,$galleryid){
     try {

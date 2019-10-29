@@ -1,6 +1,6 @@
 <?php
-require("database/init.php");
-require("images/image_functions.php");
+include("database/init.php");
+require("functions/image_functions.php");
 
 session_start();
 
