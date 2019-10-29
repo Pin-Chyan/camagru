@@ -1,7 +1,5 @@
 <?php
-
-include("database/init.php");
-
+/*
 function find_id($userid,$galleryid){
     try {
         $senpai = call_onee_san();
@@ -82,6 +80,47 @@ function count_likes($img) {
 	  }
 }
 
-// add_like("1", "", ".jpg");
-
+*/
+function find_id($userid,$galleryid){
+    try {
+        $senpai = call_onee_san();
+        $exec = $senpai->prepare("SELECT * FROM `like`");
+        $exec->execute();
+        while (($res = $exec->fetch(PDO::FETCH_ASSOC))){
+            if ($res['galleryid'] == $galleryid && $res['userid'] == $userid) {
+				return (1);
+			}
+		}
+		return (0);
+    }
+    catch (PDOException $err){
+        echo $err."\n";
+    }
+}
+function add_like($userid,$galleryid){
+	try{
+		$senpai = call_onee_san();
+		if (find_id($userid,$galleryid)){
+			echo "you already likes this fam\n";
+			return (0);
+		}
+		$sql = "INSERT INTO `like` (userid,galleryid) VALUES ('$userid','$galleryid')";
+		$senpai->exec($sql);
+		echo "image liked\n";
+	}
+	catch(PDOException $e){
+		echo $e."\n";
+	}
+}
+function remove_like($userid,$galleryid){
+	try{
+		$senpai = call_onee_san();
+		$sql = "DELETE FROM `like` WHERE userid='$userid' AND galleryid='$galleryid'";
+		$senpai->exec($sql);
+		echo "like removed\n";
+	}
+	catch (PDOException $err){
+		echo $err."\n";
+	}
+}
 ?>

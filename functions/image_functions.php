@@ -1,13 +1,9 @@
 <?php
-
-include("database/init.php");
-require("functions/functions.php");
-
-function upload_img($id,$imglocal){
+function upload_img($userid,$imglocation){
 try {
     $senpai = Call_onee_san();
-    $binary_senpai = base64_encode(file_get_contents($imglocal));
-    $senpai->exec("INSERT INTO gallery (img,userid) VALUES ('$binary_senpai','$id')");
+    $binary_senpai = base64_encode(file_get_contents($imglocation));
+    $senpai->exec("INSERT INTO gallery (img,userid) VALUES ('$binary_senpai','$userid')");
 } catch (PDOException $e) {
     echo "fuck". $e->getMessage()."\n";
 }

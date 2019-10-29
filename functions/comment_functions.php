@@ -1,6 +1,4 @@
 <?php
-include("database/init.php");
-
 function find_comment($userid,$galleryid){
     try {
         $senpai = call_onee_san();
@@ -8,28 +6,34 @@ function find_comment($userid,$galleryid){
         $exec = $senpai->prepare("SELECT * FROM comments");
         $exec->execute();
         while (($res = $exec->fetch(PDO::FETCH_ASSOC))){
-            print_r($res);
+            return (1);
         }
     }
     catch (PDOException $err){
         echo $err."\n";
     }
 }
-function add_comments($userid,$galleryid,$text){
+
+function add_comment($userid,$galleryid,$comment){
     try {
         $senpai = Call_onee_san();
-        $sql = "INSERT INTO comments (userid,galleryid,comment) VALUES ('$userid','$galleryid','$text')";
+        $sql = "INSERT INTO comments (userid,galleryid,comment) VALUES ('$userid','$galleryid','$comment')";
         $senpai->exec($sql);
-        echo "comment added\n";
     }
     catch(PDOException $err){
-        echo $arr."\n";
+        echo $err."\n";
     }
 }
-// add_comments("1","1","comment added");
-// add_comments("1","1","comment added");
-// add_comments("1","1","comment added");
-// add_comments("1","1","comment added");
-// add_comments("1","1","comment added");
-find_comment("1","1");
+
+function remove_comment($userid,$galleryid){
+	try{
+		$senpai = call_onee_san();
+		$sql = "DELETE FROM comments WHERE userid='$userid' AND galleryid='$galleryid'";
+		$senpai->exec($sql);
+		echo "comment removed\n";
+	}
+	catch (PDOException $err){
+		echo $err."\n";
+	}	
+}
 ?>

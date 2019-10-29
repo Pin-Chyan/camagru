@@ -1,6 +1,5 @@
 <?php
-
-require("database/init.php");
+require("./header.php");
 
 $user = "senpai";
 $pass = "noticeme";
@@ -65,10 +64,9 @@ try {
     $sql = "CREATE TABLE `like` (
       `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
       `userid` INT(11) NOT NULL,
-      `galleryid` INT(11) NOT NULL,
-      `type` VARCHAR(1) NOT NULL,
+      `galleryid` INT(11) NOT NULL/*,
       FOREIGN KEY (userid) REFERENCES users(id),
-      FOREIGN KEY (galleryid) REFERENCES gallery(id)
+      FOREIGN KEY (galleryid) REFERENCES gallery(id)*/
     )";
     $senpai->exec($sql);
     echo "Table like created successfully\n";
