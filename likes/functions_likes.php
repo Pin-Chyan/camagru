@@ -35,6 +35,7 @@ function get_like($userid, $img) {
 		$query->execute(array(':userid' => $userid, ':img' => $img));
 		$val = $query->fetch();
 		$query->closeCursor(); // This bullshit is ajax stuff, basicly resets the function to the server can call it again or run a diff func.
+		echo "The likes are = $val\n";
 		return ($val);
 	  } catch (PDOException $e) {
 		return ($e->getMessage());
@@ -57,3 +58,9 @@ function count_likes($img) {
 		return ($e->getMessage());
 	  }
 }
+
+
+add_like("12", "https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwixzpD8sLflAhXSxoUKHX6dDosQjRx6BAgBEAQ&url=https%3A%2F%2Faminoapps.com%2Fc%2Fsao-memory-defrag-amino%2Fpage%2Fblog%2Ffun-facts-about-kirito%2FRzvg_BwFwu64Yxd3bazGQoo1oeBg3VQkwY&psig=AOvVaw0Y_8-JBr2DlJbcjxglMnhn&ust=1572091813491707", "");
+get_like("12", "https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwixzpD8sLflAhXSxoUKHX6dDosQjRx6BAgBEAQ&url=https%3A%2F%2Faminoapps.com%2Fc%2Fsao-memory-defrag-amino%2Fpage%2Fblog%2Ffun-facts-about-kirito%2FRzvg_BwFwu64Yxd3bazGQoo1oeBg3VQkwY&psig=AOvVaw0Y_8-JBr2DlJbcjxglMnhn&ust=1572091813491707");
+
+?>

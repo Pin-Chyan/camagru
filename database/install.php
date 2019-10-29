@@ -6,7 +6,6 @@ $name = "senpai";
 include "database_info.php";
 require("init.php");
 
-
 //CREATE DATABASE
 try{
     $conn = new PDO("mysql:host=$host",$user,$pass);
@@ -29,7 +28,7 @@ try {
 		`username` VARCHAR(50) NOT NULL,
 		`email` VARCHAR(100) NOT NULL,
 		`password` VARCHAR(255) NOT NULL,
-		`display` BLOB,
+		`display` longblob NOT NULL,
 		`vkey` VARCHAR(50),
 		`verified` tinyint(1) DEFAULT 0,
 		`reg_date` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
@@ -41,25 +40,13 @@ catch (PDOException $e) {
 	echo "Users table died miserbly: ".$e->getMessage()."\n";
 }
 
-/*	Liams one incase he wants it.
-
-	"id INT(11) AUTO_INCREMENT PRIMARY KEY";
-	$tuser = "username VARCHAR(50)";
-	$temail = "email VARCHAR(50)";
-	$tdpic = "display TEXT";
-	$tpass = "password VARCHAR(50)";
-	$tvkey = "vkey VARCHAR(50)";
-	$tveri = "verified tinyint(1) DEFAULT 0";
-	$treg_date = "reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP";
-*/
-
 ////GALLERY TABLE (lets call this the gallery guys!)
 try {
 	$senpai = Call_onee_san();
 	$sql = "CREATE TABLE `gallery` (
 		`id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 		`userid` INT(11) NOT NULL,
-		`img` VARCHAR(100) NOT NULL,
+		`img` longblob,
 		`up_date` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 		FOREIGN KEY (userid) REFERENCES users(id)
 	  )";
@@ -69,18 +56,6 @@ try {
 catch (PDOException $e) {
 	echo "Never speak to me or my family again ~ Gallery table".$e->getMessage()."\n";
 }
-
-/* Need to speak to Liam about all these columns (shane)
-
-$id = "id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY";
-$userid = "userid VARCHAR(50)";
-$date = "upload_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP";
-$image = "img64 TEXT";
-$img_ex = "extention TEXT(10)";
-$image_like = "likes INT(10)";
-//$senpai->exec("DROP TABLE images");
-$senpai->exec("CREATE TABLE gallery ($id, $userid, $author,$date,$image)");
-*/
 
 ///CREATE LIKE TABLE
 try {
