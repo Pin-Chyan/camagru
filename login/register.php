@@ -7,15 +7,15 @@ if (isset($_POST['submit'])) {
     $p2 = $_POST['pwd2'];
     $e = $_POST['email'];
 
-    if (strlen($u) < 5)
-        $error = "<p>Your username must be at least 5 characters long</p>";
+    if (strlen($p) < 5)
+        echo "<script type='text/javascript'>alert('Password is too short')</script>";
     else if ($p2 != $p)
-        $error .= "<p>Your passwords don't match</p>";
+        echo "<script type='text/javascript'>alert('Passwords don't match')</script>";
     else {
         if (find_specific($u, "username", "users")) {
-            $error = "Username already used";
+            echo "<script type='text/javascript'>alert('Username has been taken')</script>";
         } else if (find_specific($e, "email", "users")) {
-            $error = "Email already in use";
+            echo "<script type='text/javascript'>alert('Email already in use')</script>";
         } else {
             add_user($u, $e, $display, $p);
             $vkey = get_specific("vkey", "users", "username", $u);

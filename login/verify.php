@@ -1,18 +1,19 @@
 <?php
+require("../database/functions.php");
+
 if(isset($_GET['vkey'])) {
     $vkey = $_GET['vkey'];
-    $mysqli = NEW MySQLI('localhost','root','Busteristop117','camagru_test');
 
-    $res = $mysqli->query("SELECT verified,vkey FROM accounts WHERE verified = 0 AND vkey = '$vkey' LIMIT 1");    
-    if ($res->num_rows == 1) {
-        $update = $mysqli->query("UPDATE accounts SET verified = 1 WHERE vkey = '$vkey' LIMIT 1");
-        if ($update) {
-            echo "Your account has been verified";
-        } else {
-            echo $mysqli->error;
-        }
+    if (find_specific($vkey, "vkey", "users")) {
+        $new_key = random_key("6");
+        update_specific("verified", 1, "users", "vkey", $vkey);
+        //update_specific("vkey", $new_key, "users", "vkey", $vkey);
+        echo "User validated";
+
+        //get_specific("vkey", "users", "username", $u);
+        //get_specific($target, $table, $column, $value)
     } else {
-        echo "This account is invalid or already used";
+        echo "Link invalid isn't valid anymore";
     }
 } else {
     die("you did something wrong stupid");
