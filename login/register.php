@@ -1,14 +1,11 @@
 <?php
 require("../database/functions.php");
-require("../database/init.php");
-
-$error = NULL;
 
 if (isset($_POST['submit'])) {
-    $u = $_POST['u'];
-    $p = $_POST['p'];
-    $p2 = $_POST['p2'];
-    $e = $_POST['e'];
+    $u = $_POST['usr_name'];
+    $p = $_POST['pwd'];
+    $p2 = $_POST['pwd2'];
+    $e = $_POST['email'];
 
     if (strlen($u) < 5)
         $error = "<p>Your username must be at least 5 characters long</p>";
@@ -20,16 +17,16 @@ if (isset($_POST['submit'])) {
         } else if (find_specific($e, "email", "users")) {
             $error = "Email already in use";
         } else {
-            //add_user($u, $e, $display, $p);
-            //$vkey = get_specific("vkey", "users", "username", $u);
-            //echo $vkey;
-            // $subject = "Email Verification";
-            // $msg = "<a href='http://localhost:8080/shared_camagru/login/verify.php?vkey=$vkey'>Register Account</a>";
-            // $header = "From pc";
-            // $header .= "MIME-Version: 1.0:"."\r\n";
-            // $header .= "Content-type:text/html;charset=UTF-8"."\r\n";
-            // mail($to,$subject,$msg, $header);
-            // header('location: thanks.php');
+            add_user($u, $e, $display, $p);
+            $vkey = get_specific("vkey", "users", "username", $u);
+            echo $vkey;
+            $subject = "Email Verification";
+            $msg = "<a href='http://localhost:8080/shared_camagru/login/verify.php?vkey=$vkey'>Register Account</a>";
+            $header = "From pc";
+            $header .= "MIME-Version: 1.0:"."\r\n";
+            $header .= "Content-type:text/html;charset=UTF-8"."\r\n";
+            mail($e,$subject,$msg, $header);
+            header('location: thanks.php');
         }
     }
     
@@ -40,7 +37,7 @@ if (isset($_POST['submit'])) {
 <script src="../styles/login.js"></script>
 <html lang="en">
 	<head>
-		<title>Register</title>
+		<title>Register update</title>
 		<meta charset="UTF-8">
 		<link href="styles/custom.css" rel="stylesheet" type="text/css" />
 	</head>
@@ -68,13 +65,14 @@ if (isset($_POST['submit'])) {
 			<a href="#">User</a>
 			<a href="#">Log</a>
 		</div>
-        <div class="login-page" action="" method="POST">
+        <div class="login-page">
             <div class="form">
-                <form class="login-form">
-                    <input type="text" placeholder="username" name="/>
-                    <input type="password" placeholder="password"/>
-                    <input type="text" placeholder="email address"/>
-                    <button>create</button>
+                <form class="login-form" action="" method="POST">
+                    <input type="TEXT" placeholder="username" name="usr_name" required/>
+                    <input type="PASSWORD" placeholder="password" name="pwd" required/>
+                    <input type="PASSWORD" placeholder="repeat password" name="pwd2" required/>
+                    <input type="EMAIL" placeholder="email address" name="email" required/>
+                    <input type="SUBMIT" name="submit" value="Register"/>
                     <p class="message">Already registered? <a href="login.php">Sign In</a></p>
                 </form>
                 <!-- <form class="login-form">
