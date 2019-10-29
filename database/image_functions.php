@@ -1,7 +1,5 @@
 <?php
 
-require("database/init.php");
-
 function upload_img($id,$imglocal){
 try {
     $senpai = Call_onee_san();
@@ -16,6 +14,4 @@ function get_img($id){
     $binary_senpai = get_specific("img","gallery","userid",$id);
     echo "<img src= 'data:image/jpeg; $binary_senpai' />";
 }
-
-upload_img("1", "images/Kirito.jpg");
 ?>
