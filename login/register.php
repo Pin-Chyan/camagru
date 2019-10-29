@@ -15,17 +15,12 @@ if (isset($_POST['submit'])) {
     else if ($p2 != $p)
         $error .= "<p>Your passwords don't match</p>";
     else {
-        $con = call_Onee_san();
-        //$u = $con->real_escape_string($u);
-        // $p = $con->real_escape_string($p);
-        // $e = $con->real_escape_string($e);
-
         if (find_specific($u, "username", "users")) {
             $error = "Username already used";
         } else if (find_specific($e, "email", "users")) {
             $error = "Email already in use";
         } else {
-            add_user($u, $e, $display, $p);
+            //add_user($u, $e, $display, $p);
             //$vkey = get_specific("vkey", "users", "username", $u);
             //echo $vkey;
             // $subject = "Email Verification";
@@ -40,38 +35,63 @@ if (isset($_POST['submit'])) {
     
 }
 ?>
+
+<link rel="stylesheet" href="../styles/login_2.css">
+<script src="../styles/login.js"></script>
 <html lang="en">
-<head>
-<title>1</title>
-<link href="styles/custom.css" rel="stylesheet" type="text/css" />
-</head>
-<body>
-<form method="POST" action="">
-    <table border="0" align="center" cellpadding="5">
-        <tr>
-            <td align="right">Username:</td>
-            <td><input type="TEXT" name="u" required></td>
-        </tr>
-        <tr>
-            <td align="right">Password:</td>
-            <td><input type="PASSWORD" name="p" required></td>
-        </tr>
-        <tr>
-            <td align="right">Repeat Password:</td>
-            <td><input type="PASSWORD" name="p2" required></td>
-        </tr>
-        <tr>
-            <td align="right">Email Address:</td>
-            <td><input type="EMAIL" name="e" required></td>
-        </tr>
-        <tr>
-            <td colspan="2" align="center"><input type="SUBMIT" name="submit" value="Register" required/></td>
-        </tr>
-    </table>
-</form>
-<center>
-    <?php
-        echo $error;
-    ?>
-</center>
-</body>
+	<head>
+		<title>Register</title>
+		<meta charset="UTF-8">
+		<link href="styles/custom.css" rel="stylesheet" type="text/css" />
+	</head>
+	<body>
+		<nav class="navbar">
+			<span class="open-slide">
+			    <a href="#" onclick="openSlideMenu()">
+					<svg width="30" height="30">
+						<path d="M0,5 30,5" stroke="#fff" stroke-width="5"/>
+						<path d="M0,14 30,14" stroke="#fff" stroke-width="5"/>
+						<path d="M0,23 30,23" stroke="#fff" stroke-width="5"/>
+					</svg>
+				</a>
+			</span>
+			<p class="font">Senpai Haven</p>
+			<!-- <ul class="navbar-nav">
+				<li><a href="#">Home</a></li>
+				<li><a href="#">User</a></li>
+				<li><a href="#">Log2</a></li>
+			</ul> -->
+		</nav>
+		<div id="side-menu" class="side-nav">
+			<a href="#" class="btn-close" onclick="closeSlideMenu()">&times;</a>
+			<a href="#">Home</a>
+			<a href="#">User</a>
+			<a href="#">Log</a>
+		</div>
+        <div class="login-page" action="" method="POST">
+            <div class="form">
+                <form class="login-form">
+                    <input type="text" placeholder="username" name="/>
+                    <input type="password" placeholder="password"/>
+                    <input type="text" placeholder="email address"/>
+                    <button>create</button>
+                    <p class="message">Already registered? <a href="login.php">Sign In</a></p>
+                </form>
+                <!-- <form class="login-form">
+                    <input type="text" placeholder="username"/>
+                    <input type="password" placeholder="password"/>
+                    <button>login</button>
+                    <p class="message">Not registered? <a href="register.html">Create an account</a></p>
+                </form> -->
+            </div>
+        </div>
+        <script>
+                function openSlideMenu() {
+                    document.getElementById('side-menu').style.width = '250px';
+                }
+                function closeSlideMenu() {
+                    document.getElementById('side-menu').style.width = '0';
+                }
+        </script>
+	</body>
+</html>
