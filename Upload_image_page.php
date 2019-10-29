@@ -22,7 +22,7 @@ if (isset($_POST['submit'])) {
 <!DOCTYPE html>
 <html>
 	<head>
-	<title>How To upload BLOB Image To Mysql Database Using PHP,SQL And HTML.</title>
+	<title>Upload image</title>
 	</head>
 	<body>
 		<form action="" method="post" enctype="multipart/form-data">
