@@ -123,4 +123,33 @@ function remove_like($userid,$galleryid){
 		echo $err."\n";
 	}
 }
+
+function get_likes($userid,$galleryid){
+	try{
+		$ammount = 0;
+		$senpai = call_onee_san();
+		if ($userid){
+			$res = $senpai->prepare("SELECT userid,galleryid FROM `like`");
+			$res->execute();
+			while ($arr = $res->fetch(PDO::FETCH_ASSOC)){
+				if ($arr['userid'] == $userid && $arr['galleryid'] == $galleryid)
+					return (1);
+			}
+			return (0);
+		}
+		else{
+			$res = $senpai->prepare("SELECT galleryid FROM `like`");
+			$res->execute();
+			while ($arr = $res->fetch(PDO::FETCH_ASSOC)){
+				if ($arr['galleryid'] == $galleryid)
+					$ammount++;
+			}
+			return ($ammount);
+		}
+		return $ammount;
+	}
+	catch (PDOException $e){
+		echo $e."\n";
+	}
+}
 ?>

@@ -51,4 +51,12 @@ remove_like("2","3");
 remove_like("4","3");
 remove_like("2","3");
 remove_like("4","2");
+echo "\nget likes test\n\n";
+upload_img("2","images/senpai.jpeg");
+add_like("1","5");
+add_like("2","5");
+add_like("4","5");
+echo get_likes(NULL,"5")." likes \n";
+echo get_likes("1","5")." likes \n";
+echo get_likes("3","5")." likes \n";
 ?>

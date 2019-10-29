@@ -40,4 +40,4 @@ functions are:
 5.  comment_functions.php
 
 		add_comment($userid,$galleryid,$comment); (adds comment to table and links it to gallery and userid multiple comments are supported)
-		remove_content($userid,$galleryid);
+		remove_comment($userid,$galleryid);
