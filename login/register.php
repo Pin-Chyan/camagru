@@ -26,8 +26,8 @@ if (isset($_POST['submit'])) {
             $error = "Email already in use";
         } else {
             add_user($u, $e, $display, $p);
-            $vkey = get_specific("vkey", "users", "username", $u);
-            echo $vkey;
+            //$vkey = get_specific("vkey", "users", "username", $u);
+            //echo $vkey;
             // $subject = "Email Verification";
             // $msg = "<a href='http://localhost:8080/shared_camagru/login/verify.php?vkey=$vkey'>Register Account</a>";
             // $header = "From pc";

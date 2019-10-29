@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="./styles/custom.css">
+<link rel="stylesheet" href="./styles/home.css">
 <!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> -->
 <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat"> -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -16,7 +16,29 @@
 	<p>Resize the browser window to see the responsive effect.</p> 
 -->
 	<div class="header">
-		<p class="header font">Senpai Haven</p>
+		<nav class="navbar">
+			<span class="open-slide">
+				<a href="#" onclick="openSlideMenu()">
+						<svg width="30" height="30">
+							<path d="M0,5 30,5" stroke="#fff" stroke-width="5"/>
+							<path d="M0,14 30,14" stroke="#fff" stroke-width="5"/>
+							<path d="M0,23 30,23" stroke="#fff" stroke-width="5"/>
+						</svg>
+					</a>
+				</span>
+				<p class="header font">Senpai Haven</p>
+				<!-- <ul class="navbar-nav">
+					<li><a href="#">Home</a></li>
+					<li><a href="#">User</a></li>
+					<li><a href="#">Log2</a></li>
+				</ul> -->
+			</nav>
+			<div id="side-menu" class="side-nav">
+				<a href="#" class="btn-close" onclick="closeSlideMenu()">&times;</a>
+				<a href="#">Home</a>
+				<a href="#">User</a>
+				<a href="#">Log</a>
+			</div>
 	</div>
 
 	<div class="row">
@@ -25,6 +47,7 @@
 			<p class="column side user">UserName</p>
 			<!-- <div class="column side problock"></div> -->
 			<img class="column side problock" src="https://www.trickscity.com/wp-content/uploads/2018/06/anonymous-dp-for-boys.jpg">
+			<br \>
 		</div>
 
 		<!-- middle -->
@@ -62,6 +85,13 @@
 			<i class="fa fa-twitter w3-hover-opacity"></i>
 			<i class="fa fa-linkedin w3-hover-opacity"></i>
 	</div>
-
+	<script>
+		function openSlideMenu() {
+			document.getElementById('side-menu').style.width = '250px';
+		}
+		function closeSlideMenu() {
+			document.getElementById('side-menu').style.width = '0';
+		}
+	</script>
 	</body>
 </html>

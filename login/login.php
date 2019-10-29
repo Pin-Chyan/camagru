@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
 $error = NULL;
 
 if (isset($_POST['submit'])) {
@@ -29,19 +29,18 @@ if (isset($_POST['submit'])) {
         $error = "You entered the wrong username or password";
     }
 }
-?>
+?> -->
 
 <html lang="en">
 <link rel="stylesheet" href="../styles/login.css">
 <head>
-<title>1</title>
+<title>Login</title>
 <meta charset="UTF-8">
-<link href="styles/custom.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 <img class="img" src="https://photogrist.com/wp-content/uploads/2016/01/Aaron-Brimhall.jpg">
 <form class="container" method="POST" action="">
-    <table border="0" align="center" cellpadding="5">
+    <table border="0" align="center" cellpadding="1vw">
         <tr>
             <td class="h_font" align="right">Username:</td>
             <td><input type="TEXT" name="u" required></td>
@@ -56,8 +55,8 @@ if (isset($_POST['submit'])) {
     </table>
 </form>
 <center>
-    <?php
+    <!-- <?php
         echo $error;
-    ?>
+    ?> -->
 </center>
 </body>
