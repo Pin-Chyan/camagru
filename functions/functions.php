@@ -1,5 +1,5 @@
 <?php
-require("init.php");
+require("database/init.php");
 
 /* ok for get_specific:
 	target = what you want to get.
@@ -88,12 +88,5 @@ try {
 	echo "failed to add user: ".$e->getMessage()."\n";
 }
 }
-
-add_user("Shane","shane@gmail.com", "images/Kirito.jpg", "shane");
-add_user("PC","PC@gmail.com", "", "PC");
-add_user("marvy","marthen@gmail.com", "", "marvan");
-add_user("Crillin","crillin@gmail.com", "", "DBZ");
-
-get_specific("vkey", "users", "username", "PC");
 
 ?>

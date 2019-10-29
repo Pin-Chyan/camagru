@@ -1,5 +1,8 @@
 <?php
 
+require("database/init.php");
+require("functions/functions.php");
+
 function upload_img($id,$imglocal){
 try {
     $senpai = Call_onee_san();

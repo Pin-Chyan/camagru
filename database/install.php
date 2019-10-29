@@ -1,10 +1,11 @@
 <?php
+
+require("init.php");
+
 $user = "senpai";
 $pass = "noticeme";
 $host = "localhost:3306";
 $name = "senpai";
-include "database_info.php";
-require("init.php");
 
 //CREATE DATABASE
 try{
@@ -40,7 +41,7 @@ catch (PDOException $e) {
 	echo "Users table died miserbly: ".$e->getMessage()."\n";
 }
 
-////GALLERY TABLE (lets call this the gallery guys!)
+////GALLERY TABLE 
 try {
 	$senpai = Call_onee_san();
 	$sql = "CREATE TABLE `gallery` (
