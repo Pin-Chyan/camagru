@@ -5,7 +5,7 @@ require("images/image_functions.php");
 session_start();
 
 $senpai = Call_onee_san();
-$_SESSION['username'] = "Shane";
+// $_SESSION['username'] = 1;
 if (isset($_POST['submit'])) {
 	if (getimagesize($_FILES['imagefile']['tmp_name']) == false) {
 		echo "<br />Please Select An Image.";
