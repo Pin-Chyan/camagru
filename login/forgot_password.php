@@ -2,32 +2,24 @@
 
 require("../header.php");
 
-$error = NULL;
-
 if (isset($_POST['submit'])) {
-    $mysqli = NEW MySQLI('localhost','root','Busteristop117','camagru_test');
-    
-    $email = $mysqli->real_escape_string($_POST['email']);
-    $res = $mysqli->query("SELECT * FROM accounts WHERE email = '$email' LIMIT 1");
-    if ($res->num_rows != 0) {
-        $row = $res->fetch_assoc();
-
-        if ($row['verified'] != 0) {
-            $vkey = $row['vkey'];
-            $to = $email;
+    $e = $_POST['email'];
+    if (isset($e) and find_specific($e, "email", "users")) {
+        if (get_specific("verified", "users", "email", $e) != 0) {
+            $vkey = get_specific("vkey", "users", "email", $e);
             $subject = "Password reset";
             $msg = "<a href='http://localhost:8080/shared_camagru/login/reset_pass.php?vkey=$vkey'>New Password</a>";
             $header = "The camagru team";
             $header .= "MIME-Version: 1.0:"."\r\n";
             $header .= "Content-type:text/html;charset=UTF-8"."\r\n";
 
-            mail($to,$subject,$msg, $header);
+            mail($e,$subject,$msg, $header);
             header('location: login.php');
         } else {
-            $error = "User not verified yet";
+            echo "Please verify your account first";
         }
     } else {
-        $error = "User doesn't exist";
+        echo "User doesn't exist";
     }
 }
 
@@ -50,9 +42,4 @@ if (isset($_POST['submit'])) {
         </tr>
     </table>
 </form>
-<center>
-    <?php
-        echo $error;
-    ?>
-</center>
 </body>

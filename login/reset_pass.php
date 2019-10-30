@@ -1,59 +1,33 @@
 <?php
 require("../header.php");
-$error = NULL;
 
-// if(isset($_GET['vkey'])) {
-//     $vkey = $_GET['vkey'];
-//     $mysqli = NEW MySQLI('localhost','root','Busteristop117','camagru_test');
-
-//     $res = $mysqli->query("SELECT password,vkey FROM accounts WHERE verified = 0 AND vkey = '$vkey' LIMIT 1");
-//     if ($res->num_rows == 1) {
-//         if (isset($_POST['submit'])) {
-//             $p = $_POST['p'];
-//             $p2 = $_POST['p2'];
-            
-//             if ($p != $p2) {
-//                 $error = "<p>Your passwords don't match</p>";
-//             } else {
-//                 $p = $mysqli->real_escape_string($p);
-//                 $p = md5($p);
-//                 $update = $mysqli->query("UPDATE accounts SET password = '$p' WHERE vkey = '$vkey' LIMIT 1");
-//                 header('location: login.php');
-//             }
-//         }
-//     } else {
-//         echo "Stop messing around you fool";
-//     }
-// } else {
-//     header('location: forgot_password.php');
-// }
-
-if (isset($_GET['vkey'])) {
-    $mysqli = NEW MySQLI('localhost','root','Busteristop117','camagru_test');
-    $vkey = $mysqli->real_escape_string($_GET['vkey']);
-    $res = $mysqli->query("SELECT vkey FROM accounts WHERE  vkey = '$vkey' LIMIT 1");
-
-    if ($res->num_rows != 0) {
-        if (isset($_POST['submit'])) {
-            $p = $_POST['p'];
-            $p2 = $_POST['p2'];
-            
-            if ($p != $p2) {
-                $error = "<p>Your passwords don't match</p>";
-            } else {
-                $p = $mysqli->real_escape_string($p);
-                $p = md5($p);
-                $update = $mysqli->query("UPDATE accounts SET password = '$p' WHERE vkey = '$vkey' LIMIT 1");
-                header('location: login.php');
+if(isset($_GET['vkey'])) {
+    $vkey = $_GET['vkey'];
+    if (find_specific($vkey, "vkey", "users")) {
+        if (get_specific("verified", "users", 'vkey', $vkey) == 1) {
+            if (isset($_POST['submit'])) {
+                $p = $_POST['p'];
+                $p2 = $_POST['p2'];
+        
+                if ($p != $p2) {
+                    echo "<p>Your passwords don't match</p>";
+                } else {
+                    $new_key = random_key("6");
+                    $id = get_specific('id', "users", 'vkey', $vkey);
+                    update_specific("password", $p, "users", 'id', $id);
+                    update_specific("vkey", $new_key, "users", 'id', $id);
+                    header('location: login.php');
+                }
             }
+        } else {
+            echo "Please verify your account first";
         }
     } else {
-        $error = "Invalid link";
+        echo "Link isn't valid anymore";
     }
 } else {
     header('location: forgot_password.php');
 }
-
 ?>
 <html>
 <head>
@@ -76,9 +50,4 @@ if (isset($_GET['vkey'])) {
     </table>
 </form>
 </body>
-<center>
-    <?php
-        echo $error;
-    ?>
-</center>
 </html>
