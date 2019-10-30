@@ -37,7 +37,7 @@ if (isset($_POST['submit'])) {
 <script src="../styles/login.js"></script>
 <html lang="en">
 	<head>
-		<title>Register update</title>
+		<title>Register</title>
 		<meta charset="UTF-8">
 		<link href="styles/custom.css" rel="stylesheet" type="text/css" />
 	</head>
