@@ -1,5 +1,7 @@
 <?php
 
+require("../header.php");
+
 $error = NULL;
 
 if (isset($_POST['submit'])) {

@@ -50,43 +50,4 @@ function delete_specific($table, $column, $value){
 	$sth->execute();
 	$sth->closeCursor();
 }
-<<<<<<< HEAD:database/functions.php
-/////// for add user
-function random_key($len){
-	$seed = str_split('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890');
-	shuffle($seed);
-	$rand = '';
-	foreach (array_rand($seed, $len) as $k) $rand .= $seed[$k];
-	if (find_specific($rand, "vkey", "users"))
-		return (random_key($len));
-	return ($rand);
-}
-function hasher($password){
-	$hashed = base64_encode($password);
-	$ret = md5($hashed);
-	return ($ret);
-}
-function add_user($username, $email, $display, $password){
-try {
-	if (find_specific($username,"username","users"))
-		return ("username taken");
-	if ($display)
-		$new = base64_encode(file_get_contents($display));
-	$senpai = Call_onee_san();
-	$column = "(username,email,display,password,vkey)";
-	$hashed_pass = hasher($password);
-	$vkey = random_key("6");
-	$onee_chan = $senpai->prepare("INSERT INTO users $column VALUES ('$username','$email','$new','$hashed_pass','$vkey')");
-	$onee_chan->execute();
-} catch (PDOException $e) {
-	echo "failed to add user: ".$e->getMessage()."\n";
-}
-}
-// add_user("Shane","shane@gmail.com", "images/Kirito.jpg", "shane");
-// add_user("PC","PC@gmail.com", "", "PC");
-// add_user("marvy","marthen@gmail.com", "", "marvan");
-// add_user("Crillin","crillin@gmail.com", "", "DBZ");
-// get_specific("vkey", "users", "username", "PC");
-=======
->>>>>>> 0af885d322190eb9bb7c7418f03c243f58b917a2:functions/general_functions.php
 ?>

@@ -1,5 +1,5 @@
 <?php
-require("../database/functions.php");
+require("../header.php");
 
 if (isset($_POST['submit'])) {
     $u = $_POST['usr_name'];
