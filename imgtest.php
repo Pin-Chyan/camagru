@@ -50,7 +50,7 @@ require("./header.php");
 			<p class="column side user">UserName</p>
 			<!-- <div class="column side problock"></div> -->
 			<!-- <img class="column side problock" src="https://www.trickscity.com/wp-content/uploads/2018/06/anonymous-dp-for-boys.jpg"> -->
-			<?php get_img("1","column side problock");?>
+			<?php get_img("2","column side problock");?>
 			<br \>
 		</div>
 
@@ -76,9 +76,9 @@ require("./header.php");
 				<img class="column side block img" src="https://www.tom-archer.com/wp-content/uploads/2017/03/adventure-photography-tom-archer-1.jpg">
 				<img class="column side block img" src="https://i.pinimg.com/originals/64/34/fd/6434fd61ffb801f0cfa14cdde0315d99.jpg">
 				<img class="column side block img" src="http://blog.trover.com/wp-content/uploads/2019/10/fixedw_large_4x1.jpg"> -->
-				<?php get_img("2","column side block img");?>
 				<?php get_img("3","column side block img");?>
-				<?php get_img("4","column side block img");?>
+				<?php get_img("2","column side block img");?>
+				<?php get_img("1","column side block img");?>
 				<?php get_img("3","column side block img");?>
 			</div>
 		</div>
