@@ -1,11 +1,11 @@
 <?php
-require("database/init.php");
-require("images/image_functions.php");
+include("database/init.php");
+require("functions/image_functions.php");
 
 session_start();
 
 $senpai = Call_onee_san();
-$_SESSION['username'] = "Shane";
+$_SESSION['username'] = 1;
 if (isset($_POST['submit'])) {
 	if (getimagesize($_FILES['imagefile']['tmp_name']) == false) {
 		echo "<br />Please Select An Image.";
@@ -22,7 +22,7 @@ if (isset($_POST['submit'])) {
 <!DOCTYPE html>
 <html>
 	<head>
-	<title>How To upload BLOB Image To Mysql Database Using PHP,SQL And HTML.</title>
+	<title>Upload image</title>
 	</head>
 	<body>
 		<form action="" method="post" enctype="multipart/form-data">

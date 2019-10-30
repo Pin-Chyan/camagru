@@ -1,5 +1,4 @@
 <?php
-require("init.php");
 /* ok for get_specific:
 	target = what you want to get.
 	table = the table its in.
@@ -51,6 +50,7 @@ function delete_specific($table, $column, $value){
 	$sth->execute();
 	$sth->closeCursor();
 }
+<<<<<<< HEAD:database/functions.php
 /////// for add user
 function random_key($len){
 	$seed = str_split('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890');
@@ -87,4 +87,6 @@ try {
 // add_user("marvy","marthen@gmail.com", "", "marvan");
 // add_user("Crillin","crillin@gmail.com", "", "DBZ");
 // get_specific("vkey", "users", "username", "PC");
+=======
+>>>>>>> 0af885d322190eb9bb7c7418f03c243f58b917a2:functions/general_functions.php
 ?>

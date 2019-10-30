@@ -1,12 +1,10 @@
 Mainly for PC and Marthen
 
-Funtions available:
+to use any function use " require("./header.php"); "
 
-in the database folder we have the following:
+functions are:
 
-Sub categories:
-
-1. Functions.php (general)
+1. general_functions.php
 
 		get_specific($target, $table, $column, $value);
 				ok for get_specific:
@@ -25,14 +23,21 @@ Sub categories:
 
 		add_user($username, $email, $display, $password);
 
-2. functions_likes.php (for the like button)
+2. like_functions.php
 
-		add_like($userid, $img, $type);
+		add_like($userid, $galleryid);
+		remove_like($userid, $galleyid); think0
 
-		update_like ($userid, $img, $type);
+3. user_functions.php
 
-		get_like($userid, $img); <-- work in progress
+		add_user($username,$email,$display,$password); // auto double hash (base65 then md5);
 
-		count_likes($img);
-
+4. image_functions.php
 		
+		upload_img($userid,$imagelocation); (uploads image from either url or local file into gallery);
+		get_img($galleryid); (retireves image from database for html rendering);
+
+5.  comment_functions.php
+
+		add_comment($userid,$galleryid,$comment); (adds comment to table and links it to gallery and userid multiple comments are supported)
+		remove_comment($userid,$galleryid);

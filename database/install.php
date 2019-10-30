@@ -1,10 +1,10 @@
 <?php
+require("./header.php");
+
 $user = "senpai";
 $pass = "noticeme";
 $host = "localhost:3306";
 $name = "senpai";
-include "database_info.php";
-require("init.php");
 
 //CREATE DATABASE
 try{
@@ -40,7 +40,7 @@ catch (PDOException $e) {
 	echo "Users table died miserbly: ".$e->getMessage()."\n";
 }
 
-////GALLERY TABLE (lets call this the gallery guys!)
+////GALLERY TABLE 
 try {
 	$senpai = Call_onee_san();
 	$sql = "CREATE TABLE `gallery` (
@@ -64,10 +64,9 @@ try {
     $sql = "CREATE TABLE `like` (
       `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
       `userid` INT(11) NOT NULL,
-      `galleryid` INT(11) NOT NULL,
-      `type` VARCHAR(1) NOT NULL,
+      `galleryid` INT(11) NOT NULL/*,
       FOREIGN KEY (userid) REFERENCES users(id),
-      FOREIGN KEY (galleryid) REFERENCES gallery(id)
+      FOREIGN KEY (galleryid) REFERENCES gallery(id)*/
     )";
     $senpai->exec($sql);
     echo "Table like created successfully\n";
