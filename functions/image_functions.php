@@ -9,8 +9,12 @@ try {
 }
 }
 
-function get_img($id){
-    $binary_senpai = get_specific("img","gallery","userid",$id);
-    echo "<img src= 'data:image/jpeg; $binary_senpai' />";
-}
+function get_img($galleryid,$class){
+    $binary_senpai = get_specific("img","gallery","id",$galleryid);
+    //$binary_senpai = "this is the image";
+    if ($class)
+        echo "<img class=\"$class\" src='data:image/jpeg;base64, $binary_senpai' />";
+    else
+        echo "<img src='data:image/jpeg;base64, $binary_senpai' />";
+    }
 ?>
