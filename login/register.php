@@ -31,7 +31,7 @@ if (isset($_POST['submit'])) {
             $header .= "MIME-Version: 1.0:"."\r\n";
             $header .= "Content-type:text/html;charset=UTF-8"."\r\n";
             mail($e,$subject,$msg, $header);
-            header('location: thanks.php');
+            header('location: thanks.html');
         }
     }
     
