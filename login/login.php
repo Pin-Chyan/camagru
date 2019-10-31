@@ -1,35 +1,26 @@
-<!-- <?php
-// $error = NULL;
+<?php
+    require("../header.php");
+    $error = NULL;
+    session_start();
 
-// if (isset($_POST['submit'])) {
-//     $mysqli = NEW MySQLI('localhost','root','Busteristop117','camagru_test');
+    if (!empty($_SESSION['user_id']))
+        header('location: thanks.php');
+    else if (isset($_POST['submit'])) {
+        $u = $_POST['usr'];
+        $p = hasher($_POST['pwd']);
 
-//     $u = $mysqli->real_escape_string($_POST['u']);
-//     $p = $mysqli->real_escape_string($_POST['p']);
-
-//     $p = md5($p);
-
-//     $res = $mysqli->query("SELECT * FROM accounts WHERE username = '$u' AND  password = '$p' LIMIT 1");
-
-//     if($res->num_rows != 0) {
-//         $row = $res->fetch_assoc();
-//         $verified = $row['verified'];
-//         $email = $row['email'];
-//         $date = strtotime($row['createdate']);
-//         $date = date('M d Y', $date);
-        
-//         if ($verified == 1) {
-//             //continue to login
-//             echo "success";
-//             header('location: index.php');
-//         } else {
-//             $error = "This account has not been verified yet an email has been sent to : '$email' at : '$date'";
-//         }
-//     } else {
-//         $error = "You entered the wrong username or password";
-//     }
-// }
-?> -->
+        if (find_specific($u, "username", "users") and find_specific($p, "password", "users")) {
+            if (get_specific("verified", "users", 'username', $u) == 1) {
+                $_SESSION['user_id'] = $u;
+                header('location: thanks.php');
+            } else {
+                $error = "Please verify your account first";
+            }
+        } else {
+            $error = "invalid username or password";
+        }
+    }
+?>
 
 <html lang="en">
 <link rel="stylesheet" href="../styles/login_2.css">
@@ -49,34 +40,17 @@
                     <button>create</button>
                     <p class="message">Already registered? <a href="#">Sign In</a></p>
                 </form> -->
-                <form class="login-form">
-                    <input type="text" placeholder="username"/>
-                    <input type="password" placeholder="password"/>
-                    <button>login</button>
+                <form class="login-form" action="" method="POST">
+                    <input type="text" placeholder="username" name="usr"/>
+                    <input type="password" placeholder="password" name="pwd"/>
+                    <input type="SUBMIT" name="submit" value="Login"/>
                     <p class="message">Not registered? <a href="register.php">Create an account</a></p>
                 </form>
             </div>
         </div>
-
-<!-- 
-    <form class="container" method="POST" action="">
-        <table border="0" align="center" cellpadding="5">
-            <tr>
-            <td class="h_font" align="right">Username:</td>
-            <td><input type="TEXT" name="u" required></td>
-            </tr>
-            <tr>
-                <td class="h_font" align="right">Password:</td>
-                <td><input type="PASSWORD" name="p" required></td>
-            </tr>
-            <tr>
-                <td colspan="2" align="center"><input type="SUBMIT" name="submit" value="Login" required/></td>
-            </tr>
-    </table>
-</form> -->
-<!-- <center>
+<center>
     <?php
         echo $error;
     ?>
-</center> -->
+</center>
 </body>

@@ -13,6 +13,7 @@ if(isset($_GET['vkey'])) {
                     echo "<p>Your passwords don't match</p>";
                 } else {
                     $new_key = random_key("6");
+                    $p = hasher($p);
                     $id = get_specific('id', "users", 'vkey', $vkey);
                     update_specific("password", $p, "users", 'id', $id);
                     update_specific("vkey", $new_key, "users", 'id', $id);

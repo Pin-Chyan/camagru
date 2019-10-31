@@ -17,11 +17,16 @@ if (isset($_POST['submit'])) {
         } else if (find_specific($e, "email", "users")) {
             echo "<script type='text/javascript'>alert('Email already in use')</script>";
         } else {
+            $dir = $_SERVER['PHP_SELF'];
+            $len = strrpos($dir, "register.php");
+            $reg_dir = substr($dir, 0, $len);
+            $reg_dir = $reg_dir."verify.php";
+            $page_dir = $_SERVER['HTTP_HOST'].$reg_dir;
             add_user($u, $e, $display, $p);
             $vkey = get_specific("vkey", "users", "username", $u);
             echo $vkey;
             $subject = "Email Verification";
-            $msg = "<a href='http://localhost:8080/shared_camagru/login/verify.php?vkey=$vkey'>Register Account</a>";
+            $msg = "<a href='$page_dir?vkey=$vkey'>Register Account</a>";
             $header = "From pc";
             $header .= "MIME-Version: 1.0:"."\r\n";
             $header .= "Content-type:text/html;charset=UTF-8"."\r\n";
