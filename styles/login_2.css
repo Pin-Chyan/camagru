@@ -1,10 +1,11 @@
 .font {
-  position: relative;
+  position: hidden;
   margin-right: 3%;
   text-align: center;
   font-size: 2vw;
   margin-top: 0.5vw;
   font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  /* border: 2px solid black; */
 }
 /* ignore bottom */
 
@@ -17,7 +18,7 @@
 .navbar a{
   float: left;
   display: block;
-  color: grey;
+  /* color: grey; */
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
@@ -73,10 +74,11 @@
 
 .login-page {
   width: 360px;
-  padding: 8% 0 0;
+  padding: 20% 0 0;
   margin: auto;
 }
 .form {
+  opacity: 0.95;
   position: relative;
   z-index: 1;
   background: white;
@@ -168,5 +170,5 @@ body {
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	background-size: cover;    
-  	font-family: "Roboto", sans-serif;
+  font-family: "Roboto", sans-serif;
 }

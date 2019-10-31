@@ -1,3 +1,13 @@
+.font {
+  position: hidden;
+  margin-right: 2%;
+  text-align: center;
+  font-size: 1.7vw;
+  margin-top: 0.0vw;
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  /* border: 2px solid black; */
+}
+
 * {
   box-sizing: border-box;
   margin: 0px;
@@ -5,14 +15,21 @@
 }
 
 body {
+	/* background: url(https://images7.alphacoders.com/883/thumb-1920-883910.jpg) no-repeat center center fixed;
+	-moz-osx-font-smoothing: grayscale;  
+	-webkit-font-smoothing: antialiased;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+  background-size: cover;     */
+  background-color: #1A1A1A;
   font-family: Arial, Helvetica, sans-serif;
-  background-color: #333030;
 }
 
 /* Style the header */
-.header {
+/* .header { */
   /* background-color: #f1f1f1; */
-  padding: 5px;
+  /* padding: 5px;
   width: 100%;
   text-align: center;
 }
@@ -21,7 +38,7 @@ body {
   font-size: 2vw;
   margin-top: 0.5vw;
   font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
-}
+} */
 
 /* Create three unequal columns that floats next to each other */
 .column {
@@ -38,12 +55,13 @@ body {
 /* left column */
 
 .column.side.problock {
-  height: 25%;
-  width: 50%;
+  position: hidden;
+  height: 10%;
+  width: 20%;
   border-radius: 100%;
   background-color: black;
   margin-left: 25%;
-  margin-top: 10%;
+  /* margin-top: 10%; */
   margin-right: 25%;
   object-fit: cover;
 }
@@ -51,16 +69,17 @@ body {
 .column.side.user {
   padding: 0.4vw;
   margin: 0 auto;
-  width: 80%;
+  width: 40%;
   overflow-wrap: break-word;
-  font-size: 1.5vw;
+  font-size: 1vw;
   display: block;
   text-align: center !important;
-  margin-left: 10%;
-  margin-right: 10%;
+  margin-left: 30%;
+  margin-right: 30%;
   margin-top: 10%;
-  border: 0.1vw solid #ebda96;
-  background-color: #ffeda3;
+  /* border: 0.1vw solid #ebda96; */
+  background-color: white;
+  opacity: 0.5;
 }
 
 
@@ -69,7 +88,7 @@ body {
 .column.side.block {
   height: 19vw;
   width: 80%;
-  background-color: white;
+  /* background-color: white; */
   margin-left: 10%;
   margin-right: 10%;
   margin-top: 10%;
@@ -86,8 +105,9 @@ body {
   text-align: center !important;
   /* margin-left: 15%; */
   /* margin-right: 15%; */
-  border: 0.1vw solid #ebda96;
-  background-color: #ffeda3;
+  /* border: 0.1vw solid #ebda96; */
+  background-color: white;
+  opacity: 0.5;
 }
 
 .column.side.block.img {
@@ -105,6 +125,8 @@ body {
 /* Middle column */
 .column.middle {
   width: 50%;
+  background-color: white;
+  /* opacity: 0.8; */
 }
 
 /* Middle column title */
@@ -140,6 +162,7 @@ body {
   display: block;
   margin-left: 15%;
   width: 70%;
+  /* opacity: 1 !important; */
 }
 
 /* Middle column text */
@@ -173,15 +196,17 @@ body {
 .footer {
   background-color: #f1f1f1;
   padding: 10px;
+  opacity: 0.5;
   text-align: center;
 }
 
 /* ignore bottom */
 
 .navbar {
-  background-color: skyblue;
+  background-color: #f1f1f1;
+  opacity: 0.5;
   overflow: hidden;
-  height: 3.5vw;
+  height: 2.2vw;
 }
 
 .navbar a{
