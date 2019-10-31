@@ -1,7 +1,6 @@
 <?php
 require("./header.php");
 require("./database/install.php");
-
 echo "\nadd users test\n";
 add_user("error","erryus", NULL, "error");
 add_user("Shane","shane@gmail.com", "images/Kirito.jpg", "shane");

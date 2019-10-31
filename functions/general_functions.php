@@ -19,7 +19,6 @@ function get_specific($target, $table, $column, $value){
 		echo "failed to get_specific".$e->getMessage()."\n";
 	}
 }
-
 function update_specific($target, $new_var, $table, $column, $value){
 try {
 	$senpai = Call_onee_san();
@@ -30,7 +29,6 @@ try {
 	echo "failed to update specific\n";
 }
 }
-
 function find_specific($var, $column, $table){
 try {
 	$senpai = Call_onee_san();
@@ -46,7 +44,6 @@ try {
 	echo "failed to find specific\n";
 }
 }
-
 function delete_specific($table, $column, $value){
 	$senpai = Call_onee_san();
 	$sth = $senpai->prepare("DELETE FROM $table WHERE $column=$value");
@@ -54,3 +51,5 @@ function delete_specific($table, $column, $value){
 	$sth->closeCursor();
 }
 ?>
+
+
