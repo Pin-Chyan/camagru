@@ -26,11 +26,20 @@ if (isset($_POST['submit'])) {
             $vkey = get_specific("vkey", "users", "username", $u);
             echo $vkey;
             $subject = "Email Verification";
-            $msg = "<a href='$page_dir?vkey=$vkey'>Register Account</a>";
-            $header = "From pc";
-            $header .= "MIME-Version: 1.0:"."\r\n";
-            $header .= "Content-type:text/html;charset=UTF-8"."\r\n";
-            mail($e,$subject,$msg, $header);
+            $msg = "
+            <html>
+            <head>
+            <title>Verify</title>
+            </head>
+            <body>
+            <p>Click the link below to verify your account</p></br>
+            <a href=\"http://$page_dir?vkey=$vkey\">Notice me senpai OwO</a>
+            </body>
+            </html>
+            ";
+            $headers = "MIME-Version: 1.0" . "\r\n";
+            $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+            mail($e,$subject,$msg, $headers);
             header('location: thanks.html');
         }
     }

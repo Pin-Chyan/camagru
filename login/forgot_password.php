@@ -8,8 +8,15 @@ if (isset($_POST['submit'])) {
         if (get_specific("verified", "users", "email", $e) != 0) {
             $vkey = get_specific("vkey", "users", "email", $e);
             $subject = "Password reset";
-            $msg = "<a href='http://localhost:8080/shared_camagru/login/reset_pass.php?vkey=$vkey'>New Password</a>";
-            $header = "The camagru team";
+            $msg = "
+            <html>
+            <head>
+            <title>HTML email</title>
+            </head>
+            <body>
+            <p>This email contains HTML Tags!</p>
+            </body>
+            </html>
             $header .= "MIME-Version: 1.0:"."\r\n";
             $header .= "Content-type:text/html;charset=UTF-8"."\r\n";
 
