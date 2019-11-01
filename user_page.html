@@ -9,8 +9,30 @@
 	<body>
 		<div class="grid-container">
 			<div class="header">
-			  <h2>Senpai Haven</h2>
+			<nav class="navbar">
+			<span class="open-slide">
+				<a href="#" onclick="openSlideMenu()">
+					<svg width="30" height="30">
+						<path d="M0,5 30,5" stroke="#000" stroke-width="5"/>
+						<path d="M0,14 30,14" stroke="#000" stroke-width="5"/>
+						<path d="M0,23 30,23" stroke="#000" stroke-width="5"/>
+					</svg>
+				</a>
+			</span>
+				<!-- <ul class="navbar-nav">
+					<li><a href="#">Home</a></li>
+					<li><a href="#">User</a></li>
+					<li><a href="#">Log2</a></li>
+				</ul> -->
+			</nav>
+			<p class="font">Senpai Haven</p>
+			<div id="side-menu" class="side-nav">
+				<a href="#" class="btn-close" onclick="closeSlideMenu()">&times;</a>
+				<a href="home.html">Home</a>
+				<a href="user_page.html">User</a>
+				<a href="#">Log-out</a>
 			</div>
+		</div>
 			
 			<div class="left" style="background-color:#aaa;">
 				Column
@@ -58,5 +80,13 @@
 			</div>
 		  </div>
 		</div>
+		<script>
+				function openSlideMenu() {
+					document.getElementById('side-menu').style.width = '250px';
+				}
+				function closeSlideMenu() {
+					document.getElementById('side-menu').style.width = '0';
+				}
+		</script>
 	</body>
 </html>
