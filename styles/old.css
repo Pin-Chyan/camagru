@@ -10,7 +10,7 @@
   }
   
   /* Style the header */
-  .header {
+  /* .header {
     background-color: #f1f1f1;
     padding: 5px;
     width: 100%;
@@ -21,7 +21,7 @@
     float:left;
     font-size: 2vw;
     font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
-  }
+  } */
   
   /* Create three unequal columns that floats next to each other */
   .column {
@@ -185,7 +185,7 @@
   
 
 .navbar {
-  background-color: skyblue;
+  background-color: lightgrey;
   overflow: hidden;
   /* height: 3.5vw; */
 }
@@ -195,9 +195,33 @@
   display: block;
   /* color: grey; */
   text-align: center;
-  padding: 14px 16px;
+  padding: 14px 10px;
   text-decoration: none;
   font-size: 17px;
+}
+
+.over_right {
+  float: right !important;
+}
+
+.over_right_img {
+  float: right !important;
+  padding: 5px 0px !important;
+}
+
+.over_def {
+  padding: 10px 10px !important;
+  font-size: 22px !important;
+  background-color: lightgrey !important;
+  color: #000;
+}
+
+.over_image {
+  /* float: right !important; */
+  /* padding: 0px 0px !important; */
+  height: 35px;
+  width: 37px;
+  border-radius: 50%;
 }
 
 .navbar ul{
