@@ -1,224 +1,229 @@
-.font {
-  position: hidden;
-  margin-right: 2%;
-  text-align: center;
-  font-size: 1.7vw;
-  margin-top: 0.0vw;
-  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
-  /* border: 2px solid black; */
-}
-
 * {
-  box-sizing: border-box;
-  margin: 0px;
-  padding: 0%;
-}
-
-body {
-	/* background: url(https://images7.alphacoders.com/883/thumb-1920-883910.jpg) no-repeat center center fixed;
-	-moz-osx-font-smoothing: grayscale;  
-	-webkit-font-smoothing: antialiased;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-  background-size: cover;     */
-  background-color: #1A1A1A;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-/* Style the header */
-/* .header { */
-  /* background-color: #f1f1f1; */
-  /* padding: 5px;
-  width: 100%;
-  text-align: center;
-}
-
-.header.font {
-  font-size: 2vw;
-  margin-top: 0.5vw;
-  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
-} */
-
-/* Create three unequal columns that floats next to each other */
-.column {
-  float: left;
-  /* height: 1000px; Should be removed. Only for demonstration */
-}
-
-/* Left and right column */
-.column.side {
-  width: 25%;
-  /* height: 100%; */
-}
-
-/* left column */
-
-.column.side.problock {
-  position: hidden;
-  height: 10%;
-  width: 20%;
-  border-radius: 100%;
-  background-color: black;
-  margin-left: 25%;
-  /* margin-top: 10%; */
-  margin-right: 25%;
-  object-fit: cover;
-}
-
-.column.side.user {
-  padding: 0.4vw;
-  margin: 0 auto;
-  width: 40%;
-  overflow-wrap: break-word;
-  font-size: 1vw;
-  display: block;
-  text-align: center !important;
-  margin-left: 30%;
-  margin-right: 30%;
-  margin-top: 10%;
-  /* border: 0.1vw solid #ebda96; */
-  background-color: white;
-  opacity: 0.5;
-}
-
-
-
-/* right column */
-.column.side.block {
-  height: 19vw;
-  width: 80%;
-  /* background-color: white; */
-  margin-left: 10%;
-  margin-right: 10%;
-  margin-top: 10%;
-  /* margin-bottom: 2.5%; */
-}
-
-.column.side.title {
-  padding: 0.4vw;
-  margin: 0 auto;
-  width: 100%;
-  overflow-wrap: break-word;
-  font-size: 1.5vw;
-  display: block;
-  text-align: center !important;
-  /* margin-left: 15%; */
-  /* margin-right: 15%; */
-  /* border: 0.1vw solid #ebda96; */
-  background-color: white;
-  opacity: 0.5;
-}
-
-.column.side.block.img {
-  position: relative;
-  height: 42%;
-  width: 49%;
-  margin-left: 0.5%;
-  margin-right: 0.5%;
-  margin-top: 0.5%;
-  object-fit: cover;
-  background-color: black;
-}
-/* end of right column */
-
-/* Middle column */
-.column.middle {
-  width: 50%;
-  background-color: white;
-  /* opacity: 0.8; */
-}
-
-/* Middle column title */
-.column.middle.title {
-  padding: 10px;
-  margin: 0 auto;
-  width: 70%;
-  overflow-wrap: break-word;
-  font-size: 1.5vw;
-  display: block;
-  text-align: center !important;
-  margin-left: 15%;
-  margin-right: 15%;
-}
-
-/* Middle column sub title */
-.column.middle.subtitle {
-  /* padding: 10px; */
-  margin: 0 auto;
-  width: 70%;
-  overflow-wrap: break-word;
-  font-size: 0.6vw;
-  display: block;
-  text-align: center !important;
-  margin-left: 15%;
-  margin-right: 15%;
-}
-
-/* Middle column image */
-.column.middle.image {
-  padding: 10px;
-  position: relative;
-  display: block;
-  margin-left: 15%;
-  width: 70%;
-  /* opacity: 1 !important; */
-}
-
-/* Middle column text */
-.column.middle.text {
-  padding: 10px;
-  margin: 0 auto;
-  width: 70%;
-  overflow-wrap: break-word;
-  font-size: 0.8vw;
-  display: block;
-  text-align: center !important;
-  margin-left: 15%;
-  margin-right: 15%;
-}
-
-/* Middle column bar */
-.column.middle.bar {
-  padding: 10px;
-  margin-left: 15%;
-  margin-right: 15%;
-}
-
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-/* Style the footer */
-.footer {
-  background-color: #f1f1f1;
-  padding: 10px;
-  opacity: 0.5;
-  text-align: center;
-}
-
-/* ignore bottom */
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0%;
+  }
+  
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color:#1A1A1A;
+  }
+  
+  /* Style the header */
+  /* .header {
+    background-color: #f1f1f1;
+    padding: 5px;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .header.font {
+    float:left;
+    font-size: 2vw;
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  } */
+  
+  /* Create three unequal columns that floats next to each other */
+  .column {
+    float: left;
+    /* height: 1000px; Should be removed. Only for demonstration */
+  }
+  
+  /* Left and right column */
+  .column.side {
+    width: 25%;
+    /* height: 100%; */
+  }
+  
+  /* left column */
+  
+  .column.side.problock {
+    height: 25%;
+    width: 50%;
+    border-radius: 100%;
+    background-color: black;
+    margin-left: 25%;
+    margin-top: 10%;
+    margin-right: 25%;
+    object-fit: cover;
+  }
+  
+  .column.side.user {
+    padding: 0.4vw;
+    margin: 0 auto;
+    width: 80%;
+    overflow-wrap: break-word;
+    font-size: 1.5vw;
+    display: block;
+    text-align: center !important;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 10%;
+    border: 0.1vw solid #ebda96;
+    background-color: #ffeda3;
+  }
+  
+  
+  
+  /* right column */
+  .column.side.block {
+    height: 800px;
+    width: 100%;
+    /* background-color: white; */
+    /* margin-left: 10%; */
+    /* margin-right: 10%; */
+    /* margin-bottom: 100px; */
+    /* margin-bottom: 2.5%; */
+  }
+  
+  .column.side.block.title {
+    position: relative;
+    width: 80%;
+    height: 50px;
+    padding: 10px;
+    font-size: 25px;
+    display: block;
+    text-align: center;
+    margin-left: 10%;
+    margin-top: 50px;
+    background: white;
+  }
+/*   
+  .column.side.block.img {
+    position: relative;
+    height: 180px;
+    width: 245px;
+    margin-left: 0.5%;
+    margin-right: 0.5%;
+    margin-top: 0.5%;
+    object-fit: cover;
+    background-color: black;
+  } */
+  /* end of right column */
+  
+  /* Middle column */
+  .column.middle {
+    width: 50%;
+  }
+  
+  /* Middle column title */
+  .column.middle.title {
+    padding: 10px;
+    margin: 0 auto;
+    width: 70%;
+    overflow-wrap: break-word;
+    font-size: 1.5vw;
+    display: block;
+    text-align: center !important;
+    margin-left: 15%;
+    margin-right: 15%;
+  }
+  
+  /* Middle column sub title */
+  .column.middle.subtitle {
+    /* padding: 10px; */
+    margin: 0 auto;
+    width: 70%;
+    overflow-wrap: break-word;
+    font-size: 0.6vw;
+    display: block;
+    text-align: center !important;
+    margin-left: 15%;
+    margin-right: 15%;
+  }
+  
+  /* Middle column image */
+  .column.middle.image {
+    padding: 10px;
+    position: relative;
+    display: block;
+    margin-left: 15%;
+    width: 70%;
+  }
+  
+  /* Middle column text */
+  .column.middle.text {
+    padding: 10px;
+    margin: 0 auto;
+    width: 70%;
+    overflow-wrap: break-word;
+    font-size: 0.8vw;
+    display: block;
+    text-align: center !important;
+    margin-left: 15%;
+    margin-right: 15%;
+  }
+  
+  /* Middle column bar */
+  .column.middle.bar {
+    padding: 10px;
+    margin-left: 15%;
+    margin-right: 15%;
+  }
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* Style the footer */
+  .footer {
+    background-color: #f1f1f1;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+  @media (max-width: 600px) {
+    .column.side, .column.middle {
+      width: 100%;
+    }
+  }
+  
 
 .navbar {
-  background-color: #f1f1f1;
-  opacity: 0.5;
+  background-color: lightgrey;
   overflow: hidden;
-  height: 2.2vw;
+  /* height: 3.5vw; */
 }
 
 .navbar a{
   float: left;
   display: block;
-  color: grey;
+  /* color: grey; */
   text-align: center;
-  padding: 14px 16px;
+  padding: 14px 10px;
   text-decoration: none;
   font-size: 17px;
 }
-/* 
+
+.over_right {
+  padding: 14px 8px !important;
+  float: right !important;
+}
+
+.over_right_img {
+  float: right !important;
+  padding: 5px 0px !important;
+}
+
+.over_def {
+  padding: 10px 8px !important;
+  font-size: 22px !important;
+  background-color: lightgrey !important;
+  color: #000;
+}
+
+.over_image {
+  /* float: right !important; */
+  /* padding: 0px 0px !important; */
+  height: 35px;
+  width: 37px;
+  border-radius: 50%;
+}
+
 .navbar ul{
   margin: 8px 0 0 0;
   list-style: none;
@@ -227,7 +232,7 @@ body {
 .navbar a:hover {
   background-color: lightgrey;
   color: #000;
-} */
+}
 
 .side-nav {
   height: 100%;
@@ -262,11 +267,4 @@ body {
   right: 22px;
   font-size: 36px;
   margin-left: 200px;
-}
-
-/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
-@media (max-width: 600px) {
-  .column.side, .column.middle {
-    width: 100%;
-  }
 }
