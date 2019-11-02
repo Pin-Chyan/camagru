@@ -13,6 +13,8 @@ function get_specific($target, $table, $column, $value){
 		$sth = $senpai->prepare("SELECT * FROM $table WHERE $column ='$value'");
 		$sth->execute();
 		$result = $sth->fetch(PDO::FETCH_ASSOC);
+		if (!$result[$target])
+			return (0);
 		$sth->closeCursor();
 		return ($result[$target]);
 	} catch (PDOException $e) {

@@ -62,5 +62,9 @@ echo get_likes(NULL,"5")." likes \n";
 echo get_likes("1","5")." likes \n";
 echo get_likes("3","5")." likes \n";
 echo "\nget image test\n\n";
-get_img("1",NULL);
+//get_img("1",NULL);
+retrieve_img(3,1,"this is a class");
+retrieve_img(3,2,"this is a class");
+retrieve_img(3,3,"this is a class");
+//max_img();
 ?>
