@@ -63,7 +63,7 @@
 				<a class="c-btn-close" onclick="openCloseComment()">&times;</a>
 				<br />
 				<label> Comment: <br>
-					<textarea name="Comment" class="Input" style="width: 300px; max-width: 600px; height: 50px ; max-height: 100px;" required></textarea>
+					<textarea name="Comment" class="Input comment-box" required></textarea>
 				</label>
 				<br />
 				<input type="submit" name="Submit" value="Submit Comment" class="Submit">
@@ -130,6 +130,22 @@
 			document.getElementById('comment-box').style.height = '0';
 			document.getElementById('comment-box').style.visibility = 'hidden';
 		}
+
+		// function CommentOP () {
+		// 	openDropComment();
+		// 	openCloseComment();
+		// }
+
+		// function openDropComment() {
+		// 	document.getElementById('comment-box').style.height = 'auto';
+		// 	document.getElementById('comment-box').style.visibility = 'visible';
+		// 	function openCloseComment() {
+		// 		document.getElementById('comment-box').style.height = '0';
+		// 		document.getElementById('comment-box').style.visibility = 'hidden';
+		// 	}
+		// }
+		
+
 		function openDropComment_2() {
 			document.getElementById('comment-box_2').style.height = 'auto';
 			document.getElementById('comment-box_2').style.visibility = 'visible';
