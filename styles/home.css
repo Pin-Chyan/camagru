@@ -61,9 +61,7 @@
     margin-top: 10%;
     border: 0.1vw solid #ebda96;
     background-color: #ffeda3;
-  }
-  
-  
+  }  
   
   /* right column */
   .column.side.block {
@@ -119,7 +117,7 @@
   
   /* Middle column sub title */
   .column.middle.subtitle {
-    /* padding: 10px; */
+    padding-bottom: 10px;
     margin: 0 auto;
     width: 70%;
     overflow-wrap: break-word;
@@ -132,7 +130,7 @@
   
   /* Middle column image */
   .column.middle.image {
-    padding: 10px;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
     position: relative;
     display: block;
     margin-left: 15%;
@@ -156,7 +154,7 @@
   
   .column.middle.icons {
     /* background-color: #f1f1f1; */
-    /* padding: 10px; */
+    padding: 10px;
     text-align: center;
     width: 10%;
     margin-left: 77%;
@@ -295,10 +293,14 @@
   margin-left: 200px;
 }
 
-c-btn-close {
-  position: absolute;
+.c-btn-close {
+  /* position: absolute; */
   top: 0;
   right: 22px;
   font-size: 36px;
-  margin-left: 200px;
+  margin-left: 660px;
 }
+
+/* .comment-box {
+
+} */

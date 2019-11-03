@@ -17,7 +17,6 @@
    </label>
    <br><br>
    <input type="submit" name="Submit" value="Submit Comment" class="Submit">
-   <p>hello</p>
 
   </form>
 
