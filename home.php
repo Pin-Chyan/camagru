@@ -1,3 +1,16 @@
+<?php
+
+require("header.php");
+$error = NULL;
+session_start();
+
+if (isset($_POST['submit']))
+{
+	$comment = $_POST['Comment'];
+	// add_comment($_SESSION['user_id'], );
+}
+
+?>
 <link rel="stylesheet" href="./styles/home.css">
 <!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> -->
 <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat"> -->
@@ -66,7 +79,7 @@
 					<textarea name="Comment" class="Input comment-box" required></textarea>
 				</label>
 				<br />
-				<input type="submit" name="Submit" value="Submit Comment" class="Submit">
+				<input aciton="" method="POST" type="submit" name="submit" value="Submit Comment" class="Submit">
 			</div>
 			
 			<div class="column middle title">Title</div>
@@ -85,7 +98,7 @@
 					<textarea name="Comment" class="Input comment-box" required></textarea>
 				</label>
 				<br />
-				<input type="submit" name="Submit" value="Submit Comment" class="Submit">
+				<input aciton="" method="POST" type="submit" name="submit" value="submit comment" class="Submit">
 			</div>
 
 
