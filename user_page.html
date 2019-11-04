@@ -27,14 +27,14 @@
 					</a>
 				</span>
 				<ul class="navbar-nav">
-					<li><a class= "over_def" href="home.html">Senpai Haven</a></li>
+					<li><a class= "over_def" href="home_html.html">Senpai Haven</a></li>
 					<li><a class= "over_right" href="user_page.html">User-Name</a></li>
-					<li><a class= "over_right_img" href="user_page.html"><img class= "over_image" src="https://www.trickscity.com/wp-content/uploads/2018/06/anonymous-dp-for-boys.jpg"></a></li>
+					<li><a class= "over_right_img" href="user_page.html"><img class= "over_image" src="https://i.pinimg.com/736x/32/d0/af/32d0afda44fb2dde8753844f9283cddc.jpg"></a></li>
 				</ul>
 			</nav>
 			<div id="side-menu" class="side-nav">
 				<a href="#" class="btn-close" onclick="closeSlideMenu()">&times;</a>
-				<a href="old.html">Home</a>
+				<a href="home_html.html">Home</a>
 				<a href="user_page.html">Profile</a>
 				<a href="#">Editor</a>
 				<a href="#">Log-Out</a>
@@ -51,23 +51,35 @@
 		<!-- middle -->
 		<div class="column middle" style="background-color:grey;">
 			<div class="column middle problock">
+				<br \>
 					<div class="grid-container">
-							<div class="profile_name">User-Name</div>
-							<div class="profile_image">2</div>
-							<div class="item3">3</div>  
-							<div class="item4">4</div>
-							<div class="item5">5</div>
-							<div class="item6">6</div>
-							<div class="item7">7</div>
-							<div class="item8">8</div>  
-							<div class="item9">9</div>
-							<div class="item10">10</div>
-							<div class="item11">11</div>
-							<div class="item12">12</div>
-							<div class="item13">13</div>
-							<div class="item14">14</div>
-							<div class="item15">15</div>
-						  </div>						  
+						<div class="profile_title">Profile Information</div>
+						<div class="profile_image"><img class= "image_s" src="https://i.pinimg.com/736x/32/d0/af/32d0afda44fb2dde8753844f9283cddc.jpg"></div>
+						<div class="l_context">User-Name:</div>  
+						<div class="context">Asuna</div>
+						<div class="l_context">E-Mail:</div>
+						<div class="context">Kirito&Asuna@gmail.com</div>  
+						<div class="profile_title">Edit-Details</div>
+					</div>						  
+			</div>
+			<div class="column middle previous_works">Own Posts</div>
+			<div class="column middle title">Title</div>
+			<div class="column middle subtitle">Title Description, DATE</div>
+			<img class="column middle image" src="https://i.pinimg.com/736x/32/d0/af/32d0afda44fb2dde8753844f9283cddc.jpg">
+			<div class="column middle icons">
+				<a class="icons">
+					<i class="fa fa-thumbs-up w3-hover-opacity"></i>
+					<i class="fa fa-comments w3-hover-opacity" onclick="openDropComment()"></i>
+				</a>
+			</div>
+			<div id="comment-box" class="column middle comment_container">
+				<a class="c-btn-close" onclick="openCloseComment()">&times;</a>
+				<br />
+				<label> Comment: <br>
+					<textarea name="Comment" class="Input comment-box" required></textarea>
+				</label>
+				<br />
+				<input type="submit" name="Submit" value="Submit Comment" class="Submit">
 			</div>
 		</div>
 		<!-- middle end -->
@@ -75,9 +87,7 @@
 		<!-- right side -->
 		<div class="column side">
 				<!-- Right -->
-			<div class="column side block">
 				<br />
-			</div>
 		</div>
 		<!-- right end -->
 

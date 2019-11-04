@@ -49,7 +49,7 @@ require("./header.php");
 		<div class="column side">
 			<p class="column side user">UserName</p>
 			<!-- <div class="column side problock"></div> -->
-			<!-- <img class="column side problock" src="https://www.trickscity.com/wp-content/uploads/2018/06/anonymous-dp-for-boys.jpg"> -->
+			<!-- <img class="column side problock" src="https://i.pinimg.com/736x/32/d0/af/32d0afda44fb2dde8753844f9283cddc.jpg"> -->
 			<?php get_img("2","column side problock");?>
 			<br \>
 		</div>

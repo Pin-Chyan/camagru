@@ -9,7 +9,7 @@ add_user("marvy","marthen@gmail.com", "https://encrypted-tbn0.gstatic.com/images
 add_user("Crillin","crillin@gmail.com", "https://www.google.com/imgres?imgurl=https%3A%2F%2Flookaside.fbsbx.com%2Flookaside%2Fcrawler%2Fmedia%2F%3Fmedia_id%3D1643466299096087&imgrefurl=https%3A%2F%2Fwww.facebook.com%2Fkirito.soloplayer.realblackswordsman%2Fphotos%2Fa.426226597486736%2F1643466299096087%2F%3Ftype%3D3&docid=LmwPDBeLW-hsAM&tbnid=ERj7eFL3alLTxM%3A&vet=1&w=273&h=273&bih=1257&biw=2560&ved=2ahUKEwimvMTp98HlAhXbAGMBHdCNBK4QxiAoBXoECAEQIQ&iact=c&ictx=1", "DBZ");
 echo "\nupload image test\n";
 upload_img("4","images/Kirito.jpg");
-upload_img("1","https://www.trickscity.com/wp-content/uploads/2018/06/anonymous-dp-for-boys.jpg");
+upload_img("1","https://i.pinimg.com/736x/32/d0/af/32d0afda44fb2dde8753844f9283cddc.jpg");
 upload_img("4","images/Kirito.jpg");
 upload_img("4","images/senpai.jpeg");
 upload_img("4","https://www.google.com/imgres?imgurl=https%3A%2F%2Fcdn.vox-cdn.com%2Fthumbor%2FPdZbmB57vB9M-oFxApdoaI3oPF0%3D%2F0x0%3A1920x1080%2F1200x800%2Ffilters%3Afocal(807x387%3A1113x693)%2Fcdn.vox-cdn.com%2Fuploads%2Fchorus_image%2Fimage%2F65162399%2Fply0947_fall_reviews_2019_tv_anime.0.jpg&imgrefurl=https%3A%2F%2Fwww.polygon.com%2F2019%2F9%2F3%2F20829817%2Ffall-2019-anime-season-preview-my-hero-academia-food-wars-psycho-pass&docid=iU5a_lH4UwfQTM&tbnid=6icyNnlu5kdGOM%3A&vet=10ahUKEwjrwrG08MHlAhVnUhUIHQA4AiIQMwh5KAEwAQ..i&w=1200&h=800&bih=1257&biw=2560&q=anime&ved=0ahUKEwjrwrG08MHlAhVnUhUIHQA4AiIQMwh5KAEwAQ&iact=mrc&uact=8");

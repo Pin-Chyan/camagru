@@ -76,7 +76,7 @@
   
   /* Middle column title */
   .column.middle.title {
-    padding: 10px;
+    padding:  0px 0px 10px 0px;
     margin: 0 auto;
     width: 70%;
     overflow-wrap: break-word;
@@ -85,6 +85,19 @@
     text-align: center !important;
     margin-left: 15%;
     margin-right: 15%;
+  }
+  
+  .column.middle.previous_works {
+    padding: 10px;
+    margin: 0 auto;
+    width: 70%;
+    overflow-wrap: break-word;
+    font-size: 22px;
+    display: block;
+    text-align: center !important;
+    margin-left: 15%;
+    margin-right: 15%;
+    color:white;
   }
   
   /* Middle column sub title */
@@ -156,28 +169,47 @@
   .grid-container {
 	display: grid;
 	grid-template-columns: auto auto;
-	grid-gap: 10px;
-	background-color: #2196F3;
-	padding: 10px;
+	grid-gap: 1px;
+	/* background-color: #2196F3; */
+  padding: 1px;
   }
   
   .grid-container > div {
 	background-color: rgba(255, 255, 255, 0.8);
 	text-align: center;
-	padding: 20px 0;
+	padding: 10px 0;
 	font-size: 30px;
   }
   
-  .profile_name {
-	  grid-column: 1 / 3;
+  .profile_title {
+    grid-column: 1 / 3;
+    font-size: 25px !important;
   }
 
   .profile_image {
-	  grid-area: 2 / 1/ 2 / 3;
+	  grid-area: 2 / 1 / 2 / 3;
+  }
+
+  .image_s {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .l_context {
+    font-size: 13px !important;
+    padding: 3px !important;
+    /* text-align: left !important; */
+  }
+
+  .context {
+    font-size: 13px !important;
+  	padding: 3px !important;
   }
 
   /* .item8 {
-	grid-area: 1 / 2 / 5 / 6;
+	grid-area: 2 / 2 / 5 / 6;
   } */
 
   /* end of profile block */
@@ -243,6 +275,7 @@
   height: 35px;
   width: 37px;
   border-radius: 50%;
+  object-fit: contain;
 }
 
 .navbar ul{

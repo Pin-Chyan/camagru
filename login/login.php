@@ -23,7 +23,7 @@
 ?>
 
 <html lang="en">
-<link rel="stylesheet" href="../styles/login_2.css">
+<link rel="stylesheet" href="../styles/login.css">
 <script src="../styles/login.js"></script>
 <head>
 <title>Login</title>

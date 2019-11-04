@@ -42,7 +42,7 @@ if (isset($_POST['submit']))
 				<ul class="navbar-nav">
 					<li><a class= "over_def" href="home.html">Senpai Haven</a></li>
 					<li><a class= "over_right" href="user_page.html">User-Name</a></li>
-					<li><a class= "over_right_img" href="user_page.html"><img class= "over_image" src="https://www.trickscity.com/wp-content/uploads/2018/06/anonymous-dp-for-boys.jpg"></a></li>
+					<li><a class= "over_right_img" href="user_page.html"><img class= "over_image" src="https://i.pinimg.com/736x/32/d0/af/32d0afda44fb2dde8753844f9283cddc.jpg"></a></li>
 				</ul>
 			</nav>
 			<div id="side-menu" class="side-nav">
