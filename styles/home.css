@@ -299,7 +299,8 @@
   top: 0;
   right: 22px;
   font-size: 36px;
-  margin-left: 660px;
+  float: right;
+  /* margin-left: 660px; */
 }
 
 .comment-box {
