@@ -1,0 +1,33 @@
+<script src="./snap.js">
+function genScreenshot() {
+    html2canvas(document.body, {
+      onrendered: function(canvas) {
+      $('#box1').html("");
+			$('#box1').append(canvas);
+      
+      if (navigator.userAgent.indexOf("MSIE ") > 0 || 
+					navigator.userAgent.match(/Trident.*rv\:11\./)) 
+			{
+      	var blob = canvas.msToBlob();
+        window.navigator.msSaveBlob(blob,'Test file.png');
+      }
+      else {
+        $('#test').attr('href', canvas.toDataURL("image/png"));
+        $('#test').attr('download','Test file.png');
+        $('#test')[0].click();
+      }
+      
+      
+      }
+    });
+}</script>
+<link rel="stylesheet" href="./snap.css">
+
+<a href="javascript:genScreenshot()"> Get Screenshot</a>
+<a id="test"></a>
+<div id="text">
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras in enim metus. Mauris lobortis non sem eu porta. Etiam ante lacus, viverra euismod neque ut, pretium volutpat lacus. Aenean ipsum elit, feugiat quis metus vitae, vehicula sodales arcu. Suspendisse id neque vitae erat pellentesque viverra in in eros. Nam sagittis vitae enim ut laoreet. Aliquam erat volutpat. Etiam rhoncus, elit id efficitur convallis, mi nisl blandit ipsum, sed scelerisque odio elit vel est. Nunc velit urna, dignissim at varius non, luctus vel libero. Fusce cursus pharetra laoreet. Curabitur placerat neque sed justo fringilla, sit amet semper dui accumsan. Nam posuere quam sit amet nunc porttitor consequat. Nulla facilisi. Quisque viverra massa eget dolor finibus maximus. 
+</div>
+<br>
+<div id="box1">
+</div>

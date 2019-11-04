@@ -1,0 +1,159 @@
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0%;
+  }
+  
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color:#1A1A1A;
+  }
+  
+  /* Style the header */
+  /* .header {
+    background-color: #f1f1f1;
+    padding: 5px;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .header.font {
+    float:left;
+    font-size: 2vw;
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  } */
+  
+  /* Create three unequal columns that floats next to each other */
+  .column {
+    float: left;
+    /* height: 1000px; Should be removed. Only for demonstration */
+  }
+  
+  /* right column only*/
+  .column.side {
+    width: 25%;
+  }
+
+
+  /* end of right column */
+  
+  /* Middle column */
+  .column.middle {
+    width: 75%;
+  }  
+
+  .column.middle.canvas {
+    width: 60%;
+    margin-left: 7.5%;
+    margin-right: 7.5%;
+  }
+  /* end of middle column */
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* Style the footer */
+  .footer {
+    background-color: #f1f1f1;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+  @media (max-width: 600px) {
+    .column.side, .column.middle {
+      width: 100%;
+    }
+  }
+  
+
+.navbar {
+  background-color: lightgrey;
+  overflow: hidden;
+  /* height: 3.5vw; */
+}
+
+.navbar a{
+  float: left;
+  display: block;
+  /* color: grey; */
+  text-align: center;
+  padding: 14px 10px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.over_right {
+  padding: 14px 8px !important;
+  float: right !important;
+}
+
+.over_right_img {
+  float: right !important;
+  padding: 5px 0px !important;
+}
+
+.over_def {
+  padding: 10px 8px !important;
+  font-size: 22px !important;
+  background-color: lightgrey !important;
+  color: #000;
+}
+
+.over_image {
+  /* float: right !important; */
+  /* padding: 0px 0px !important; */
+  height: 35px;
+  width: 37px;
+  border-radius: 50%;
+  object-fit: contain;
+}
+
+.navbar ul{
+  margin: 8px 0 0 0;
+  list-style: none;
+}
+
+.navbar a:hover {
+  background-color: lightgrey;
+  color: #000;
+}
+
+.side-nav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top:0;
+  left: 0;
+  background-color: #111;
+  opacity: 0.9;
+  overflow-x:hidden;
+  padding-top: 60px;
+  transition: 0.5s;
+}
+
+.side-nav a{
+  padding: 10px 10px 10px 30px;
+  text-decoration: none;
+  font-size: 22px;
+  color: #ccc;
+  display: block;
+  transition: 0.3s;
+}
+
+.side-nav a:hover {
+  color: white;
+}
+
+.side-nav .btn-close {
+  position: absolute;
+  top: 0;
+  right: 22px;
+  font-size: 36px;
+  margin-left: 200px;
+}
