@@ -116,11 +116,12 @@ function java_comment($amm,$page_no){
     }
 }
 
-function pager($mode){
+function pager($mode,$amm){
     if ($page = $_GET['page']){
         if ($page > 1 && $mode == -1)
             $page--;
         else if ($mode == 1)
+            if ($page * $amm > max_img())
             $page++;
     }
     else
