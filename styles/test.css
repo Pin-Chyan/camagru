@@ -178,6 +178,15 @@
     text-align: center;
     /* background-color: white; */
   }
+
+  .comment.middle.pager {
+    width: 50%;
+    height: 50px;
+    margin-left: 25%;
+    margin-right: 25%;
+  }
+
+  .click
   
   /* Middle column bar */
   .column.middle.bar {

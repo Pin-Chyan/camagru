@@ -73,11 +73,11 @@ function home_img($amm,$page_no,$class){
             <div class=\"column middle icons\">
                 <a class=\"icons\">
                     <i class=\"fa fa-thumbs-up w3-hover-opacity\"></i>
-                    <i class=\"fa fa-comments w3-hover-opacity\" onclick=\"openDropComment()\"></i>
+                    <i class=\"fa fa-comments w3-hover-opacity\" onclick=\"openDropComment_$i()\"></i>
                 </a>
             </div>
-        <div id=\"comment-box\" class=\"column middle comment_container\">
-            <a class=\"c-btn-close\" onclick=\"openCloseComment()\">&times;</a>
+        <div id=\"comment-box_$i\" class=\"column middle comment_container\">
+            <a class=\"c-btn-close\" onclick=\"openCloseComment_$i()\">&times;</a>
             <br />
             <label> Comment: <br>
                 <textarea name=\"Comment\" class=\"Input comment-box\" required></textarea>
@@ -85,6 +85,28 @@ function home_img($amm,$page_no,$class){
             <br />
             <input type=\"submit\" name=\"Submit\" value=\"Submit Comment\" class=\"Submit\">
         </div>";
+        }
+        $i++;
+    }
+}
+
+function java_comment($amm,$page_no){
+    $i = ($amm * ($page_no - 1)) + 1;
+    $amm += $i;
+    while ($i < $amm)
+    {
+        if (ver_img($i) == 0){
+            return (0);
+        }
+        else{
+        echo"function openDropComment_$i() {
+			document.getElementById('comment-box_$i').style.height = 'auto';
+			document.getElementById('comment-box_$i').style.visibility = 'visible';
+		}
+		function openCloseComment_$i() {
+			document.getElementById('comment-box_$i').style.height = '0';
+			document.getElementById('comment-box_$i').style.visibility = 'hidden';
+        }";
         }
         $i++;
     }
