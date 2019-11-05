@@ -14,4 +14,4 @@ catch(PDOException $e){
 }
 return ($senpai);
 }
-?>
+?> 
