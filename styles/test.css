@@ -179,14 +179,43 @@
     /* background-color: white; */
   }
 
-  .comment.middle.pager {
-    width: 50%;
-    height: 50px;
-    margin-left: 25%;
-    margin-right: 25%;
+  .column.middle.pager {
+    padding: 10px;
+    margin: 0 auto;
+    width: 70%;
+    overflow-wrap: break-word;
+    font-size: 1.5vw;
+    display: block;
+    text-align: center !important;
+    margin-left: 15%;
+    margin-right: 15%;
   }
 
-  .click
+  .btn {
+    position: relative;
+    display: hidden;
+    /* margin-left: 25%; */
+    /* margin-right: 20%; */
+    border-radius: 5%;
+    width: 10% !important;
+    padding: 6px;
+    background-color: white;
+    text-align: center;
+  }
+  
+  .display {
+    position: relative;
+    display: hidden;
+    /* margin-left: 25%; */
+    /* margin-right: 20%; */
+    border-radius: 5%;
+    padding: 5px;
+    font-size: 16px;
+    width: 2% !important;
+    height: 1% !important;
+    background-color: white;
+    text-align: center;
+  }
   
   /* Middle column bar */
   .column.middle.bar {

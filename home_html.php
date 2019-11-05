@@ -30,7 +30,7 @@ require("header.php");
 					</a>
 				</span>
 				<ul class="navbar-nav">
-					<li><a class= "over_def" href="home_html.html">Senpai Haven</a></li>
+					<li><a class= "over_def" href="home_html.php">Senpai Haven</a></li>
 					<!-- <li><a class= "over_right" href="login.html"><button>Log-In</button></a></li> -->
 					<li><a class= "over_right" href="login.html">Log-In</a></li>
 					<!-- <li><a class= "over_right" href="user_page.html">User-Name</a></li> -->
@@ -39,7 +39,7 @@ require("header.php");
 			</nav>
 			<div id="side-menu" class="side-nav">
 				<a href="#" class="btn-close" onclick="closeSlideMenu()">&times;</a>
-				<a href="home_html.html">Home</a>
+				<a href="home_html.php">Home</a>
 				<a href="user_page.html">Profile</a>
 				<a href="editor.html">Editor</a>
 				<a href="login.html">Log-Out</a>
@@ -54,102 +54,7 @@ require("header.php");
 		<!-- left end -->
 		
 		<!-- middle -->
-		<?php echo "<div class=\"column middle\" style=\"background-color:grey;\">"; home_img(2,1,"column middle image");?>
-		<!-- <div class="column middle" style="background-color:grey;">
-				<div class="column middle title">Title</div>
-				<div class="column middle subtitle">Title Description, DATE</div>
-				<img class="column middle image" src="http://animefanatika.co.za/afwp/wp-content/uploads/2016/01/SAO.jpg">
-				<div class="column middle icons">
-					<a class="icons">1
-						<i class="fa fa-thumbs-up w3-hover-opacity"></i>
-						<i class="fa fa-comments w3-hover-opacity" onclick="openDropComment()"></i>
-					</a>
-				</div>
-			<div id="comment-box" class="column middle comment_container">
-				<a class="c-btn-close" onclick="openCloseComment()">&times;</a>
-				<br />
-				<label> Comment: <br>
-					<textarea name="Comment" class="Input comment-box" required></textarea>
-				</label>
-				<br />
-				<input type="submit" name="Submit" value="Submit Comment" class="Submit">
-			</div> -->
-<!-- 			
-			<div class="column middle title">Title</div>
-			<div class="column middle subtitle">Title Description, DATE</div>
-			<img class="column middle image" src="https://c4.wallpaperflare.com/wallpaper/733/75/579/anime-sword-art-online-yuuki-asuna-landscape-wallpaper-b856fde850b01c6870bcd10e2802645a.jpg">
-			<div class="column middle icons">
-				<a class="icons">
-					<i class="fa fa-thumbs-up w3-hover-opacity"></i>
-					<i class="fa fa-comments w3-hover-opacity" onclick="openDropComment_2()"></i>
-				</a>
-			</div>
-			<div id="comment-box_2" class="column middle comment_container">
-				<a class="c-btn-close" onclick="openCloseComment_2()">&times;</a>
-				<br />
-				<label> Comment: <br>
-					<textarea name="Comment" class="Input comment-box" required></textarea>
-				</label>
-				<br />
-				<input type="submit" name="Submit" value="Submit Comment" class="Submit">
-			</div>
-
-			<div class="column middle title">Title</div>
-			<div class="column middle subtitle">Title Description, DATE</div>
-			<img class="column middle image" src="https://img4.goodfon.com/wallpaper/nbig/1/d4/sword-art-online-art-anime-asuna-kirito-2.jpg">
-			<div class="column middle icons">
-				<a class="icons">
-					<i class="fa fa-thumbs-up w3-hover-opacity"></i>
-					<i class="fa fa-comments w3-hover-opacity" onclick="openDropComment_3()"></i>
-				</a>
-			</div>
-			<div id="comment-box_3" class="column middle comment_container">
-				<a class="c-btn-close" onclick="openCloseComment_3()">&times;</a>
-				<br />
-				<label> Comment: <br>
-					<textarea name="Comment" class="Input comment-box" required></textarea>
-				</label>
-				<br />
-				<input type="submit" name="Submit" value="Submit Comment" class="Submit">
-			</div>
-
-			<div class="column middle title">Title</div>
-			<div class="column middle subtitle">Title Description, DATE</div>
-			<img class="column middle image" src="https://www.pixelstalk.net/wp-content/uploads/2016/10/Free-HD-Asuna-Backgrounds.jpg">
-			<div class="column middle icons">
-				<a class="icons">
-					<i class="fa fa-thumbs-up w3-hover-opacity"></i>
-					<i class="fa fa-comments w3-hover-opacity" onclick="openDropComment_4()"></i>
-				</a>
-			</div>
-			<div id="comment-box_4" class="column middle comment_container">
-				<a class="c-btn-close" onclick="openCloseComment_4()">&times;</a>
-				<br />
-				<label> Comment: <br>
-					<textarea name="Comment" class="Input comment-box" required></textarea>
-				</label>
-				<br />
-				<input type="submit" name="Submit" value="Submit Comment" class="Submit">
-			</div>
-
-			<div class="column middle title">Title</div>
-			<div class="column middle subtitle">Title Description, DATE</div>
-			<img class="column middle image" src="https://ih1.redbubble.net/image.354870297.9558/stf,small,600x600-pad,750x1000,f8f8f8.u3.jpg">
-			<div class="column middle icons">
-				<a class="icons">
-					<i class="fa fa-thumbs-up w3-hover-opacity"></i>
-					<i class="fa fa-comments w3-hover-opacity" onclick="openDropComment_5()"></i>
-				</a>
-			</div>
-			<div id="comment-box_5" class="column middle comment_container">
-				<a class="c-btn-close" onclick="openCloseComment_5()">&times;</a>
-				<br />
-				<label> Comment: <br>
-					<textarea name="Comment" class="Input comment-box" required></textarea>
-				</label>
-				<br />
-				<input type="submit" name="Submit" value="Submit Comment" class="Submit">
-			</div> -->
+		<?php pager_images(2);?>
 
 
 			<!-- <div class="column middle title">Title</div>
@@ -159,9 +64,9 @@ require("header.php");
 
 			<br \>
 			<div class="column middle pager">
-				<button>prev</button>
-				<button>next</button>
-				<p>gello</p>
+				<button id="prev" class="btn" onclick="page_p()">prev</button>
+				<a class="display"><?php echo $_GET['page'];?></a>
+				<button id="next" class="btn" onclick="page_n()">next</button>
 			</div>	
 		</div>
 		<!-- middle end -->
@@ -184,6 +89,17 @@ require("header.php");
 			<i class="fa fa-linkedin w3-hover-opacity"></i>
 	</div>
 	<script>
+		document.getElementbyId("next").addEventlistener("click", function() {
+			$GLOBALS['page'] += 1;
+			header(location.reload());
+		});
+		
+		function page_p(){
+			window.location.href = "http://<?php pager(-1);?>";
+		}
+		function page_n(){
+			window.location.href = "http://<?php pager(1);?>";
+		}
 		function openSlideMenu() {
 			document.getElementById('side-menu').style.width = '250px';
 		}
@@ -193,4 +109,4 @@ require("header.php");
 		<?php java_comment(2,1);?>
 	</script>
 	</body>
-</html>
+	</html>

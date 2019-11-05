@@ -72,4 +72,8 @@ $i = 0;
 while ($i++ < 12)
     echo ver_img($i)."\n";
 home_img(5,1,"column middle image");
+echo "\n\npage no test\n\n";
+echo $GLOBALS['page'];
+echo "\n\n url test\n\n";
+echo $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']."?page=1";
 ?>

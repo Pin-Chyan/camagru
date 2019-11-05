@@ -115,4 +115,25 @@ function java_comment($amm,$page_no){
         $i++;
     }
 }
+
+function pager($mode){
+    if ($page = $_GET['page']){
+        if ($page > 1 && $mode == -1)
+            $page--;
+        else if ($mode == 1)
+            $page++;
+    }
+    else
+        $page = 1;
+    //echo $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']."?page=$page";
+    echo "localhost:8080/camagru/home_html.php?page=$page";
+}
+
+function pager_images($no){
+    echo "<div class=\"column middle\" style=\"background-color:grey;\">";
+    if ($_GET['page'])
+        home_img($no,$_GET['page'],"column middle image");
+    else
+        home_img($no,1,"column middle image");
+}
 ?>
