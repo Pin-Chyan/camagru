@@ -1,4 +1,7 @@
 <?php
+
+$count = 1;
+
 function upload_img($userid,$imglocation){
 try {
     $senpai = Call_onee_san();
@@ -58,6 +61,7 @@ function retrieve_img($i){
 }
 
 function home_img($amm,$page_no,$class){
+    $page_no = $GLOBALS['count'];
     $i = ($amm * ($page_no - 1)) + 1;
     $amm += $i;
     while ($i < $amm)
