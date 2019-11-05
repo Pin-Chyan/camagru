@@ -45,7 +45,7 @@ function max_img(){
         if ($max < $column['id'])
             $max = $column['id'];
     $new->closeCursor();
-    echo $max."\n";
+    return $max."\n";
 }
 
 function retrieve_img($i){
