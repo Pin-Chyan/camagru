@@ -48,7 +48,16 @@ function max_img(){
     echo $max."\n";
 }
 
-function retrieve_img($amm,$page_no,$class){
+function retrieve_img($i){
+    if (ver_img($i) == 0){
+        return (0);
+    }
+    else{
+        return get_specific("img","gallery","id",$i);
+    }
+}
+
+function home_img($amm,$page_no,$class){
     $i = ($amm * ($page_no - 1)) + 1;
     $amm += $i;
     while ($i < $amm)
@@ -57,11 +66,12 @@ function retrieve_img($amm,$page_no,$class){
             return (0);
         }
         else{
-            echo "<div class=\"column middle title\">Title</div>
-            <div class=\"column middle subtitle\">Title Description, DATE</div>";
-            retrieve_img(3,1,"column middle image");
-            echo "<div class=\"column middle icons\">
-                <a class=\"icons\">1
+        $img = retrieve_img($i); 
+        echo "<div class=\"column middle title\">Title</div>
+            <div class=\"column middle subtitle\">Title Description, DATE</div>
+            <img class=\"$class\" src='data:image/jpeg;base64, $img'>
+            <div class=\"column middle icons\">
+                <a class=\"icons\">
                     <i class=\"fa fa-thumbs-up w3-hover-opacity\"></i>
                     <i class=\"fa fa-comments w3-hover-opacity\" onclick=\"openDropComment()\"></i>
                 </a>
@@ -79,20 +89,4 @@ function retrieve_img($amm,$page_no,$class){
         $i++;
     }
 }
-/*
-function retrieve_img($amm,$page_no,$class){
-    $i = ($amm * ($page_no - 1)) + 1;
-    $amm += $i;
-    while ($i < $amm)
-    {
-        if (ver_img($i) == 0){
-            return (0);
-        }
-        else{
-
-        }
-        $i++;
-    }
-}
-*/
 ?>

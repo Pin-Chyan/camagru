@@ -2,7 +2,7 @@
 require("header.php");
 
 ?>
-<link rel="stylesheet" href="./styles/home.css">
+<link rel="stylesheet" href="./styles/test.css">
 <!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> -->
 <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat"> -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -53,7 +53,7 @@ require("header.php");
 		<!-- left end -->
 		
 		<!-- middle -->
-		<?php echo "<div class=\"column middle\" style=\"background-color:grey;\">"; lol(); lol(); lol(); lol(); lol();?>
+		<?php echo "<div class=\"column middle\" style=\"background-color:grey;\">"; home_img(5,1,"column middle image")?>
 		<!-- <div class="column middle" style="background-color:grey;">
 				<div class="column middle title">Title</div>
 				<div class="column middle subtitle">Title Description, DATE</div>
