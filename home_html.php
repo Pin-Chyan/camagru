@@ -1,6 +1,8 @@
 <?php 
 require("header.php");
-session_start();
+// if (!$_GET['page'])
+//  	header("Location : http://localhost:8080/camagru/home_html.php?page=1");
+//session_start();
 ?>
 <link rel="stylesheet" href="./styles/test.css">
 <!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> -->
@@ -90,16 +92,11 @@ session_start();
 			<i class="fa fa-linkedin w3-hover-opacity"></i>
 	</div>
 	<script>
-		document.getElementbyId("next").addEventlistener("click", function() {
-			$GLOBALS['page'] += 1;
-			header(location.reload());
-		});
-		
 		function page_p(){
-			window.location.href = "http://<?php pager(-1);?>";
+			window.location.href = "http://<?php pager(-1,2);?>";
 		}
 		function page_n(){
-			window.location.href = "http://<?php pager(1);?>";
+			window.location.href = "http://<?php pager(1,2);?>";
 		}
 		function openSlideMenu() {
 			document.getElementById('side-menu').style.width = '250px';
@@ -107,13 +104,12 @@ session_start();
 		function closeSlideMenu() {
 			document.getElementById('side-menu').style.width = '0';
 		}
-		<?php java_comment(2,1);?>
+		<?php java_comment(2,$_GET['page']);?>
 	</script>
 </body>
 </html>
-<?php
 
-if ($_POST['Submit']) {
+<!-- if ($_POST['Submit']) {
 	
 	$n = 0;
 	$comment = NULL;
@@ -122,7 +118,7 @@ if ($_POST['Submit']) {
 		// $name = $_SESSION['username'];
 		$comment = $_POST['Comment_'."$n"];
 	}
-	$img_id = $n;
+	$img_id = $n;.
 	#Get old comments
     $old = fopen("comments.txt", "r+t");
     $old_comments = fread($old, 1024);
@@ -133,6 +129,4 @@ if ($_POST['Submit']) {
     fwrite($write, $string);
     fclose($write);
     fclose($old);
-}
-
-?>
+} -->
