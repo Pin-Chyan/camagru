@@ -1,5 +1,6 @@
 <?php 
 require("header.php");
+session_start();
 ?>
 <link rel="stylesheet" href="./styles/test.css">
 <!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> -->
@@ -108,5 +109,8 @@ require("header.php");
 		}
 		<?php java_comment(2,1);?>
 	</script>
-	</body>
-	</html>
+</body>
+</html>
+<?php
+
+if ($_POST['Submit_$i'])

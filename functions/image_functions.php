@@ -84,7 +84,7 @@ function home_img($amm,$page_no,$class){
             <a class=\"c-btn-close\" onclick=\"openCloseComment_$i()\">&times;</a>
             <br />
             <label> Comment: <br>
-                <textarea name=\"Comment\" class=\"Input comment-box\" required></textarea>
+                <textarea name=\"Comment_$i\" class=\"Input comment-box\" required></textarea>
             </label>
             <br />
             <input type=\"submit\" name=\"Submit\" value=\"Submit Comment\" class=\"Submit\">
