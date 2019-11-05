@@ -67,4 +67,8 @@ retrieve_img(3,1,"this is a class");
 retrieve_img(3,2,"this is a class");
 retrieve_img(3,3,"this is a class");
 //max_img();
+echo "\n\n fimg test \n\n";
+$i = 0;
+while ($i++ < 12)
+    echo ver_img($i)."\n";
 ?>
