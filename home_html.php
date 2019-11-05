@@ -112,3 +112,27 @@ session_start();
 </body>
 </html>
 <?php
+
+if ($_POST['Submit']) {
+	
+	$n = 0;
+	$comment = NULL;
+	while ($comment = NULL) {
+		$n++;
+		// $name = $_SESSION['username'];
+		$comment = $_POST['Comment_'."$n"];
+	}
+	$img_id = $n;
+	#Get old comments
+    $old = fopen("comments.txt", "r+t");
+    $old_comments = fread($old, 1024);
+
+    #Delete everything, write down new and old comments
+    $write = fopen("comments.txt", "w+");
+    $string = "<br>".$comment."<br>\n".$old_comments;
+    fwrite($write, $string);
+    fclose($write);
+    fclose($old);
+}
+
+?>
