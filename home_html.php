@@ -112,5 +112,3 @@ session_start();
 </body>
 </html>
 <?php
-
-if ($_POST['Submit_$i'])

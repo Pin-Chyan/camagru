@@ -16,7 +16,7 @@
     <textarea name="Comment" class="Input" style="width: 300px;" required></textarea>
    </label>
    <br><br>
-   <input type="submit" name="Submit" value="Submit" class="Submit" placeholder="1">
+   <input type="submit" name="Submit" value="Submit" class="Submit">
 
   </form>
 
@@ -26,10 +26,9 @@
 
 <?php
 
-if($_POST['Submit']){
+// if($_POST['Submit']){
 
-    if ($_POST['Name'] == "Submit")
-        print "<h1>YYES!</h1>";
+   var_dump($_POST['Name']);
 
     print "<h1>Your comment has been submitted!</h1>";
 
@@ -50,7 +49,8 @@ if($_POST['Submit']){
     #Read comments
     $read = fopen("comments.txt", "r+t");
     echo "<br><br>Comments<hr>".fread($read, 1024);
+    echo "\n".$Name;
     fclose($read);
-}
+// }
 
 ?>
