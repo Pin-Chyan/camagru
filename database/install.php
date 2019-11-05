@@ -11,7 +11,7 @@ try{
     $conn = new PDO("mysql:host=$host",$user,$pass);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	$sql = "CREATE DATABASE `".$name."`";
-	$conn->exec("DROP DATABASE $name");
+	$conn->exec("DROP DATABASE IF EXISTS $name");
 	$conn->exec($sql);
 	echo "Senpai noticed me!\n";
 }
