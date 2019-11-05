@@ -76,4 +76,11 @@ echo "\n\npage no test\n\n";
 echo $GLOBALS['page'];
 echo "\n\n url test\n\n";
 echo $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']."?page=1";
+echo "\n\n".max_img()."img test\n";
+home_img(2,1,"");
+home_img(2,2,"");
+home_img(2,3,"");
+java_comment(2,1);
+java_comment(2,2);
+java_comment(2,3);
 ?>
