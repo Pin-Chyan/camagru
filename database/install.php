@@ -1,5 +1,5 @@
 <?php
-require("./header.php");
+require("../header.php");
 
 $user = "senpai";
 $pass = "noticeme";
