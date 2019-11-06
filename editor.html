@@ -45,7 +45,15 @@
 
 		<!-- middle -->
 		<div class="column middle" style="background-color:grey;">
-			<br \>
+			<div class="column middle block">
+
+
+				<div class="column middle block buttons">
+					<button id="webcam" class="btn" >webcam</button>
+					<button id="upload" class="btn" >upload</button>
+					<button id="save" class="btn" >save</button>
+				</div>
+			</div>
 		</div>
 		<!-- middle end -->
 
@@ -67,4 +75,12 @@
 			<i class="fa fa-linkedin w3-hover-opacity"></i>
 	</div>
 	</body>
+	<script>
+		function openSlideMenu() {
+			document.getElementById('side-menu').style.width = '250px';
+		}
+		function closeSlideMenu() {
+			document.getElementById('side-menu').style.width = '0';
+		}
+	</script>
 </html>
