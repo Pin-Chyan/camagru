@@ -83,4 +83,8 @@ home_img(2,3,"");
 java_comment(2,1);
 java_comment(2,2);
 java_comment(2,3);
+echo "\n\npager test\n";
+pager_images(2,1);
+pager_images(2,2);
+pager_images(2,3);
 ?>

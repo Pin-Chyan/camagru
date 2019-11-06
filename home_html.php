@@ -1,7 +1,7 @@
 <?php 
 require("header.php");
-// if (!$_GET['page'])
-//  	header("Location : http://localhost:8080/camagru/home_html.php?page=1");
+if (!$_GET['page'])
+	header("Location: http://localhost:8080/camagru/home_html.php?page=1");
 //session_start();
 ?>
 <link rel="stylesheet" href="./styles/test.css">
@@ -45,7 +45,7 @@ require("header.php");
 				<a href="home_html.php">Home</a>
 				<a href="user_page.html">Profile</a>
 				<a href="editor.html">Editor</a>
-				<a href="login.html">Log-Out</a>
+				<a href="login/login.php">Log-Out</a>
 			</div>
 	<!-- </div> -->
 	
@@ -57,14 +57,7 @@ require("header.php");
 		<!-- left end -->
 		
 		<!-- middle -->
-		<?php pager_images(2);?>
-
-
-			<!-- <div class="column middle title">Title</div>
-			<div class="column middle subtitle">Title Description, DATE</div>
-			<img class="column middle image" src="http://www.quoteambition.com/wp-content/uploads/2017/04/deep-quotes-816x545.jpg">
-			<div class="column middle comment">jsutafjlaj;lgkfjal;fgjl;fjgl;jsdl;ghjd;lsfjfhl;fjdsl;jghl;dsjkl;jglsdk;jglkjsdlkgjl;sdj;lgfjdsl;jgflsjgf;sjgflsjfglsjflgjsljglsdjfgljdsl</div>			 -->
-
+		<?php pager_images(2,$_GET['page']);?>
 			<br \>
 			<div class="column middle pager">
 				<button id="prev" class="btn" onclick="page_p()">prev</button>

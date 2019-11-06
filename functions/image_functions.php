@@ -1,7 +1,5 @@
 <?php
 
-$count = 1;
-
 function upload_img($userid,$imglocation){
 try {
     $senpai = Call_onee_san();
@@ -61,7 +59,6 @@ function retrieve_img($i){
 }
 
 function home_img($amm,$page_no,$class){
-    $page_no = $GLOBALS['count'];
     $i = ($amm * ($page_no - 1)) + 1;
     $amm += $i;
     while ($i < $amm)
@@ -120,21 +117,18 @@ function pager($mode,$amm){
     if ($page = $_GET['page']){
         if ($page > 1 && $mode == -1)
             $page--;
-        else if ($mode == 1)
-            if ($page * $amm > max_img())
+        else if ($mode == 1 && ($page * $amm) <= max_img())
             $page++;
     }
     else
         $page = 1;
     //echo $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']."?page=$page";
     echo "localhost:8080/camagru/home_html.php?page=$page";
+    //echo "localhost:8080/camagru/test.php?page=$page";
 }
 
-function pager_images($no){
+function pager_images($no,$page){
     echo "<div class=\"column middle\" style=\"background-color:grey;\">";
-    if ($_GET['page'])
-        home_img($no,$_GET['page'],"column middle image");
-    else
-        home_img($no,1,"column middle image");
+    home_img($no,$page,"column middle image");
 }
 ?>
