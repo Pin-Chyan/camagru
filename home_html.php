@@ -1,16 +1,19 @@
-<?php 
+<?php
+session_start();
 require("header.php");
 if (!$_GET['page'])
 	header("Location: http://localhost:8080/camagru/home_html.php?page=1");
+// session_start();
 function sesh(){
-	if (!$_SESSION['userid'])
+	if (!isset($_SESSION['user_id']))
 		echo "<li><a class= \"over_right\" href=\"login/login.php\">Log-In</a></li>";
-	else
-		echo "<!-- <li><a class= \"over_right\" href=\"user_page.html\">User-Name</a></li> -->
-		<!-- <li><a class= \"over_right_img\" href=\"user_page.html\"><img class= \"over_image\" src=\"https://i.pinimg.com/736x/32/d0/af/32d0afda44fb2dde8753844f9283cddc.jpg\"></a></li> -->";
-
+	else{
+		$name = $_SESSION['user_id'];
+		echo "<li><a class= \"over_right\" href=\"user_page.html\">$name</a></li>";
+		echo "<li><a class= \"over_right_img\" href=\"user_page.html\"><img class= \"over_image\" src=\"https://i.pinimg.com/736x/32/d0/af/32d0afda44fb2dde8753844f9283cddc.jpg\"></a></li>";
+	
+	}
 }
-//session_start();
 ?>
 <link rel="stylesheet" href="./styles/test.css">
 <!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> -->
@@ -43,8 +46,6 @@ function sesh(){
 				<ul class="navbar-nav">
 					<li><a class= "over_def" href="home_html.php">Senpai Haven</a></li>
 					<?php sesh();?>
-					<!-- <li><a class= "over_right" href="user_page.html">User-Name</a></li> -->
-					<!-- <li><a class= "over_right_img" href="user_page.html"><img class= "over_image" src="https://i.pinimg.com/736x/32/d0/af/32d0afda44fb2dde8753844f9283cddc.jpg"></a></li> -->
 				</ul>
 			</nav>
 			<div id="side-menu" class="side-nav">

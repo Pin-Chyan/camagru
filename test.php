@@ -1,4 +1,5 @@
 <?php
+session_start();
 require("./header.php");
 require("./database/install.php");
 echo "\nadd users test\n";
@@ -87,4 +88,6 @@ echo "\n\npager test\n";
 pager_images(2,1);
 pager_images(2,2);
 pager_images(2,3);
+echo "\n\nsession test\n\n<br/>";
+print_r($_SESSION);
 ?>
