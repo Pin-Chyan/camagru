@@ -1,10 +1,17 @@
 <?php
 
-function upload_img($userid,$imglocation){
+function upload_img($userid,$imglocation,$table){
 try {
     $senpai = Call_onee_san();
     $binary_senpai = base64_encode(file_get_contents($imglocation));
-    $senpai->exec("INSERT INTO gallery (img,userid) VALUES ('$binary_senpai','$userid')"); 
+    if ($table == "gallery")
+    {
+        $userid = get_specific("user_id","user","username",$userid);
+        $senpai->exec("INSERT INTO gallery (img,userid) VALUES ('$binary_senpai','$userid')");
+    }
+    if ($table == "user")
+        $senpai->exec("UPDATE users SET display='$binary_senpai' WHERE username='$userid'");
+    
 } catch (PDOException $e) {
         echo "fuck". $e->getMessage()."\n";
     }
