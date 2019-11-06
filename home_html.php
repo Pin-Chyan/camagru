@@ -2,6 +2,14 @@
 require("header.php");
 if (!$_GET['page'])
 	header("Location: http://localhost:8080/camagru/home_html.php?page=1");
+function sesh(){
+	if (!$_SESSION['userid'])
+		echo "<li><a class= \"over_right\" href=\"login/login.php\">Log-In</a></li>";
+	else
+		echo "<!-- <li><a class= \"over_right\" href=\"user_page.html\">User-Name</a></li> -->
+		<!-- <li><a class= \"over_right_img\" href=\"user_page.html\"><img class= \"over_image\" src=\"https://i.pinimg.com/736x/32/d0/af/32d0afda44fb2dde8753844f9283cddc.jpg\"></a></li> -->";
+
+}
 //session_start();
 ?>
 <link rel="stylesheet" href="./styles/test.css">
@@ -34,8 +42,7 @@ if (!$_GET['page'])
 				</span>
 				<ul class="navbar-nav">
 					<li><a class= "over_def" href="home_html.php">Senpai Haven</a></li>
-					<!-- <li><a class= "over_right" href="login.html"><button>Log-In</button></a></li> -->
-					<li><a class= "over_right" href="login.html">Log-In</a></li>
+					<?php sesh();?>
 					<!-- <li><a class= "over_right" href="user_page.html">User-Name</a></li> -->
 					<!-- <li><a class= "over_right_img" href="user_page.html"><img class= "over_image" src="https://i.pinimg.com/736x/32/d0/af/32d0afda44fb2dde8753844f9283cddc.jpg"></a></li> -->
 				</ul>
@@ -45,7 +52,7 @@ if (!$_GET['page'])
 				<a href="home_html.php">Home</a>
 				<a href="user_page.html">Profile</a>
 				<a href="editor.html">Editor</a>
-				<a href="login/login.php">Log-Out</a>
+				<a href="login/logout.php">Log-Out</a>
 			</div>
 	<!-- </div> -->
 	
