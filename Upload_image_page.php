@@ -11,7 +11,7 @@ if (isset($_POST['submit'])) {
 		$image = $_FILES['imagefile']['tmp_name'];
 		if (isset($_SESSION['user_id'])) {
 			$id = $_SESSION['user_id'];
-			upload_img(6 , $image, "gallery");
+			upload_img($id , $image, "users");
 		}
 	}
 }

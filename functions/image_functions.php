@@ -6,10 +6,10 @@ try {
     $binary_senpai = base64_encode(file_get_contents($imglocation));
     if ($table == "gallery")
     {
-        $userid = get_specific("user_id","user","username",$userid);
+        //$userid = get_specific("user_id","user","username",$userid);
         $senpai->exec("INSERT INTO gallery (img,userid) VALUES ('$binary_senpai','$userid')");
     }
-    if ($table == "user")
+    if ($table == "users")
         $senpai->exec("UPDATE users SET display='$binary_senpai' WHERE username='$userid'");
     
 } catch (PDOException $e) {
@@ -137,5 +137,13 @@ function pager($mode,$amm){
 function pager_images($no,$page){
     echo "<div class=\"column middle\" style=\"background-color:grey;\">";
     home_img($no,$page,"column middle image");
+}
+
+function get_userimg($session_var){
+    $binary_senpai = get_specific("display","users","username",$session_var);
+    if ($binary_senpai == NULL)
+        return "src=\"https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwjitNri3NXlAhUIFRQKHRJeDhoQjRx6BAgBEAQ&url=http%3A%2F%2Fwww.clker.com%2Fclipart-no-image-icon.html&psig=AOvVaw0E1jpBuv733GOlkoJjhEdF&ust=1573134419626111\"";
+    else
+        return "src='data:image/jpeg;base64, $binary_senpai'";
 }
 ?>

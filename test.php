@@ -91,4 +91,8 @@ pager_images(2,2);
 pager_images(2,3);
 echo "\n\nsession test\n\n<br/>";
 print_r($_SESSION);
+echo "\n\nget user_img test\n\n";
+echo get_userimg("CYKO")."\n";
+echo get_userimg("Shame")."\n";
+echo get_userimg("PC")."\n";
 ?>
