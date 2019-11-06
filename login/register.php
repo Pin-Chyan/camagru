@@ -10,7 +10,7 @@ if (isset($_POST['submit'])) {
     if (strlen($p) < 5)
         echo "<script type='text/javascript'>alert('Password is too short')</script>";
     else if ($p2 != $p)
-        echo "<script type='text/javascript'>alert('Passwords don't match')</script>";
+        echo "<script type='text/javascript'>alert(\"Password don't match\")</script>";
     else {
         if (find_specific($u, "username", "users")) {
             echo "<script type='text/javascript'>alert('Username has been taken')</script>";
