@@ -9,8 +9,9 @@ function sesh(){
 		echo "<li><a class= \"over_right\" href=\"login/login.php\">Log-In</a></li>";
 	else{
 		$name = $_SESSION['user_id'];
+		$img = get_userimg($_SESSION['user_id']);
 		echo "<li><a class= \"over_right\" href=\"user_page.html\">$name</a></li>";
-		echo "<li><a class= \"over_right_img\" href=\"user_page.html\"><img class= \"over_image\" src=\"https://i.pinimg.com/736x/32/d0/af/32d0afda44fb2dde8753844f9283cddc.jpg\"></a></li>";
+		echo "<li><a class= \"over_right_img\" href=\"user_page.html\"><img class= \"over_image\" $img\"></a></li>";
 	
 	}
 }
