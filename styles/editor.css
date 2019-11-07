@@ -9,6 +9,11 @@
     background-color:#1A1A1A;
   }
   
+  .webcam {
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+  }
+
   /* Style the header */
   /* .header {
     background-color: #f1f1f1;

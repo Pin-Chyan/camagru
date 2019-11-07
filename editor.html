@@ -48,7 +48,7 @@
 				<div class="column middle block">
 							
 					<!-- Stream video via webcam -->
-					<div class="video-wrap" style="text-align: center;">
+					<div class="video-wrap webcam" style="text-align: center;">
 						<video id = "video" playsinline autoplay></video>
 					</div>
 			
@@ -59,6 +59,10 @@
 				
 					<!-- Webcam video snapshot -->
 					<canvas id="canvas" width="680px" height="480px" style="text-align: center !important;"></canvas>
+				
+					<button id="miku">miku</button>
+					<button id="naruto">naruto</button>
+					<button id="sao">sao</button>
 
 					<div class="column middle block buttons">
 						<button id="webcam" class="btn" >webcam</button>
@@ -199,6 +203,9 @@ Ivan shruged his shuolders contemptuosly, and turning away stared at the road. A
 	</div>
 	</body>
 	<script>
+
+
+
 		function openSlideMenu() {
 			document.getElementById('side-menu').style.width = '250px';
 		}
@@ -242,9 +249,36 @@ Ivan shruged his shuolders contemptuosly, and turning away stared at the road. A
 
 		// Draw image
 		var context = canvas.getContext('2d');
+			width = 640;
+			height = 480;
 		snap.addEventListener("click",function(){
-			context.drawImage(video, 0, 0, 640, 480);
+			context.save();
+			context.scale(-1, 1);
+			context.drawImage(video, 0, 0, width * -1, height);
+			context.restore();
 		});
+
+		miku.addEventListener("click",function(){
+			drawing = new Image() 
+			drawing.src = "miku.png" 
+			// context.drawImage(video, 0, 0, 640, 480);
+			context.drawImage(drawing,320,200, 320, 280);
+		});
+
+		naruto.addEventListener("click",function(){
+			drawing = new Image() 
+			drawing.src = "naruto.png" 
+			// context.drawImage(video, 0, 0, 640, 480);
+			context.drawImage(drawing,320,240, 320, 240);
+		});
+
+		sao.addEventListener("click",function(){
+			drawing = new Image() 
+			drawing.src = "sao.png" 
+			// context.drawImage(video, 0, 0, 640, 480);
+			context.drawImage(drawing,320,240, 320, 240);
+		});
+
 
 	</script>
 </html>
