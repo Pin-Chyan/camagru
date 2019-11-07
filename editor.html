@@ -15,52 +15,63 @@
 	<p>In this example, we have created a header, three unequal columns and a footer. On smaller screens, the columns will stack on top of each other.</p>
 	<p>Resize the browser window to see the responsive effect.</p> 
 -->
-	<!-- <div class="header"> -->
-		<nav class="navbar">
-			<span class="open-slide">
-				<a href="#" onclick="openSlideMenu()">
-						<svg width="30" height="30">
-							<path d="M0,5 30,5" stroke="#fff" stroke-width="5"/>
-							<path d="M0,14 30,14" stroke="#fff" stroke-width="5"/>
-							<path d="M0,23 30,23" stroke="#fff" stroke-width="5"/>
-						</svg>
-					</a>
-				</span>
-				<ul class="navbar-nav">
+<!-- <div class="header"> -->
+	<nav class="navbar">
+		<span class="open-slide">
+			<a href="#" onclick="openSlideMenu()">
+					<svg width="30" height="30">
+						<path d="M0,5 30,5" stroke="#fff" stroke-width="5"/>
+						<path d="M0,14 30,14" stroke="#fff" stroke-width="5"/>
+						<path d="M0,23 30,23" stroke="#fff" stroke-width="5"/>
+					</svg>	
+				</a>	
+			</span>	
+			<ul class="navbar-nav">
 					<li><a class= "over_def" href="home_html.html">Senpai Haven</a></li>
 					<li><a class= "over_right" href="user_page.html">User-Name</a></li>
 					<li><a class= "over_right_img" href="user_page.html"><img class= "over_image" src="https://i.pinimg.com/736x/32/d0/af/32d0afda44fb2dde8753844f9283cddc.jpg"></a></li>
-				</ul>
-			</nav>
+				</ul>	
+			</nav>	
 			<div id="side-menu" class="side-nav">
 				<a href="#" class="btn-close" onclick="closeSlideMenu()">&times;</a>
 				<a href="home_html.html">Home</a>
 				<a href="user_page.html">Profile</a>
 				<a href="#">Editor</a>
 				<a href="login.html">Log-Out</a>
-			</div>
-	<!-- </div> -->
-	
-	<div class="row">
+			</div>	
+			<!-- </div> -->		
+			
+		<div class="row">
+				
+				<!-- middle -->
+			<div class="column middle" style="background-color:grey;">
+				<div class="column middle block">
+							
+					<!-- Stream video via webcam -->
+					<div class="video-wrap" style="text-align: center;">
+						<video id = "video" playsinline autoplay></video>
+					</div>
+			
+					<!-- Triigger canvas web API -->
+					<div class="controller">
+						<button id="snap">Capture</button>
+					</div>
+				
+					<!-- Webcam video snapshot -->
+					<canvas id="canvas" width="680px" height="480px" style="text-align: center !important;"></canvas>
 
-		<!-- middle -->
-		<div class="column middle" style="background-color:grey;">
-			<div class="column middle block">
-
-
-				<div class="column middle block buttons">
-					<button id="webcam" class="btn" >webcam</button>
-					<button id="upload" class="btn" >upload</button>
-					<button id="save" class="btn" >save</button>
-				</div>
-			</div>
-		</div>
+					<div class="column middle block buttons">
+						<button id="webcam" class="btn" >webcam</button>
+						<button id="upload" class="btn" >upload</button>
+						<button id="save" class="btn" >save</button>
+					</div>	
+				</div>	
+			</div>	
 		<!-- middle end -->
 
 		<!-- right side -->
-		<div class="column side" style="color: white;">
-				<!-- Right -->
-				Miusov, as a man man of breeding and deilcacy, could not but feel some inwrd qualms, when he reached the Father Superior's with Ivan: he felt ashamed of havin lost his temper. He felt that he ought to have disdaimed that despicable wretch, Fyodor Pavlovitch, too much to have been upset by him in Father Zossima's cell, and so to have forgotten himself. "Teh monks were not to blame, in any case," he reflceted, on the steps. "And if they're decent people here (and the Father Superior, I understand, is a nobleman) why not be friendly and courteous withthem? I won't argue, I'll fall in with everything, I'll win them by politness, and show them that I've nothing to do with that Aesop, thta buffoon, that Pierrot, and have merely been takken in over this affair, just as they have."
+		<div class="column side" style="color: white;">		
+			Miusov, as a man man of breeding and deilcacy, could not but feel some inwrd qualms, when he reached the Father Superior's with Ivan: he felt ashamed of havin lost his temper. He felt that he ought to have disdaimed that despicable wretch, Fyodor Pavlovitch, too much to have been upset by him in Father Zossima's cell, and so to have forgotten himself. "Teh monks were not to blame, in any case," he reflceted, on the steps. "And if they're decent people here (and the Father Superior, I understand, is a nobleman) why not be friendly and courteous withthem? I won't argue, I'll fall in with everything, I'll win them by politness, and show them that I've nothing to do with that Aesop, thta buffoon, that Pierrot, and have merely been takken in over this affair, just as they have."
 
 He determined to drop his litigation with the monastry, and relinguish his claims to the wood-cuting and fishery rihgts at once. He was the more ready to do this becuase the rights had becom much less valuable, and he had indeed the vaguest idea where the wood and river in quedtion were.
 
@@ -176,6 +187,7 @@ Ivan shruged his shuolders contemptuosly, and turning away stared at the road. A
 		<!-- right end -->
 
 	</div>
+
 	<div class="footer">
 			<p>Find us More on:</p>
 			<i class="fa fa-facebook-official w3-hover-opacity"></i>
@@ -193,5 +205,46 @@ Ivan shruged his shuolders contemptuosly, and turning away stared at the road. A
 		function closeSlideMenu() {
 			document.getElementById('side-menu').style.width = '0';
 		}
+
+		'user strict';
+
+		const video = document.getElementById('video');
+		const canvas = document.getElementById('canvas');
+		const snap = document.getElementById('snap');
+		const errorMsgElement = document.getElementById('span#ErrorMsg');
+
+		const constraints = {
+			// audio: true,
+			video: {
+				width: 640, height: 480
+			}
+		};
+
+		// Access webcam
+		async function init() {
+			try {
+				const stream = await navigator.mediaDevices.getUserMedia(constraints);
+				handleSuccess(stream);
+			}
+			catch(e){
+				errorMsgElement.innerHTML = `navigator.getUserMedia.error:${e.toString()}`;
+			}
+		}
+
+		// Success
+		function handleSuccess(stream){
+			window.stream = stream;
+			video.srcObject = stream;
+		}
+
+		// Load init
+		init();
+
+		// Draw image
+		var context = canvas.getContext('2d');
+		snap.addEventListener("click",function(){
+			context.drawImage(video, 0, 0, 640, 480);
+		});
+
 	</script>
 </html>
