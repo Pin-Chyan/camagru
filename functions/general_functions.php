@@ -47,10 +47,15 @@ try {
 }
 }
 function delete_specific($table, $column, $value){
+try{
 	$senpai = Call_onee_san();
 	$sth = $senpai->prepare("DELETE FROM $table WHERE $column=$value");
 	$sth->execute();
 	$sth->closeCursor();
+}
+catch (PDOException $e) {
+	echo "failed to delete specific\n";
+}
 }
 ?>
 

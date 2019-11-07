@@ -18,6 +18,7 @@ try {
 }
 
 function get_img($galleryid,$class){
+try{
     $binary_senpai = get_specific("img","gallery","id",$galleryid);
     if ($binary_senpai == false)
         return (0);
@@ -27,6 +28,9 @@ function get_img($galleryid,$class){
     else
         echo /*"img ncl ".$galleryid."\n";*/"<img src='data:image/jpeg;base64, $binary_senpai' />";
     return (1);
+} catch (PDOException $e) {
+	echo "failed to find get img \n";
+}
 }
 
 function ver_img($galleryid){
@@ -40,11 +44,12 @@ function ver_img($galleryid){
 		$sth->closeCursor();
 		return ($result['userid']);
 	} catch (PDOException $e) {
-		echo "failed to get_specific".$e->getMessage()."\n";
+		echo "failed to verify img ".$e->getMessage()."\n";
 	}
 }
 
 function max_img(){
+try{
     $senpai = call_onee_san();
     $new = $senpai->prepare("SELECT id FROM gallery");
     $new->execute();
@@ -54,15 +59,22 @@ function max_img(){
             $max = $column['id'];
     $new->closeCursor();
     return $max."\n";
+} catch (PDOException $e) {
+	echo "failed to find count img\n";
+}
 }
 
 function retrieve_img($i){
+try{
     if (ver_img($i) == 0){
         return (0);
     }
     else{
         return get_specific("img","gallery","id",$i);
     }
+} catch (PDOException $e) {
+	echo "failed to retrive img\n";
+}
 }
 
 function get_posts($index) {
@@ -97,6 +109,7 @@ function get_posts($index) {
 }
 
 function home_img($amm,$page_no,$class){
+try{
     $i = ($amm * ($page_no - 1)) + 1;
     $amm += $i;
     $index = $page_no;
@@ -136,9 +149,13 @@ function home_img($amm,$page_no,$class){
             echo "</div>";
         $i++;
     }
+} catch (PDOException $e) {
+	echo "failed to print home page img list\n";
+}
 }
 
 function java_comment($amm,$page_no){
+try{
     $i = ($amm * ($page_no - 1)) + 1;
     $amm += $i;
     while ($i < $amm)
@@ -158,9 +175,13 @@ function java_comment($amm,$page_no){
         }
         $i++;
     }
+} catch (PDOException $e) {
+	echo "failed to printf comment boxes\n";
+}
 }
 
 function pager($mode,$amm){
+try{
     if ($page = $_GET['page']){
         if ($page > 1 && $mode == -1)
             $page--;
@@ -172,18 +193,29 @@ function pager($mode,$amm){
     //echo $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']."?page=$page";
     echo "localhost:8080/camagru/home_html.php?page=$page";
     //echo "localhost:8080/camagru/test.php?page=$page";
+} catch (PDOException $e) {
+	echo "failed to get next page link\n";
+}
 }
 
 function pager_images($no,$page){
+try{
     echo "<div class=\"column middle\" style=\"background-color:grey;\">";
     home_img($no,$page,"column middle image");
+} catch (PDOException $e) {
+	echo "failed to print home mage img\n";
+}
 }
 
 function get_userimg($session_var){
+try{
     $binary_senpai = get_specific("display","users","username",$session_var);
     if ($binary_senpai == NULL)
         return "src=\"https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwjitNri3NXlAhUIFRQKHRJeDhoQjRx6BAgBEAQ&url=http%3A%2F%2Fwww.clker.com%2Fclipart-no-image-icon.html&psig=AOvVaw0E1jpBuv733GOlkoJjhEdF&ust=1573134419626111\"";
     else
         return "src='data:image/jpeg;base64, $binary_senpai'";
+} catch (PDOException $e) {
+	echo "failed to get usrimg\n";
+}
 }
 ?>
