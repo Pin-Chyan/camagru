@@ -1,3 +1,13 @@
+<?php
+require("header.php");
+session_start();
+if (!empty($_SESSION['user_id'])) {
+    $name = $_SESSION['user_id'];
+    $email = get_specific('email', 'users', 'username', $name);
+}
+?>
+
+
 <link rel="stylesheet" href="./styles/user_page.css">
 <!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> -->
 <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat"> -->
@@ -56,9 +66,9 @@
 						<div class="profile_title">Profile Information</div>
 						<div class="profile_image"><img class= "image_s" src="https://i.pinimg.com/736x/32/d0/af/32d0afda44fb2dde8753844f9283cddc.jpg"></div>
 						<div class="l_context">User-Name:</div>  
-						<div class="context">Asuna</div>
+						<div class="context"><?= $name ?></div>
 						<div class="l_context">E-Mail:</div>
-						<div class="context">Kirito&Asuna@gmail.com</div>  
+						<div class="context"><?= $email ?></div>  
 						<div class="profile_title">Edit-Details</div>
 					</div>						  
 			</div>
@@ -108,14 +118,14 @@
 		function closeSlideMenu() {
 			document.getElementById('side-menu').style.width = '0';
 		}
-		function openDropComment() {
-			document.getElementById('comment-box').style.height = 'auto';
-			document.getElementById('comment-box').style.visibility = 'visible';
-		}
-		function openCloseComment() {
-			document.getElementById('comment-box').style.height = '0';
-			document.getElementById('comment-box').style.visibility = 'hidden';
-		}
+		// function openDropComment() {
+		// 	document.getElementById('comment-box').style.height = 'auto';
+		// 	document.getElementById('comment-box').style.visibility = 'visible';
+		// }
+		// function openCloseComment() {
+		// 	document.getElementById('comment-box').style.height = '0';
+		// 	document.getElementById('comment-box').style.visibility = 'hidden';
+		// }
 
 		// function CommentOP () {
 		// 	openDropComment();
@@ -132,14 +142,14 @@
 		// }
 		
 
-		function openDropComment_2() {
-			document.getElementById('comment-box_2').style.height = 'auto';
-			document.getElementById('comment-box_2').style.visibility = 'visible';
-		}
-		function openCloseComment_2() {
-			document.getElementById('comment-box_2').style.height = '0';
-			document.getElementById('comment-box_2').style.visibility = 'hidden';
-		}
-	</script>
+	// 	function openDropComment_2() {
+	// 		document.getElementById('comment-box_2').style.height = 'auto';
+	// 		document.getElementById('comment-box_2').style.visibility = 'visible';
+	// 	}
+	// 	function openCloseComment_2() {
+	// 		document.getElementById('comment-box_2').style.height = '0';
+	// 		document.getElementById('comment-box_2').style.visibility = 'hidden';
+	// 	}
+		</script>
 	</body>
 </html>
