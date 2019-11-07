@@ -32,6 +32,8 @@
   /* right column only*/
   .column.side {
     width: 25%;
+    height: 95%;
+    overflow-y: scroll;
   }
 
 
