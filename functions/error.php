@@ -1,5 +1,4 @@
 <?php
-require ("header.php");
 
 function output_error(string $message, int $response_code = null)
 {

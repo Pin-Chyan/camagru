@@ -99,7 +99,7 @@ echo "\n\nget user_img test\n\n";
 echo get_userimg("CYKO")."\n";
 echo get_userimg("Shame")."\n";
 echo get_userimg("PC")."\n";
-// print_r(get_posts("1"));
+print_r(get_posts("1"));
 remove_user(2);
 remove_user(2);
 ?>
