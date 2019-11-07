@@ -77,10 +77,43 @@ try{
 }
 }
 
+function get_posts($index) {
+    $senpai = Call_onee_san();
+    $stmt = $senpai->prepare("SELECT 
+                        `id`,
+                        `users`.`username`,
+                        `up_date`
+                    FROM
+                        `gallery`
+                    INNER JOIN `users` ON `gallery`.`userid` = `users`.`id`
+                    ORDER BY 
+                        `up_date` DESC,
+                        `id` DESC
+                    LIMIT
+                        :limit1, :limit2
+                    ;");
+    $stmt->bindValue(':limit1', intval(($index - 1) * 5), PDO::PARAM_INT);
+    $stmt->bindValue(':limit2', 5, PDO::PARAM_INT);
+    if (!$stmt->execute())
+    {
+        $stmt = null;
+        print("BLEAK! brah");
+        exit;
+    }
+    if (!$return = $stmt->fetchAll(PDO::FETCH_ASSOC))
+    {
+        $stmt = null;
+        return (null);
+    }
+    return ($return);
+}
+
 function home_img($amm,$page_no,$class){
 try{
     $i = ($amm * ($page_no - 1)) + 1;
     $amm += $i;
+    $index = $page_no;
+    $posts = get_post($index);
     while ($i < $amm)
     {
         if (ver_img($i) == 0){
@@ -103,10 +136,17 @@ try{
             <label> Comment: <br>
                 <textarea name=\"Comment_$i\" class=\"Input comment-box\" required></textarea>
             </label>
-            <br />
-            <input type=\"submit\" name=\"Submit\" value=\"Submit Comment\" class=\"Submit\">
-        </div>";
-        }
+            <br />";
+            // foreach ($posts as $post) {
+            //     if ($post['username'] === $_SESSION['username']) {
+            //         print ("<form method='POST' action='api/posts'>
+            //                 <input type='hidden' name='galleryid' value=\"" . $post['id'] . "\" />
+            //                 <button type='submit' name='action' value='delete' class='delete'> Delete </button>
+            //                 </form>");
+            //         }
+            // }
+            }
+            echo "</div>";
         $i++;
     }
 } catch (PDOException $e) {

@@ -19,16 +19,27 @@
    <input type="submit" name="Submit" value="Submit" class="Submit">
 
   </form>
+  <form action="" method="POST">
 
- </body>
+   <label> Name: 
+    <input type="text" name="Name" class="Input" style="width: 225px" required>
+   </label>
+   <br><br>
+   <label> Comment: <br>
+    <textarea name="Comment" class="Input" style="width: 300px;" required></textarea>
+   </label>
+   <br><br>
+   <input type="submit" name="Submit" value="Submit" class="Submit">
+
+  </form>
+
+</body>
 
 </html>
 
 <?php
 
-// if($_POST['Submit']){
-
-   var_dump($_POST['Name']);
+if($_POST['Submit']){
 
     print "<h1>Your comment has been submitted!</h1>";
 
@@ -51,6 +62,6 @@
     echo "<br><br>Comments<hr>".fread($read, 1024);
     echo "\n".$Name;
     fclose($read);
-// }
+}
 
 ?>

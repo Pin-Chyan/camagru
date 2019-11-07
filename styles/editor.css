@@ -32,6 +32,8 @@
   /* right column only*/
   .column.side {
     width: 25%;
+    height: 95%;
+    overflow-y: scroll;
   }
 
 
@@ -42,11 +44,21 @@
     width: 75%;
   }  
 
-  .column.middle.canvas {
-    width: 60%;
-    margin-left: 7.5%;
-    margin-right: 7.5%;
+  .column.middle.block {
+    width: 80%;
+    height: 95%;
+    margin-left: 10%;
+    margin-right: 10%;
   }
+  
+  .column.middle.block.buttons {
+    width: 50%;
+    margin-left: 25%;
+    margin-right: 25%;
+    height: 30px;
+    background-color: white;
+  }
+
   /* end of middle column */
   
   /* Clear floats after the columns */
@@ -156,4 +168,17 @@
   right: 22px;
   font-size: 36px;
   margin-left: 200px;
+}
+
+
+.btn {
+  position: relative;
+  display: hidden;
+  /* margin-left: 25%; */
+  /* margin-right: 20%; */
+  border-radius: 5%;
+  /* width: 10% !important; */
+  padding: 6px;
+  background-color: white;
+  text-align: center;
 }
