@@ -1,3 +1,13 @@
+<?php
+require("header.php");
+session_start();
+if (!empty($_SESSION['user_id'])) {
+    $name = $_SESSION['user_id'];
+    $email = get_specific('email', 'users', 'username', $name);
+}
+?>
+
+
 <link rel="stylesheet" href="./styles/user_page.css">
 <!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> -->
 <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat"> -->
@@ -5,7 +15,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>CSS Template</title>
+		<title>Profile</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	</head>
@@ -28,14 +38,14 @@
 				</span>
 				<ul class="navbar-nav">
 					<li><a class= "over_def" href="home_html.html">Senpai Haven</a></li>
-					<li><a class= "over_right" href="user_page.html">User-Name</a></li>
-					<li><a class= "over_right_img" href="user_page.html"><img class= "over_image" src="https://i.pinimg.com/736x/32/d0/af/32d0afda44fb2dde8753844f9283cddc.jpg"></a></li>
+					<li><a class= "over_right" href="user_page.php">User-Name</a></li>
+					<li><a class= "over_right_img" href="user_page.php"><img class= "over_image" src="https://i.pinimg.com/736x/32/d0/af/32d0afda44fb2dde8753844f9283cddc.jpg"></a></li>
 				</ul>
 			</nav>
 			<div id="side-menu" class="side-nav">
 				<a href="#" class="btn-close" onclick="closeSlideMenu()">&times;</a>
-				<a href="home_html.html">Home</a>
-				<a href="user_page.html">Profile</a>
+				<a href="home_html.php">Home</a>
+				<a href="user_page.php">Profile</a>
 				<a href="editor.html">Editor</a>
 				<a href="login.html">Log-Out</a>
 			</div>
@@ -56,10 +66,17 @@
 						<div class="profile_title">Profile Information</div>
 						<div class="profile_image"><img class= "image_s" src="https://i.pinimg.com/736x/32/d0/af/32d0afda44fb2dde8753844f9283cddc.jpg"></div>
 						<div class="l_context">User-Name:</div>  
-						<div class="context">Asuna</div>
+						<div class="context"><?= $name ?></div>
 						<div class="l_context">E-Mail:</div>
-						<div class="context">Kirito&Asuna@gmail.com</div>  
+						<div class="context"><?= $email ?></div>  
 						<div class="profile_title">Edit-Details</div>
+						<div class="l_context">Change User-Name:</div>
+						<div class="context"><input type="TEXT" placeholder="new username" name="new_name"/><input type="SUBMIT" name="update_name" value="update"/></div>
+						<div class="l_context">Change E-Mail:</div>
+						<div class="context"><input type="TEXT" placeholder="new email" name="new_email"/><input type="SUBMIT" name="update_email" value="update"/></div>
+						<div class="l_context">Change Password:</div>
+						<div class="context"><input type="SUBMIT" value="reset password" name="reset_pass"/></div>
+						<div class="context"><div class="context"><input type="SUBMIT" value="delete account" name="delete"/></div></div>
 					</div>						  
 			</div>
 			<!-- <div class="column middle previous_works">Own Posts</div>
@@ -67,7 +84,7 @@
 			<div class="column middle subtitle">Title Description, DATE</div>
 			<img class="column middle image" src="https://i.pinimg.com/736x/32/d0/af/32d0afda44fb2dde8753844f9283cddc.jpg">
 			<div class="column middle icons">
-				<a class="icons">
+			<a class="icons">
 					<i class="fa fa-thumbs-up w3-hover-opacity"></i>
 					<i class="fa fa-comments w3-hover-opacity" onclick="openDropComment()"></i>
 				</a>
@@ -108,14 +125,14 @@
 		function closeSlideMenu() {
 			document.getElementById('side-menu').style.width = '0';
 		}
-		function openDropComment() {
-			document.getElementById('comment-box').style.height = 'auto';
-			document.getElementById('comment-box').style.visibility = 'visible';
-		}
-		function openCloseComment() {
-			document.getElementById('comment-box').style.height = '0';
-			document.getElementById('comment-box').style.visibility = 'hidden';
-		}
+		// function openDropComment() {
+		// 	document.getElementById('comment-box').style.height = 'auto';
+		// 	document.getElementById('comment-box').style.visibility = 'visible';
+		// }
+		// function openCloseComment() {
+		// 	document.getElementById('comment-box').style.height = '0';
+		// 	document.getElementById('comment-box').style.visibility = 'hidden';
+		// }
 
 		// function CommentOP () {
 		// 	openDropComment();
@@ -132,14 +149,14 @@
 		// }
 		
 
-		function openDropComment_2() {
-			document.getElementById('comment-box_2').style.height = 'auto';
-			document.getElementById('comment-box_2').style.visibility = 'visible';
-		}
-		function openCloseComment_2() {
-			document.getElementById('comment-box_2').style.height = '0';
-			document.getElementById('comment-box_2').style.visibility = 'hidden';
-		}
-	</script>
+	// 	function openDropComment_2() {
+	// 		document.getElementById('comment-box_2').style.height = 'auto';
+	// 		document.getElementById('comment-box_2').style.visibility = 'visible';
+	// 	}
+	// 	function openCloseComment_2() {
+	// 		document.getElementById('comment-box_2').style.height = '0';
+	// 		document.getElementById('comment-box_2').style.visibility = 'hidden';
+	// 	}
+		</script>
 	</body>
 </html>

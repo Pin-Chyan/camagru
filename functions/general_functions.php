@@ -43,14 +43,19 @@ try {
 	$sth->closeCursor();
 	return (0);
 } catch (PDOException $e) {
-	echo "failed to find specific\n";
+	echo "failed to find specific $e\n";
 }
 }
 function delete_specific($table, $column, $value){
+try{
 	$senpai = Call_onee_san();
 	$sth = $senpai->prepare("DELETE FROM $table WHERE $column=$value");
 	$sth->execute();
 	$sth->closeCursor();
+}
+catch (PDOException $e) {
+	echo "failed to delete specific $e\n";
+}
 }
 ?>
 

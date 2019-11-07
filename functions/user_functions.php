@@ -31,4 +31,13 @@ try {
 	echo "failed to add user: ".$e->getMessage()."\n";
 }
 }
+
+function remove_user($id){
+	try{
+		delete_specific("users", "id", $id);
+	}
+	catch (PDOException $e){
+		echo "unable to remove user $e\n";
+	}
+}
 ?>

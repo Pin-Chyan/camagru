@@ -96,5 +96,10 @@ echo "\n\nget user_img test\n\n";
 echo get_userimg("CYKO")."\n";
 echo get_userimg("Shame")."\n";
 echo get_userimg("PC")."\n";
+<<<<<<< HEAD
 print_r(get_posts("1"));
+=======
+remove_user(2);
+remove_user(2);
+>>>>>>> 38af0db8d68bdfc28f406093ee4952b4d4fab3eb
 ?>

@@ -9,6 +9,11 @@
     background-color:#1A1A1A;
   }
   
+  .webcam {
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+  }
+
   /* Style the header */
   /* .header {
     background-color: #f1f1f1;
@@ -32,6 +37,8 @@
   /* right column only*/
   .column.side {
     width: 25%;
+    height: 95%;
+    overflow-y: scroll;
   }
 
 
@@ -42,11 +49,23 @@
     width: 75%;
   }  
 
-  .column.middle.canvas {
-    width: 60%;
-    margin-left: 7.5%;
-    margin-right: 7.5%;
+  .column.middle.block {
+    width: 80%;
+    height: 95%;
+    margin-left: 10%;
+    margin-right: 10%;
   }
+  
+  .column.middle.block.buttons {
+    width: 50%;
+    margin-left: 25%;
+    margin-right: 25%;
+    text-align: center;
+    height: 30px;
+    padding: 10px;
+    /* background-color: white; */
+  }
+
   /* end of middle column */
   
   /* Clear floats after the columns */
@@ -65,7 +84,7 @@
   
   /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
   @media (max-width: 600px) {
-    .column.side, .column.middle {
+    .column.middle, .column.side {
       width: 100%;
     }
   }
@@ -156,4 +175,17 @@
   right: 22px;
   font-size: 36px;
   margin-left: 200px;
+}
+
+
+.btn {
+  position: relative;
+  display: hidden;
+  /* margin-left: 25%; */
+  /* margin-right: 20%; */
+  border-radius: 5%;
+  /* width: 10% !important; */
+  padding: 6px;
+  background-color: white;
+  text-align: center;
 }
