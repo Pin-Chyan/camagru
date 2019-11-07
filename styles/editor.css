@@ -9,6 +9,11 @@
     background-color:#1A1A1A;
   }
   
+  .webcam {
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+  }
+
   /* Style the header */
   /* .header {
     background-color: #f1f1f1;
@@ -32,6 +37,8 @@
   /* right column only*/
   .column.side {
     width: 25%;
+    height: 95%;
+    overflow-y: scroll;
   }
 
 
@@ -53,8 +60,10 @@
     width: 50%;
     margin-left: 25%;
     margin-right: 25%;
+    text-align: center;
     height: 30px;
-    background-color: white;
+    padding: 10px;
+    /* background-color: white; */
   }
 
   /* end of middle column */
@@ -75,7 +84,7 @@
   
   /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
   @media (max-width: 600px) {
-    .column.side, .column.middle {
+    .column.middle, .column.side {
       width: 100%;
     }
   }
