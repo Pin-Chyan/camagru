@@ -10,8 +10,8 @@ function sesh(){
 	else{
 		$name = $_SESSION['user_id'];
 		$img = get_userimg($_SESSION['user_id']);
-		echo "<li><a class= \"over_right\" href=\"user_page.html\">$name</a></li>";
-		echo "<li><a class= \"over_right_img\" href=\"user_page.html\"><img class= \"over_image\" $img\"></a></li>";
+		echo "<li><a class= \"over_right\" href=\"user_page.php\">$name</a></li>";
+		echo "<li><a class= \"over_right_img\" href=\"user_page.php\"><img class= \"over_image\" $img\"></a></li>";
 	
 	}
 }
@@ -52,7 +52,7 @@ function sesh(){
 			<div id="side-menu" class="side-nav">
 				<a href="#" class="btn-close" onclick="closeSlideMenu()">&times;</a>
 				<a href="home_html.php">Home</a>
-				<a href="user_page.html">Profile</a>
+				<a href="user_page.php">Profile</a>
 				<a href="editor.html">Editor</a>
 				<a href="login/logout.php">Log-Out</a>
 			</div>
