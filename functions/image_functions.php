@@ -136,7 +136,11 @@ try{
             <label> Comment: <br>
                 <textarea name=\"Comment_$i\" class=\"Input comment-box\" required></textarea>
             </label>
-            <br />";
+            <br />
+            <form method='POST' action='api/like_api.php'>
+            <input type='hidden' name='like' value=\"" . $i . "\" />
+            <button type='submit' name='action' value='like' class='delete'> Delete </button>
+            </form>";
             // foreach ($posts as $post) {
             //     if ($post['username'] === $_SESSION['username']) {
             //         print ("<form method='POST' action='api/posts'>
