@@ -14,6 +14,7 @@ upload_img("4","images/Kirito.jpg","gallery");
 upload_img("1","https://i.pinimg.com/736x/32/d0/af/32d0afda44fb2dde8753844f9283cddc.jpg","gallery");
 upload_img("4","images/Kirito.jpg","gallery");
 upload_img("4","images/senpai.jpeg","gallery");
+upload_img("2","images/Kirito.jpg","gallery");
 //upload_img("4","https://www.google.com/imgres?imgurl=https%3A%2F%2Fcdn.vox-cdn.com%2Fthumbor%2FPdZbmB57vB9M-oFxApdoaI3oPF0%3D%2F0x0%3A1920x1080%2F1200x800%2Ffilters%3Afocal(807x387%3A1113x693)%2Fcdn.vox-cdn.com%2Fuploads%2Fchorus_image%2Fimage%2F65162399%2Fply0947_fall_reviews_2019_tv_anime.0.jpg&imgrefurl=https%3A%2F%2Fwww.polygon.com%2F2019%2F9%2F3%2F20829817%2Ffall-2019-anime-season-preview-my-hero-academia-food-wars-psycho-pass&docid=iU5a_lH4UwfQTM&tbnid=6icyNnlu5kdGOM%3A&vet=10ahUKEwjrwrG08MHlAhVnUhUIHQA4AiIQMwh5KAEwAQ..i&w=1200&h=800&bih=1257&biw=2560&q=anime&ved=0ahUKEwjrwrG08MHlAhVnUhUIHQA4AiIQMwh5KAEwAQ&iact=mrc&uact=8");
 //upload_img("4","https://www.google.com/imgres?imgurl=https%3A%2F%2Fwww.sbs.com.au%2Fpopasia%2Fsites%2Fsbs.com.au.popasia%2Ffiles%2Fstyles%2Ffull%2Fpublic%2Fyour-name-3.jpg%3Fitok%3DWmmaGvg9%26mtime%3D1507775696&imgrefurl=https%3A%2F%2Fwww.sbs.com.au%2Fpopasia%2Fblog%2F2017%2F10%2F12%2Fvotes-are-top-100-greatest-anime-all-time-voted-you&docid=YODnBi8zvHwVqM&tbnid=tcfgCLJ6ZFyC6M%3A&vet=10ahUKEwjrwrG08MHlAhVnUhUIHQA4AiIQMwibASgWMBY..i&w=704&h=396&bih=1257&biw=2560&q=anime&ved=0ahUKEwjrwrG08MHlAhVnUhUIHQA4AiIQMwibASgWMBY&iact=mrc&uact=8");
 echo "\nadd comment\n\n";
@@ -95,4 +96,5 @@ echo "\n\nget user_img test\n\n";
 echo get_userimg("CYKO")."\n";
 echo get_userimg("Shame")."\n";
 echo get_userimg("PC")."\n";
+print_r(get_posts("1"));
 ?>
