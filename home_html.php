@@ -14,6 +14,7 @@ function sesh(){
 		echo "<li><a class= \"over_right_img\" href=\"user_page.php\"><img class= \"over_image\" $img\"></a></li>";
 	
 	}
+
 }
 ?>
 <link rel="stylesheet" href="./styles/test.css">

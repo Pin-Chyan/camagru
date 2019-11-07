@@ -3,7 +3,35 @@ require("header.php");
 session_start();
 if (!empty($_SESSION['user_id'])) {
     $name = $_SESSION['user_id'];
-    $email = get_specific('email', 'users', 'username', $name);
+	$email = get_specific('email', 'users', 'username', $name);
+} else {
+	header('location: http://localhost:8080/camagru/login/login.php');
+}
+
+if(array_key_exists('submit_name', $_POST)) {
+	update_name($name, $_POST['new_name']);
+}
+
+if(array_key_exists('reset_pass', $_POST)) {
+	$vkey = get_specific('vkey', 'users', 'username', $name);
+	header("location: http://localhost:8080/camagru/login/reset_pass.php?vkey=$vkey");
+}
+
+if(array_key_exists('submit_email', $_POST)) {
+	update_email($name,$email, $_POST['new_email']);
+}
+
+function update_name(&$curr_name, $new_name) {
+	$id = get_specific('id', "users", 'username', $curr_name);
+	$curr_name = $new_name;
+	$_SESSION['user_id'] = $curr_name;
+	update_specific("username", $new_name, "users", 'id', $id);
+}
+
+function update_email($name, &$curr_email, $new_email) {
+	$id = get_specific('id', "users", 'username', $name);
+	$curr_email = $new_email;
+	update_specific("email", $new_email, "users", 'id', $id);
 }
 ?>
 
@@ -71,12 +99,12 @@ if (!empty($_SESSION['user_id'])) {
 						<div class="context"><?= $email ?></div>  
 						<div class="profile_title">Edit-Details</div>
 						<div class="l_context">Change User-Name:</div>
-						<div class="context"><input type="TEXT" placeholder="new username" name="new_name"/><input type="SUBMIT" name="update_name" value="update"/></div>
+						<div class="context"><form action="" method="POST"><input type="TEXT" placeholder="new username" name="new_name" required/><input type="SUBMIT" name="submit_name" value="update"/></div></form>
 						<div class="l_context">Change E-Mail:</div>
-						<div class="context"><input type="TEXT" placeholder="new email" name="new_email"/><input type="SUBMIT" name="update_email" value="update"/></div>
+						<div class="context"><form action="" method="POST"><input type="EMAIL" placeholder="new email" name="new_email" required/><input action="" method='POST' type="SUBMIT" name="submit_email" value="update"/></div></form>
 						<div class="l_context">Change Password:</div>
-						<div class="context"><input type="SUBMIT" value="reset password" name="reset_pass"/></div>
-						<div class="context"><div class="context"><input type="SUBMIT" value="delete account" name="delete"/></div></div>
+						<div class="context"><form action="" method="POST"><input type="SUBMIT" value="reset password" name="reset_pass"/></div></form>
+						<div class="context"><div class="context"><input action="" method='POST' type="SUBMIT" value="delete account" name="delete"/></div></div>
 					</div>						  
 			</div>
 			<!-- <div class="column middle previous_works">Own Posts</div>

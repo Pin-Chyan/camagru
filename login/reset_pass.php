@@ -24,7 +24,7 @@ if(isset($_GET['vkey'])) {
             echo "Please verify your account first";
         }
     } else {
-        echo "Link isn't valid anymore";
+        echo "Link isn't valid anymore ".$GET['vkey'];
     }
 } else {
     header('location: forgot_password.php');
