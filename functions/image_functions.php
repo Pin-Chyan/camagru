@@ -113,7 +113,7 @@ try{
     $i = ($amm * ($page_no - 1)) + 1;
     $amm += $i;
     $index = $page_no;
-    $posts = get_post($index);
+    // $posts = get_post($index);
     while ($i < $amm)
     {
         if (ver_img($i) == 0){
