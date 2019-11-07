@@ -1,6 +1,6 @@
 <?php
 session_start();
-require("header.php");
+require_once("header.php");
 if (!$_GET['page'])
 	header("Location: http://localhost:8080/camagru/home_html.php?page=1");
 // session_start();

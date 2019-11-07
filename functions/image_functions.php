@@ -141,11 +141,11 @@ try{
                 <textarea name=\"Comment_$i\" class=\"Input comment-box\" required></textarea>
             </label>";
             foreach ($posts as $post) {
-                if ($post['username'] == $_SESSION['user_id']) {
-                    print ("<form method='POST' action='functions/post.php'>
-                    <input type='hidden' name='galleryid' value=\"" . $post['id'] . "\" />
-                    <button type='submit' name='action' value='delete' class='delete'> Delete </button>
-                    </form>");
+                if ($post['username'] === $_SESSION['user_id']) {
+                    print ("<form method='POST' action='api/posts.php'>");
+                    print ("<input type='hidden' name='galleryid' value=\"" . $post['id'] . "\" />");
+                    print ("<button type='submit' name='action' value='delete' class='delete'>\"" . $post['id'] . "\"</button>");
+                    print ("</form>");
                 }
             }
         }
