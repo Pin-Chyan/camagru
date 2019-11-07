@@ -10,8 +10,8 @@ function sesh(){
 	else{
 		$name = $_SESSION['user_id'];
 		$img = get_userimg($_SESSION['user_id']);
-		echo "<li><a class= \"over_right\" href=\"user_page.html\">$name</a></li>";
-		echo "<li><a class= \"over_right_img\" href=\"user_page.html\"><img class= \"over_image\" $img\"></a></li>";
+		echo "<li><a class= \"over_right\" href=\"user_page.php\">$name</a></li>";
+		echo "<li><a class= \"over_right_img\" href=\"user_page.php\"><img class= \"over_image\" $img\"></a></li>";
 	
 	}
 }
