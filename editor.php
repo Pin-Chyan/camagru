@@ -27,17 +27,17 @@
 				</a>	
 			</span>	
 			<ul class="navbar-nav">
-					<li><a class= "over_def" href="home_html.html">Senpai Haven</a></li>
-					<li><a class= "over_right" href="user_page.html">User-Name</a></li>
-					<li><a class= "over_right_img" href="user_page.html"><img class= "over_image" src="https://i.pinimg.com/736x/32/d0/af/32d0afda44fb2dde8753844f9283cddc.jpg"></a></li>
+					<li><a class= "over_def" href="home_html.php">Senpai Haven</a></li>
+					<li><a class= "over_right" href="user_page.php">User-Name</a></li>
+					<li><a class= "over_right_img" href="user_page.php"><img class= "over_image" src="https://i.pinimg.com/736x/32/d0/af/32d0afda44fb2dde8753844f9283cddc.jpg"></a></li>
 				</ul>	
 			</nav>	
 			<div id="side-menu" class="side-nav">
 				<a href="#" class="btn-close" onclick="closeSlideMenu()">&times;</a>
-				<a href="home_html.html">Home</a>
-				<a href="user_page.html">Profile</a>
-				<a href="#">Editor</a>
-				<a href="login.html">Log-Out</a>
+				<a href="home_html.php">Home</a>
+				<a href="user_page.php">Profile</a>
+				<a href="editor.php">Editor</a>
+				<a href="login.php">Log-Out</a>
 			</div>	
 			<!-- </div> -->		
 			

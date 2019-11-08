@@ -50,7 +50,7 @@
         </div>
 <center>
     <?php
-        echo $error;
+        echo "<h2 style='color:white; background-color:red; width: 10%; font-size: 20;'>".$error."</h2>";
     ?>
 </center>
 </body>

@@ -14,6 +14,7 @@ function sesh(){
 		echo "<li><a class= \"over_right_img\" href=\"user_page.php\"><img class= \"over_image\" $img\"></a></li>";
 	
 	}
+
 }
 $imgamm = 5;
 ?>
@@ -54,7 +55,7 @@ $imgamm = 5;
 				<a href="#" class="btn-close" onclick="closeSlideMenu()">&times;</a>
 				<a href="home_html.php">Home</a>
 				<a href="user_page.php">Profile</a>
-				<a href="editor.html">Editor</a>
+				<a href="editor.php">Editor</a>
 				<a href="login/logout.php">Log-Out</a>
 			</div>
 	<!-- </div> -->
@@ -73,7 +74,7 @@ $imgamm = 5;
 				<button id="prev" class="btn" onclick="page_p()">prev</button>
 				<a class="display"><?php echo $_GET['page'];?></a>
 				<button id="next" class="btn" onclick="page_n()">next</button>
-				<button id="prev" class="btn" onclick="ajaxtest()">ajaxtest</button>
+				<button id="test" class="btn" onclick="ajaxtest(this.id)"> ajax button test2 </button>
 			</div>	
 		</div>
 		<!-- middle end -->
@@ -96,6 +97,7 @@ $imgamm = 5;
 			<i class="fa fa-linkedin w3-hover-opacity"></i>
 	</div>
 	<script>
+<<<<<<< HEAD
 		function Delete_post(str) {
 		    if (str == "") {
 		        document.getElementById("txtHint").innerHTML = "";
@@ -121,8 +123,12 @@ $imgamm = 5;
 	<script>
 		function ajaxtest(){
 			$usrname = $_GET['userid'];
+=======
+		function ajaxtest(str){
+			//usrname = $_GET['userid'];
+>>>>>>> e66b82341ca40558567069be04050b8865810dfe
 			xhttp = new XMLHttpRequest();
-  			xhttp.open("POST", "test.php?username=CYKO", true);
+  			xhttp.open("GET", "api/test.php?username=CYKO&id="+str, true);
   			xhttp.send();  
 		}
 	</script>

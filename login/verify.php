@@ -1,6 +1,7 @@
+
 <?php
 require("../header.php");
-
+$msg = NULL;
 if(isset($_GET['vkey'])) {
     $vkey = $_GET['vkey'];
 
@@ -10,10 +11,10 @@ if(isset($_GET['vkey'])) {
         $id = get_specific('id', "users", 'vkey', $vkey);
         update_specific("verified", 1, "users", 'id', $id);
         //update_specific("vkey", $new_key, "users", 'id', $id);
-        echo "User validated";
+        $msg = "User validated";
         
     } else {
-        echo "Link invalid isn't valid anymore";
+        $msg = "Link invalid isn't valid anymore";
     }
 } else {
     die("you did something wrong stupid");
@@ -22,8 +23,17 @@ if(isset($_GET['vkey'])) {
 <html>
 <head>
     <title>verify</title>
+    <html lang="en">
+    <link rel="stylesheet" href="../styles/login.css">
+    <meta charset="UTF-8">
+    <link href="styles/custom.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-
 </body>
+<center>
+    <?php
+        echo "<h2 style='color:white; background-color:brown; width: 10%; font-size: 20;'>".$msg."</h2>";
+        echo "<a href='login.php'>Click here to return to login page</a>";
+    ?>
+</center>
 </html>

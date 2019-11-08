@@ -1,21 +1,20 @@
 <?php
 require("../header.php");
-
+$error = NULL;
 if (isset($_POST['submit'])) {
     $u = $_POST['usr_name'];
     $p = $_POST['pwd'];
     $p2 = $_POST['pwd2'];
     $e = $_POST['email'];
 
-    if (strlen($p) < 5)
-        echo "<script type='text/javascript'>alert('Password is too short')</script>";
-    else if ($p2 != $p)
-        echo "<script type='text/javascript'>alert(\"Password don't match\")</script>";
+    if ($p2 != $p)
+        $error = "Password don't match";
+    else if (strongPassword($p, $error) == 0);
     else {
-        if (find_specific($u, "username", "users")) {
-            echo "<script type='text/javascript'>alert('Username has been taken')</script>";
+        if (find_specific($u, "username", "users") == 1) {
+            $error = "Username has been taken";
         } else if (find_specific($e, "email", "users")) {
-            echo "<script type='text/javascript'>alert('Email already in use')</script>";
+            $error = "Email already in use";
         } else {
             $dir = $_SERVER['PHP_SELF'];
             $len = strrpos($dir, "register.php");
@@ -45,6 +44,26 @@ if (isset($_POST['submit'])) {
     }
     
 }
+
+function strongPassword($pwd, &$error) {
+
+    if (strlen($pwd) < 5) {
+        $error = "Password must be at least 5 characters long!";
+        return 0;
+    }
+
+    if (!preg_match("#[0-9]+#", $pwd)) {
+        $error = "Password must include at least one number!";
+        return 0;
+    }
+
+    if (!preg_match("#[A-Z]+#", $pwd)) {
+        $error = "Password must include at least one uppercase letter!";
+        return 0;
+    }
+    return 1;
+}
+
 ?>
 
 <link rel="stylesheet" href="../styles/login.css">
@@ -105,5 +124,10 @@ if (isset($_POST['submit'])) {
                     document.getElementById('side-menu').style.width = '0';
                 }
         </script>
-	</body>
+    </body>
+<center>
+    <?php
+        echo "<h2 style='color:white; background-color:red; width: 10%; font-size: 20;'>".$error."</h2>";
+    ?>
+</center>
 </html>
