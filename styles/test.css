@@ -5,8 +5,15 @@
   }
   
   body {
-    font-family: Arial, Helvetica, sans-serif;
-    background-color:#1A1A1A;
+    /* background: url(https://images.alphacoders.com/105/thumb-1920-1050187.jpg) no-repeat center center fixed; */
+    background: url(https://images4.alphacoders.com/102/thumb-1920-1029784.jpg) no-repeat center center fixed;
+    -moz-osx-font-smoothing: grayscale;  
+    -webkit-font-smoothing: antialiased;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;    
+    font-family: "Roboto", sans-serif;
   }
   
   /* Style the header */
@@ -28,6 +35,7 @@
     float: left;
     /* height: 1000px; Should be removed. Only for demonstration */
   }
+
   
   /* Left and right column */
   .column.side {
@@ -98,8 +106,21 @@
   /* end of right column */
   
   /* Middle column */
-  .column.middle {
+  .column.middle.c {
     width: 50%;
+    height: 91%;
+    overflow: scroll;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;  /* IE 10+ */
+    overflow-y:scroll;
+    overflow-x:hidden;
+    -ms-overflow-style: none;
+    overflow: -moz-scrollbars-none; 
+    /* visibility: hidden; */
+  }
+
+  .column.middle.c::-webkit-scrollbar {
+    display: none;
   }
   
   /* Middle column title */
@@ -113,10 +134,13 @@
     text-align: center !important;
     margin-left: 15%;
     margin-right: 15%;
+    color: white;
+    overflow: unset !important;
   }
   
   /* Middle column sub title */
   .column.middle.subtitle {
+    color: white;
     padding-bottom: 10px;
     margin: 0 auto;
     width: 70%;
@@ -126,6 +150,7 @@
     text-align: center !important;
     margin-left: 15%;
     margin-right: 15%;
+    overflow: unset !important;
   }
   
   /* Middle column image */
@@ -136,6 +161,7 @@
     margin-left: 15%;
     margin-right: 15%;
     width: 70%;
+    overflow: unset !important;
   }
   
   /* Middle column text */
@@ -160,6 +186,7 @@
     margin-left: 77%;
     margin-right: 10%;
     display: block;
+    overflow: unset !important;
   }
   
   .icons {
@@ -177,6 +204,7 @@
     margin-right: 15%;
     text-align: center;
     /* background-color: white; */
+    overflow: unset !important;
   }
 
   .column.middle.pager {
@@ -189,6 +217,7 @@
     text-align: center !important;
     margin-left: 15%;
     margin-right: 15%;
+    overflow: unset !important;
   }
 
   .btn {
@@ -233,13 +262,16 @@
   
   /* Style the footer */
   .footer {
-    background-color: #f1f1f1;
+    /* background-color: #f1f1f1; */
+    /* opacity: 0.6; */
+    color: white;
     padding: 10px;
     text-align: center;
+    overflow: hidden;
   }
   
   /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
-  @media (max-width: 600px) {
+  @media (max-width: 100px) {
       .column.side, .column.middle {
       width: 100%;
     }
@@ -247,7 +279,8 @@
   
   
   .navbar {
-  background-color: lightgrey;
+  /* background-color: lightgrey; */
+  /* opacity: ; */
   overflow: hidden;
   /* height: 3.5vw; */
   }
@@ -265,6 +298,7 @@
   .over_right {
   padding: 14px 8px !important;
   float: right !important;
+  color: white !important;
   }
   
   .over_right_img {
@@ -275,7 +309,7 @@
   .over_def {
   padding: 10px 8px !important;
   font-size: 22px !important;
-  background-color: lightgrey !important;
+  color: lightgrey !important;
   color: #000;
   }
   
@@ -294,7 +328,8 @@
   }
   
   .navbar a:hover {
-  background-color: lightgrey;
+  /* background-color: lightgrey; */
+  opacity: 0.5;
   color: #000;
   }
   
@@ -343,8 +378,8 @@
   }
   
   .comment-box {
-  width: 300px;
-  max-width: 600px;
+  width: 200px;
+  max-width: 400px;
   height: 50px ;
-  max-height: 100px;
+  max-height: 70px;
   }
