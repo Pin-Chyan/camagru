@@ -48,7 +48,7 @@
 				<div class="column middle block">
 							
 					<!-- Stream video via webcam -->
-					<div class="video-wrap webcam" style="text-align: center;">
+					<div class="video-wrap webcam">
 						<video id = "video" playsinline autoplay></video>
 					</div>
 			
@@ -58,11 +58,12 @@
 					</div>
 				
 					<!-- Webcam video snapshot -->
-					<canvas id="canvas" width="680px" height="480px" style="text-align: center !important;"></canvas>
+						<canvas id="canvas" width="680px" height="480px"></canvas>
 				
 					<button id="miku">miku</button>
 					<button id="naruto">naruto</button>
 					<button id="sao">sao</button>
+					<button id="guilty">guilty</button>
 
 					<div class="column middle block buttons">
 						<button id="webcam" class="btn" >webcam</button>
@@ -277,6 +278,13 @@ Ivan shruged his shuolders contemptuosly, and turning away stared at the road. A
 			drawing.src = "sao.png" 
 			// context.drawImage(video, 0, 0, 640, 480);
 			context.drawImage(drawing,320,240, 320, 240);
+		});
+
+		guilty.addEventListener("click",function(){
+			drawing = new Image() 
+			drawing.src = "guilty.png" 
+			// context.drawImage(video, 0, 0, 640, 480);
+			context.drawImage(drawing, 0, 240, 640, 240);
 		});
 
 
