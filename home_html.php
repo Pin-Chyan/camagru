@@ -68,7 +68,7 @@ $imgamm = 5;
 		
 		<!-- middle -->
 		<?php pager_images($imgamm,$_GET['page']);?>
-			<br \>
+		<br \>
 			<div class="column middle pager">
 				<button id="prev" class="btn" onclick="page_p()">prev</button>
 				<a class="display"><?php echo $_GET['page'];?></a>
@@ -95,6 +95,29 @@ $imgamm = 5;
 			<i class="fa fa-twitter w3-hover-opacity"></i>
 			<i class="fa fa-linkedin w3-hover-opacity"></i>
 	</div>
+	<script>
+		function Delete_post(str) {
+		    if (str == "") {
+		        document.getElementById("txtHint").innerHTML = "";
+		        return;
+		    } else {
+		        if (window.XMLHttpRequest) {
+		            // code for IE7+, Firefox, Chrome, Opera, Safari
+		            xmlhttp = new XMLHttpRequest();
+		        } else {
+		            // code for IE6, IE5
+		            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+		        }
+		        xmlhttp.onreadystatechange = function() {
+		            if (this.readyState == 4 && this.status == 200) {
+		                document.getElementById("txtHint").innerHTML = this.responseText;
+		            }
+		        };
+		        xmlhttp.open("GET","api/posts.php?action='delete'&id="+str,true);
+		        xmlhttp.send();
+		    }
+		}
+	</script>
 	<script>
 		function ajaxtest(){
 			$usrname = $_GET['userid'];
