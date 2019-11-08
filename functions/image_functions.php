@@ -121,7 +121,9 @@ try{
     while ($i < $amm)
     {
         if (ver_img($i) == 0){
-            return (0);
+            $amm++;
+            $i++;
+            continue;
         }
         else{
         $img = retrieve_img($i); 

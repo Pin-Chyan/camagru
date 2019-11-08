@@ -23,7 +23,6 @@ if (isset($_POST['submit'])) {
             $page_dir = $_SERVER['HTTP_HOST'].$reg_dir;
             add_user($u, $e, $display, $p);
             $vkey = get_specific("vkey", "users", "username", $u);
-            echo $vkey;
             $subject = "Email Verification";
             $msg = "
             <html>
