@@ -48,6 +48,8 @@ function update_email($name, &$curr_email, $new_email) {
 	$curr_email = $new_email;
 	update_specific("email", $new_email, "users", 'id', $id);
 }
+
+
 ?>
 
 
