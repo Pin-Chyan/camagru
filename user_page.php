@@ -3,8 +3,53 @@ require("header.php");
 session_start();
 if (!empty($_SESSION['user_id'])) {
     $name = $_SESSION['user_id'];
-    $email = get_specific('email', 'users', 'username', $name);
+	$email = get_specific('email', 'users', 'username', $name);
+	$img = get_userimg($_SESSION['user_id']);
+	$pref = 1;
+} else {
+	header('location: http://localhost:8080/camagru/login/login.php');
 }
+
+if(array_key_exists('submit_name', $_POST)) {
+	update_name($name, $_POST['new_name']);
+}
+
+if(array_key_exists('reset_pass', $_POST)) {
+	$vkey = get_specific('vkey', 'users', 'username', $name);
+	header("location: http://localhost:8080/camagru/login/reset_pass.php?vkey=$vkey");
+}
+
+if(array_key_exists('submit_pic', $_POST)) {
+	if (getimagesize($_FILES['imagefile']['tmp_name']) == false) {
+		echo "</br >Image Plz";
+	} else {
+		$image = $_FILES['imagefile']['tmp_name'];
+		if (isset($_SESSION['user_id'])) {
+			$id = $_SESSION['user_id'];
+			upload_img($id , $image, "users");
+			header("Refresh:0");
+		}
+	}
+}
+
+if(array_key_exists('submit_email', $_POST)) {
+	update_email($name,$email, $_POST['new_email']);
+}
+
+function update_name(&$curr_name, $new_name) {
+	$id = get_specific('id', "users", 'username', $curr_name);
+	$curr_name = $new_name;
+	$_SESSION['user_id'] = $curr_name;
+	update_specific("username", $new_name, "users", 'id', $id);
+}
+
+function update_email($name, &$curr_email, $new_email) {
+	$id = get_specific('id', "users", 'username', $name);
+	$curr_email = $new_email;
+	update_specific("email", $new_email, "users", 'id', $id);
+}
+
+
 ?>
 
 
@@ -38,8 +83,8 @@ if (!empty($_SESSION['user_id'])) {
 				</span>
 				<ul class="navbar-nav">
 					<li><a class= "over_def" href="home_html.html">Senpai Haven</a></li>
-					<li><a class= "over_right" href="user_page.php">User-Name</a></li>
-					<li><a class= "over_right_img" href="user_page.php"><img class= "over_image" src="https://i.pinimg.com/736x/32/d0/af/32d0afda44fb2dde8753844f9283cddc.jpg"></a></li>
+					<li><a class= "over_right" href="user_page.php"><?= $name?></a></li>
+					<li><a class= "over_right_img" href="user_page.php"><img class= "over_image" <?= $img?>></a></li>
 				</ul>
 			</nav>
 			<div id="side-menu" class="side-nav">
@@ -64,19 +109,23 @@ if (!empty($_SESSION['user_id'])) {
 				<br \>
 					<div class="grid-container">
 						<div class="profile_title">Profile Information</div>
-						<div class="profile_image"><img class= "image_s" src="https://i.pinimg.com/736x/32/d0/af/32d0afda44fb2dde8753844f9283cddc.jpg"></div>
+						<div class="profile_image"><img class= "image_s" <?= $img?>></div>
 						<div class="l_context">User-Name:</div>  
 						<div class="context"><?= $name ?></div>
 						<div class="l_context">E-Mail:</div>
 						<div class="context"><?= $email ?></div>  
 						<div class="profile_title">Edit-Details</div>
 						<div class="l_context">Change User-Name:</div>
-						<div class="context"><input type="TEXT" placeholder="new username" name="new_name"/><input type="SUBMIT" name="update_name" value="update"/></div>
+						<div class="context"><form action="" method="POST"><input type="TEXT" placeholder="new username" name="new_name" required/><input type="SUBMIT" name="submit_name" value="update"/></div></form>
 						<div class="l_context">Change E-Mail:</div>
-						<div class="context"><input type="TEXT" placeholder="new email" name="new_email"/><input type="SUBMIT" name="update_email" value="update"/></div>
+						<div class="context"><form action="" method="POST"><input type="EMAIL" placeholder="new email" name="new_email" required/><input action="" method='POST' type="SUBMIT" name="submit_email" value="update"/></div></form>
 						<div class="l_context">Change Password:</div>
-						<div class="context"><input type="SUBMIT" value="reset password" name="reset_pass"/></div>
-						<div class="context"><div class="context"><input type="SUBMIT" value="delete account" name="delete"/></div></div>
+						<div class="context"><form action="" method="POST"><input type="SUBMIT" value="reset password" name="reset_pass"/></div></form>
+						<div class="l_context">Change Profile Picture:</div>
+						<div class="context"><form action="" method="POST" enctype="multipart/form-data"><input type="file" name="imagefile" required><input type="submit" name="submit_pic" value="upload"></div></form>
+						<div class="l_context">Send Notification Emails:</div>
+						<div class="context"><form action="" method="POST"><input type="radio" name="send_mail" value="yes" <?php echo ($pref)?'checked':'' ?>>Yes  <input type="radio" name="send_mail" value="no" <?php echo !($pref)?'checked':'' ?>>No</div></form>
+
 					</div>						  
 			</div>
 			<!-- <div class="column middle previous_works">Own Posts</div>

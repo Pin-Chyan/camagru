@@ -14,10 +14,11 @@ function sesh(){
 		echo "<li><a class= \"over_right_img\" href=\"user_page.php\"><img class= \"over_image\" $img\"></a></li>";
 	
 	}
+
 }
 $imgamm = 5;
 ?>
-<link rel="stylesheet" href="./styles/test.css">
+<link rel="stylesheet" href="./styles/test1.css">
 <!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> -->
 <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat"> -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -73,6 +74,7 @@ $imgamm = 5;
 				<button id="prev" class="btn" onclick="page_p()">prev</button>
 				<a class="display"><?php echo $_GET['page'];?></a>
 				<button id="next" class="btn" onclick="page_n()">next</button>
+				<button id="prev" class="btn" onclick="ajaxtest()">ajaxtest</button>
 			</div>	
 		</div>
 		<!-- middle end -->
@@ -94,6 +96,14 @@ $imgamm = 5;
 			<i class="fa fa-twitter w3-hover-opacity"></i>
 			<i class="fa fa-linkedin w3-hover-opacity"></i>
 	</div>
+	<script>
+		function ajaxtest(){
+			$usrname = $_GET['userid'];
+			xhttp = new XMLHttpRequest();
+  			xhttp.open("POST", "test.php?username=CYKO", true);
+  			xhttp.send();  
+		}
+	</script>
 	<script>
 		function page_p(){
 			window.location.href = "http://<?php pager(-1,$imgamm);?>";
