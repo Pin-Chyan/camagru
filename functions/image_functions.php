@@ -77,18 +77,19 @@ try{
 }
 }
 
-function get_posts($index) {
+function get_posts($index) { 
+try {
     $senpai = Call_onee_san();
     $stmt = $senpai->prepare("SELECT 
-                        `id`,
+                        `gallery`.`id`,
                         `users`.`username`,
                         `up_date`
                     FROM
                         `gallery`
                     INNER JOIN `users` ON `gallery`.`userid` = `users`.`id`
                     ORDER BY 
-                        `up_date` DESC,
-                        `id` DESC
+                        `up_date` ASC,
+                        `id` ASC
                     LIMIT
                         :limit1, :limit2
                     ;");
@@ -107,13 +108,16 @@ function get_posts($index) {
     }
     return ($return);
 }
-
+catch (PDOExeption $e) {
+    echo "shit".$e->GetMessage(),"\n";
+}
+}
 function home_img($amm,$page_no,$class){
 try{
     $i = ($amm * ($page_no - 1)) + 1;
     $amm += $i;
     $index = $page_no;
-    $posts = get_post($index);
+    $posts = get_posts($index);
     while ($i < $amm)
     {
         if (ver_img($i) == 0){
@@ -135,17 +139,17 @@ try{
             <br />
             <label> Comment: <br>
                 <textarea name=\"Comment_$i\" class=\"Input comment-box\" required></textarea>
-            </label>
-            <br />";
-            // foreach ($posts as $post) {
-            //     if ($post['username'] === $_SESSION['username']) {
-            //         print ("<form method='POST' action='api/posts'>
-            //                 <input type='hidden' name='galleryid' value=\"" . $post['id'] . "\" />
-            //                 <button type='submit' name='action' value='delete' class='delete'> Delete </button>
-            //                 </form>");
-            //         }
-            // }
+            </label>";
+            foreach ($posts as $post) {
+                if ($post['username'] === $_SESSION['user_id']) {
+                    print ("<form method='POST' action='api/posts.php'>");
+                    print ("<input type='hidden' name='galleryid' value=\"" . $post['id'] . "\" />");
+                    print ("<button type='submit' name='action' value='delete' class='delete'> Delete </button>");
+                    print ("</form>");
+                }
             }
+        }
+            echo "<br />";
             echo "</div>";
         $i++;
     }
