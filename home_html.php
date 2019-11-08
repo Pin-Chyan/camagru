@@ -1,6 +1,6 @@
 <?php
 session_start();
-require("header.php");
+require_once("header.php");
 if (!$_GET['page'])
 	header("Location: http://localhost:8080/camagru/home_html.php?page=1");
 // session_start();
@@ -15,6 +15,7 @@ function sesh(){
 	
 	}
 }
+$imgamm = 5;
 ?>
 <link rel="stylesheet" href="./styles/test.css">
 <!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> -->
@@ -66,7 +67,7 @@ function sesh(){
 		<!-- left end -->
 		
 		<!-- middle -->
-		<?php pager_images(2,$_GET['page']);?>
+		<?php pager_images($imgamm,$_GET['page']);?>
 			<br \>
 			<div class="column middle pager">
 				<button id="prev" class="btn" onclick="page_p()">prev</button>
@@ -95,10 +96,10 @@ function sesh(){
 	</div>
 	<script>
 		function page_p(){
-			window.location.href = "http://<?php pager(-1,2);?>";
+			window.location.href = "http://<?php pager(-1,$imgamm);?>";
 		}
 		function page_n(){
-			window.location.href = "http://<?php pager(1,2);?>";
+			window.location.href = "http://<?php pager(1,$imgamm);?>";
 		}
 		function openSlideMenu() {
 			document.getElementById('side-menu').style.width = '250px';
@@ -106,7 +107,7 @@ function sesh(){
 		function closeSlideMenu() {
 			document.getElementById('side-menu').style.width = '0';
 		}
-		<?php java_comment(2,$_GET['page']);?>
+		<?php java_comment($imgamm,$_GET['page']);?>
 	</script>
 </body>
 </html>

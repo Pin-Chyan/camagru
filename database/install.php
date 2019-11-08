@@ -47,8 +47,8 @@ try {
 		`id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 		`userid` INT(11) NOT NULL,
 		`img` longblob,
-		`up_date` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-		FOREIGN KEY (userid) REFERENCES users(id)
+		`up_date` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP/*,
+		FOREIGN KEY (userid) REFERENCES users(id)*/
 	  )";
 	  $senpai->exec($sql);
 	  echo "Gallery of onee-senpai exists!\n";
@@ -83,9 +83,9 @@ try {
 	  `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	  `userid` INT(11) NOT NULL,
 	  `galleryid` INT(11) NOT NULL,
-	  `comment` VARCHAR(255) NOT NULL,
+	  `comment` VARCHAR(255) NOT NULL/*,
 	  FOREIGN KEY (userid) REFERENCES users(id),
-	  FOREIGN KEY (galleryid) REFERENCES gallery(id)
+	  FOREIGN KEY (galleryid) REFERENCES gallery(id)*/
 	)";
 	$senpai->exec($sql);
 	echo "We can comment on how beautiful and amazing senpai is!\n";
