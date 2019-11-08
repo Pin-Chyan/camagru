@@ -97,7 +97,6 @@ $imgamm = 5;
 			<i class="fa fa-linkedin w3-hover-opacity"></i>
 	</div>
 	<script>
-<<<<<<< HEAD
 		function Delete_post(str) {
 		    if (str == "") {
 		        document.getElementById("txtHint").innerHTML = "";
@@ -115,7 +114,7 @@ $imgamm = 5;
 		                document.getElementById("txtHint").innerHTML = this.responseText;
 		            }
 		        };
-		        xmlhttp.open("GET","api/posts.php?action='delete'&id="+str,true);
+		        xmlhttp.open("GET","api/posts.php?action=delete&id=" + str,true);
 		        xmlhttp.send();
 		    }
 		}
@@ -123,12 +122,8 @@ $imgamm = 5;
 	<script>
 		function ajaxtest(){
 			$usrname = $_GET['userid'];
-=======
-		function ajaxtest(str){
-			//usrname = $_GET['userid'];
->>>>>>> e66b82341ca40558567069be04050b8865810dfe
 			xhttp = new XMLHttpRequest();
-  			xhttp.open("GET", "api/test.php?username=CYKO&id="+str, true);
+  			xhttp.open("GET", "api/test.php?username=CYKO&id=" + str, true);
   			xhttp.send();  
 		}
 	</script>

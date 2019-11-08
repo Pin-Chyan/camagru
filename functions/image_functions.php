@@ -143,7 +143,7 @@ try{
         }
         if ($posts[$i-1]['username'] === $_SESSION['user_id']) {
             print ("<br />");
-            print ("<button id=\"" . $posts[$i-1]['id'] . "\" onclick=\"Delete_post(this.id)\" type='submit' class='delete'> Delete </button>");
+            print ("<button id=\"" . $posts[$i-1]['id'] . "\" onclick=\"Delete_post(this.id)\"> Delete </button>");
         }
         
             echo "<br />";
