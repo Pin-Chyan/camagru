@@ -14,7 +14,7 @@ if(isset($_GET['vkey'])) {
         $msg = "User validated";
         
     } else {
-        $msg = "Link invalid isn't valid anymore";
+        $msg = "Link isn't valid anymore";
     }
 } else {
     die("you did something wrong stupid");

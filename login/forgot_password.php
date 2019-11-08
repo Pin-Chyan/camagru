@@ -1,42 +1,48 @@
 <?php
 
 require("../header.php");
-
+$msg = NULL;
 if (isset($_POST['submit'])) {
     $e = $_POST['email'];
     if (isset($e) and find_specific($e, "email", "users")) {
         if (get_specific("verified", "users", "email", $e) != 0) {
+            $dir = $_SERVER['PHP_SELF'];
+            $len = strrpos($dir, "forgot_password.php");
+            $reg_dir = substr($dir, 0, $len);
+            $reg_dir = $reg_dir."reset_pass.php";
+            $page_dir = $_SERVER['HTTP_HOST'].$reg_dir;
             $vkey = get_specific("vkey", "users", "email", $e);
             $subject = "Password reset";
             $msg = "
             <html>
             <head>
-            <title>HTML email</title>
+            <title>Verify</title>
             </head>
             <body>
-            <p>This email contains HTML Tags!</p>
+            <p>Click the link below to reset your password</p></br>
+            <a href=\"http://$page_dir?vkey=$vkey\">Reset me senpai OwO</a>
             </body>
             </html>
-            $header .= "MIME-Version: 1.0:"."\r\n";
-            $header .= "Content-type:text/html;charset=UTF-8"."\r\n";
-
-            mail($e,$subject,$msg, $header);
+            ";
+            $headers = "MIME-Version: 1.0" . "\r\n";
+            $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+            mail($e,$subject,$msg, $headers);
             header('location: login.php');
         } else {
-            echo "Please verify your account first";
+            $msg = "Please verify your account first";
         }
     } else {
-        echo "User doesn't exist";
+        $msg = "User doesn't exist";
     }
 }
 
 ?>
 <html lang="en">
+<link rel="stylesheet" href="../styles/login.css">
 <head>
+<title>Forgot Password</title>
 <meta charset="UTF-8">
-<title>Forgot password</title>
 <link href="styles/custom.css" rel="stylesheet" type="text/css" />
-</head>
 <body>
 <form method="POST" action="">
     <table border="0" align="center" cellpadding="5">
@@ -50,3 +56,9 @@ if (isset($_POST['submit'])) {
     </table>
 </form>
 </body>
+<center>
+    <?php
+        echo "<h2 style='color:white; background-color:brown; width: 10%; font-size: 20;'>".$msg."</h2>";
+    ?>
+</center>
+</html>
