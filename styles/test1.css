@@ -187,11 +187,12 @@
     margin-right: 10%;
     display: block;
     overflow: unset !important;
+    color: white;
   }
   
   .icons {
     text-decoration: none;
-    color: black;
+    /* color: black; */
   }
   
   .column.middle.comment_container {
@@ -203,7 +204,7 @@
     margin-left: 15%;
     margin-right: 15%;
     text-align: center;
-    /* background-color: white; */
+    color: white;
     overflow: unset !important;
   }
 
