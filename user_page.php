@@ -5,6 +5,7 @@ if (!empty($_SESSION['user_id'])) {
     $name = $_SESSION['user_id'];
 	$email = get_specific('email', 'users', 'username', $name);
 	$img = get_userimg($_SESSION['user_id']);
+	$pref = 1;
 } else {
 	header('location: http://localhost:8080/camagru/login/login.php');
 }
@@ -121,7 +122,7 @@ function update_email($name, &$curr_email, $new_email) {
 						<div class="l_context">Change Profile Picture:</div>
 						<div class="context"><form action="" method="POST" enctype="multipart/form-data"><input type="file" name="imagefile" required><input type="submit" name="submit_pic" value="upload"></div></form>
 						<div class="l_context">Send Notification Emails:</div>
-						<div class="context"><form action="" method="POST"><input type="radio" name="send_mail" value="yes">Yes  <input type="radio" name="send_mail" value="no">No</div></form>
+						<div class="context"><form action="" method="POST"><input type="radio" name="send_mail" value="yes" <?php echo ($pref)?'checked':'' ?>>Yes  <input type="radio" name="send_mail" value="no" <?php echo !($pref)?'checked':'' ?>>No</div></form>
 
 					</div>						  
 			</div>

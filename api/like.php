@@ -1,11 +1,20 @@
 <?php
+require_once("./header.php");
 
-session_start();
+// session_start();
 
-if (!isset($_POST['action']))
+add_comment(1,2,"ajax run");
+if ($username)
 {
-    echo ("error : no action posted");
+    add_comment(1,1,$username);
 }
-else if ($_POST['action'] === 'add test like')
-    add_like(1,6);
+// if (!isset($_POST['action']))
+// {
+//     echo ("error : no action posted" . PHP_EOL);
+// }
+// else if ($_POST['action'] === 'add'){
+//     //header("Location: http://localhost:8080/camagru/home_html.php?page=3");
+//     echo "add post detected \n";
+//     add_like(1,6);
+// }
 ?>

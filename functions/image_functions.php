@@ -150,6 +150,11 @@ try{
             }
         }
             echo "<br />";
+            echo "<form method='POST' action='api/like.php'>
+            <input type='hidden' name='galleryid' value=\"" . $post['id'] . "\" />
+            <button type='submit' name='action' value='add' class='delete'> like </button>
+            </form>";
+            echo "<br />";
             echo "</div>";
         $i++;
     }
@@ -204,7 +209,7 @@ try{
 
 function pager_images($no,$page){
 try{
-    echo "<div class=\"column middle\" style=\"background-color:grey;\">";
+    echo "<div class=\"column middle c\">";
     home_img($no,$page,"column middle image");
 } catch (PDOException $e) {
 	echo "failed to print home mage img\n";
