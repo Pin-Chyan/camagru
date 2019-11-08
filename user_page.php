@@ -4,6 +4,7 @@ session_start();
 if (!empty($_SESSION['user_id'])) {
     $name = $_SESSION['user_id'];
 	$email = get_specific('email', 'users', 'username', $name);
+	$img = get_userimg($_SESSION['user_id']);
 } else {
 	header('location: http://localhost:8080/camagru/login/login.php');
 }
@@ -15,6 +16,19 @@ if(array_key_exists('submit_name', $_POST)) {
 if(array_key_exists('reset_pass', $_POST)) {
 	$vkey = get_specific('vkey', 'users', 'username', $name);
 	header("location: http://localhost:8080/camagru/login/reset_pass.php?vkey=$vkey");
+}
+
+if(array_key_exists('submit_pic', $_POST)) {
+	if (getimagesize($_FILES['imagefile']['tmp_name']) == false) {
+		echo "</br >Image Plz";
+	} else {
+		$image = $_FILES['imagefile']['tmp_name'];
+		if (isset($_SESSION['user_id'])) {
+			$id = $_SESSION['user_id'];
+			upload_img($id , $image, "users");
+			header("Refresh:0");
+		}
+	}
 }
 
 if(array_key_exists('submit_email', $_POST)) {
@@ -66,8 +80,8 @@ function update_email($name, &$curr_email, $new_email) {
 				</span>
 				<ul class="navbar-nav">
 					<li><a class= "over_def" href="home_html.html">Senpai Haven</a></li>
-					<li><a class= "over_right" href="user_page.php">User-Name</a></li>
-					<li><a class= "over_right_img" href="user_page.php"><img class= "over_image" src="https://i.pinimg.com/736x/32/d0/af/32d0afda44fb2dde8753844f9283cddc.jpg"></a></li>
+					<li><a class= "over_right" href="user_page.php"><?= $name?></a></li>
+					<li><a class= "over_right_img" href="user_page.php"><img class= "over_image" <?= $img?>></a></li>
 				</ul>
 			</nav>
 			<div id="side-menu" class="side-nav">
@@ -92,7 +106,7 @@ function update_email($name, &$curr_email, $new_email) {
 				<br \>
 					<div class="grid-container">
 						<div class="profile_title">Profile Information</div>
-						<div class="profile_image"><img class= "image_s" src="https://i.pinimg.com/736x/32/d0/af/32d0afda44fb2dde8753844f9283cddc.jpg"></div>
+						<div class="profile_image"><img class= "image_s" <?= $img?>></div>
 						<div class="l_context">User-Name:</div>  
 						<div class="context"><?= $name ?></div>
 						<div class="l_context">E-Mail:</div>
@@ -104,7 +118,11 @@ function update_email($name, &$curr_email, $new_email) {
 						<div class="context"><form action="" method="POST"><input type="EMAIL" placeholder="new email" name="new_email" required/><input action="" method='POST' type="SUBMIT" name="submit_email" value="update"/></div></form>
 						<div class="l_context">Change Password:</div>
 						<div class="context"><form action="" method="POST"><input type="SUBMIT" value="reset password" name="reset_pass"/></div></form>
-						<div class="context"><div class="context"><input action="" method='POST' type="SUBMIT" value="delete account" name="delete"/></div></div>
+						<div class="l_context">Change Profile Picture:</div>
+						<div class="context"><form action="" method="POST" enctype="multipart/form-data"><input type="file" name="imagefile" required><input type="submit" name="submit_pic" value="upload"></div></form>
+						<div class="l_context">Send Notification Emails:</div>
+						<div class="context"><form action="" method="POST"><input type="radio" name="send_mail" value="yes">Yes  <input type="radio" name="send_mail" value="no">No</div></form>
+
 					</div>						  
 			</div>
 			<!-- <div class="column middle previous_works">Own Posts</div>
