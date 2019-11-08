@@ -100,7 +100,7 @@ $imgamm = 5;
 		function ajaxtest(str){
 			//usrname = $_GET['userid'];
 			xhttp = new XMLHttpRequest();
-  			xhttp.open("GET", "api/test.php?username=CYKO&id="+str, true);
+  			xhttp.open("GET", "api/test.php?id=" + str , true);
   			xhttp.send();  
 		}
 	</script>

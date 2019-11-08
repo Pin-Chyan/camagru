@@ -1,10 +1,9 @@
 <?php 
 require_once("../header.php");
-// session_start();
-add_comment(1,2,"ajax run");
-$lol = $_REQUEST['username'];
+session_start();
+$lol = $_REQUEST['id'];
 if ($lol)
-    add_comment(1,2,"ajax run ".$_REQUEST['username']);
+    add_comment(1,2,"ajax run like button user ".$_SESSION['user_id']." liked img ".$_REQUEST['id']);
 // if (isset($_SESSION['user_id']))
 //     //echo "logged in\n ";
 // if (isset($_GET['q']))
