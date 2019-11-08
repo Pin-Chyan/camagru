@@ -55,7 +55,7 @@ $imgamm = 5;
 				<a href="#" class="btn-close" onclick="closeSlideMenu()">&times;</a>
 				<a href="home_html.php">Home</a>
 				<a href="user_page.php">Profile</a>
-				<a href="editor.html">Editor</a>
+				<a href="editor.php">Editor</a>
 				<a href="login/logout.php">Log-Out</a>
 			</div>
 	<!-- </div> -->

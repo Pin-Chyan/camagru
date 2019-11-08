@@ -82,7 +82,7 @@ function update_email($name, &$curr_email, $new_email) {
 					</a>
 				</span>
 				<ul class="navbar-nav">
-					<li><a class= "over_def" href="home_html.html">Senpai Haven</a></li>
+					<li><a class= "over_def" href="home_html.php">Senpai Haven</a></li>
 					<li><a class= "over_right" href="user_page.php"><?= $name?></a></li>
 					<li><a class= "over_right_img" href="user_page.php"><img class= "over_image" <?= $img?>></a></li>
 				</ul>
@@ -91,8 +91,8 @@ function update_email($name, &$curr_email, $new_email) {
 				<a href="#" class="btn-close" onclick="closeSlideMenu()">&times;</a>
 				<a href="home_html.php">Home</a>
 				<a href="user_page.php">Profile</a>
-				<a href="editor.html">Editor</a>
-				<a href="login.html">Log-Out</a>
+				<a href="editor.php">Editor</a>
+				<a href="login.php">Log-Out</a>
 			</div>
 	<!-- </div> -->
 	
@@ -104,7 +104,7 @@ function update_email($name, &$curr_email, $new_email) {
 		<!-- left end -->
 		
 		<!-- middle -->
-		<div class="column middle" style="background-color:grey;">
+		<div class="column middle">
 			<div class="column middle problock" style="height: 90%;">
 				<br \>
 					<div class="grid-container">
