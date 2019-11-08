@@ -150,10 +150,7 @@ try{
             }
         }
             echo "<br />";
-            echo "<form method='POST' action='api/like.php'>
-            <input type='hidden' name='galleryid' value=\"" . $post['id'] . "\" />
-            <button type='submit' name='action' value='add' class='delete'> like </button>
-            </form>";
+            echo "<button id=\"$i\" class=\"btn\" onclick=\"ajaxtest(this.id)\"> like </button>";
             echo "<br />";
             echo "</div>";
         $i++;

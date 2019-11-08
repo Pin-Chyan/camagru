@@ -73,7 +73,7 @@ $imgamm = 5;
 				<button id="prev" class="btn" onclick="page_p()">prev</button>
 				<a class="display"><?php echo $_GET['page'];?></a>
 				<button id="next" class="btn" onclick="page_n()">next</button>
-				<button id="prev" class="btn" onclick="ajaxtest()">ajaxtest</button>
+				<button id="test" class="btn" onclick="ajaxtest(this.id)"> ajax button test2 </button>
 			</div>	
 		</div>
 		<!-- middle end -->
@@ -96,10 +96,10 @@ $imgamm = 5;
 			<i class="fa fa-linkedin w3-hover-opacity"></i>
 	</div>
 	<script>
-		function ajaxtest(){
-			$usrname = $_GET['userid'];
+		function ajaxtest(str){
+			//usrname = $_GET['userid'];
 			xhttp = new XMLHttpRequest();
-  			xhttp.open("POST", "test.php?username=CYKO", true);
+  			xhttp.open("GET", "api/test.php?username=CYKO&id="+str, true);
   			xhttp.send();  
 		}
 	</script>
