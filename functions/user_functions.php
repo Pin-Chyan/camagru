@@ -1,19 +1,5 @@
 <?php
 /////// for add user
-function random_key($len){
-	$seed = str_split('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890');
-	shuffle($seed);
-	$rand = '';
-	foreach (array_rand($seed, $len) as $k) $rand .= $seed[$k];
-	if (find_specific($rand, "vkey", "users"))
-		return (random_key($len));
-	return ($rand);
-}
-function hasher($password){
-	$hashed = base64_encode($password);
-	$ret = md5($hashed);
-	return ($ret);
-}
 
 function add_user($username, $email, $display, $password){
 try {

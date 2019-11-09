@@ -123,6 +123,8 @@ try{
         if (ver_img($i) == 0){
             $amm++;
             $i++;
+            if ($i > 10000)
+                return (0);
             continue;
         }
         else{
