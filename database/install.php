@@ -31,6 +31,7 @@ try {
 		`display` longblob NOT NULL,
 		`vkey` VARCHAR(50),
 		`verified` tinyint(1) DEFAULT 0,
+		`notify` tinyint(1) DEFAULT 1,
 		`reg_date` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 		)";
 	$senpai->exec($sql);
@@ -92,5 +93,18 @@ try {
 } catch (PDOException $e) {
 	echo "Senpai doesn't want us to comment ;( (comment table still broken)".$e->getMessage()."\n";
 }
-
+///SECURITY KEY TABLE
+try {
+	// Connect to DATABASE previously created
+	$senpai = Call_onee_san();
+	$sql = "CREATE TABLE `keys` (
+	  `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	  `userid` INT(11) NOT NULL,
+	  `key` VARCHAR(255) NOT NULL
+	)";
+	$senpai->exec($sql);
+	echo "Senpai has a key now!\n";
+} catch (PDOException $e) {
+	echo "Senpai doesn't want us to comment ;( (comment table still broken)".$e->getMessage()."\n";
+}
 ?>
