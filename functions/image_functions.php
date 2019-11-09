@@ -145,6 +145,30 @@ try{
                 <textarea name=\"Comment_$i\" class=\"Input comment-box\" required></textarea>
             </label>";
         }
+        if (isset($_SESSION['user_id'])){
+            $user  = get_specific("id","users","username",$_SESSION['user_id']);
+            if (find_comment($user,$i) == 1){
+                $comment = get_specific("comment","comments","userid",$user);
+                echo "
+                <form  action=\"api/comment.php?\" method=\"POST\">
+                <input type=\"hidden\" name=\"action\" value=\"delete\">
+                <input type=\"hidden\" name=\"form_id\" value=\"$i\">
+                <input type=\"visible\" name=\"comment\" value=\"$comment\">
+                <input type=\"submit\" name=\"sub_action\" value=\"delete comment\">
+                </form>
+                ";
+            }
+            else{
+                echo "
+                <form  action=\"api/comment.php\" method=\"POST\">
+                <input type=\"hidden\" name=\"action\" value=\"add\">
+                <input type=\"hidden\" name=\"form_id\" value=\"$i\">
+                <input type=\"visible\" name=\"comment\" value=\"comment here $user\">
+                <input type=\"submit\" name=\"sub_action\" value=\"comment\">
+                </form>
+                ";
+            }
+        }  
         if ($posts[$i-1]['username'] === $_SESSION['user_id']) {
             $tag = $_GET["page"];
             echo "<form  action=\"api/posts.php?page=$tag\" method=\"POST\">

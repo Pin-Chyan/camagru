@@ -6,7 +6,8 @@ function find_comment($userid,$galleryid){
         $exec = $senpai->prepare("SELECT * FROM comments");
         $exec->execute();
         while (($res = $exec->fetch(PDO::FETCH_ASSOC))){
-            return (1);
+            if ($res['userid'] == $userid && $res['galleryid'] == $galleryid)
+                return (1);
         }
     }
     catch (PDOException $err){
