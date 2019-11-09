@@ -31,6 +31,18 @@ try {
 	echo "failed to update specific\n";
 }
 }
+
+function is_liked($userid, $galleryid, $table) {
+	$senpai = Call_onee_san();
+	$stmt = $senpai->prepare("SELECT * FROM $table");
+	$result = $stmt->execute();
+	$arrays = $stmt->fetch(PDO::FETCH_ASSOC);
+	foreach($arrays as $array) {
+		
+	}
+	return ($result);
+}
+
 function find_specific($var, $column, $table){
 try {
 	$senpai = Call_onee_san();
