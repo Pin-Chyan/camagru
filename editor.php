@@ -76,8 +76,8 @@
 					<div class="column middle block buttons">
 						<button id="snap" class="btn">Capture</button>
 						<button id="upload" class="btn" >Upload</button>
-						<button id="save" class="btn" >Save</button>
 						<button id="post" class="btn" >Post</button>
+						<button id="btnDisplay" class="btn" >Check</button>
 					</div>	
 				</div>	
 			</div>	
@@ -122,6 +122,8 @@
 		const video = document.getElementById('video');
 		const canvas = document.getElementById('canvas');
 		const snap = document.getElementById('snap');
+		const btnDisplay = document.getElementById('btnDisplay');
+		const btnDownload = document.getElementById('btnDownload');
 		const errorMsgElement = document.getElementById('span#ErrorMsg');
 
 		const constraints = {
@@ -162,35 +164,6 @@
 			context.restore();
 		});
 
-		// miku.addEventListener("click",function(){
-		// 	drawing = new Image() 
-		// 	drawing.src = "./stickers/miku.png" 
-		// 	// context.drawImage(video, 0, 0, 640, 480);
-		// 	context.drawImage(drawing,320,200, 320, 280);
-		// });
-
-		// naruto.addEventListener("click",function(){
-		// 	drawing = new Image() 
-		// 	drawing.src = "./stickers/naruto.png" 
-		// 	// context.drawImage(video, 0, 0, 640, 480);
-		// 	context.drawImage(drawing,320,240, 320, 240);
-		// });
-
-		// sao.addEventListener("click",function(){
-		// 	drawing = new Image() 
-		// 	drawing.src = "./stickers/sao.png" 
-		// 	// context.drawImage(video, 0, 0, 640, 480);
-		// 	context.drawImage(drawing,320,240, 320, 240);
-		// });
-
-		// guilty.addEventListener("click",function(){
-		// 	drawing = new Image() 
-		// 	drawing.src = "./stickers/guilty.png" 
-		// 	// context.drawImage(video, 0, 0, 640, 480);
-		// 	context.drawImage(drawing, 0, 240, 640, 240);
-		// });
-
-
 		function miku() {
 			drawing = new Image() 
 			drawing.src = "./stickers/miku.png" 
@@ -226,6 +199,12 @@
 			drawing.src = "./stickers/cute.png"  // 640 / 480
 			context.drawImage(drawing, 0, 30, 300, 450);
 		}
+
+		btnDisplay.addEventListener("click", function () {
+			const dataURI = canvas.toDataURL();
+
+			console.log(dataURI);
+		});
 
 	</script>
 </html>
