@@ -74,16 +74,6 @@ $imgamm = 5;
 				<button id="prev" class="btn" onclick="page_p()">prev</button>
 				<a class="display"><?php echo $_GET['page'];?></a>
 				<button id="next" class="btn" onclick="page_n()">next</button>
-				<button name="like" id="id" class="btn" onclick="api()"> ajax button test2 </button>
-				<form method="post" id="1" action="api/like.php?action=like&donuts=<?php echo $_GET['page'];?>">
-				<input type="text" name="like" value="like 2"/><br/>
-				<input type="submit" name="sub_but">
-				<!-- <input type="text" name="firstname" value="Mickey"><br/> -->
-				</form>
-				<form action="api/like.php?action=like" method="post">
-				<input type="text" name="like" value="test 1"/><br/>
-				<input type="submit">
-				</form>
 				</div>	
 		</div>
 		<!-- middle end -->

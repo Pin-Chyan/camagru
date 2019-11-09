@@ -13,7 +13,7 @@ try {
         $senpai->exec("UPDATE users SET display='$binary_senpai' WHERE username='$userid'");
     
 } catch (PDOException $e) {
-        echo "fuck". $e->getMessage()."\n";
+        echo "file not found". $e->getMessage()."\n";
     }
 }
 
@@ -121,10 +121,10 @@ try{
     while ($i < $amm)
     {
         if (ver_img($i) == 0){
+            if ($i > 100)
+                return (0);
             $amm++;
             $i++;
-            if ($i > 10000)
-                return (0);
             continue;
         }
         else{
@@ -146,13 +146,14 @@ try{
             </label>";
         }
         if ($posts[$i-1]['username'] === $_SESSION['user_id']) {
-            print ("<br />");
-            print ("<button id=\"" . $posts[$i-1]['id'] . "\" onclick=\"Delete_post(this.id)\"> Delete </button>");
+            $tag = $_GET["page"];
+            echo "<form  action=\"api/posts.php?page=$tag\" method=\"POST\">
+            <input type=\"hidden\" name=\"action\" value=\"delete\">
+            <input type=\"hidden\" name=\"form_id\" value=\"$i\">
+            <input type=\"hidden\" name=\"sub_action\" value=\"null\">
+            <input type=\"submit\" name=\"sub_action\" value=\"button name\">
+            </form>";
         }
-        
-            echo "<br />";
-            echo "<button id=\"$i\" class=\"btn\" onclick=\"ajaxtest(this.id)\"> like </button>";
-            echo "<br />";
             echo "</div>";
         $i++;
     }
@@ -168,7 +169,11 @@ try{
     while ($i < $amm)
     {
         if (ver_img($i) == 0){
-            return (0);
+            if ($i > 100)
+                return (0);
+            $amm++;
+            $i++;
+            continue;
         }
         else{
         echo"function openDropComment_$i() {
