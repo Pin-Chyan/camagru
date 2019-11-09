@@ -123,7 +123,7 @@ $imgamm = 5;
 		                document.getElementById("txtHint").innerHTML = this.responseText;
 		            }
 		        };
-		        xmlhttp.open("GET","api/posts.php?action='delete'&id="+str,true);
+		        xmlhttp.open("GET","api/posts.php?action=delete&id=" + str,true);
 		        xmlhttp.send();
 		    }
 		}
