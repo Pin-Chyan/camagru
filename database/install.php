@@ -31,6 +31,7 @@ try {
 		`display` longblob NOT NULL,
 		`vkey` VARCHAR(50),
 		`verified` tinyint(1) DEFAULT 0,
+		`notify` tinyint(1) DEFAULT 1,
 		`reg_date` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 		)";
 	$senpai->exec($sql);
