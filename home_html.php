@@ -2,7 +2,7 @@
 session_start();
 require_once("header.php");
 if (!$_GET['page'])
-	header("Location: http://localhost:8080/camagru/home_html.php?page=1");
+	header("Location: ./home_html.php?page=1");
 // session_start();
 function sesh(){
 	if (!isset($_SESSION['user_id']))
@@ -72,20 +72,8 @@ $imgamm = 5;
 		<br \>
 			<div class="column middle pager">
 				<button id="prev" class="btn" onclick="page_p()">prev</button>
-				<a class="display"><?php echo $_GET['page'];?></a>
+				<a class="display" style="color:black"><?php echo $_GET['page'];?></a>
 				<button id="next" class="btn" onclick="page_n()">next</button>
-				<button name="like" id="id" class="btn" onclick="api()"> ajax button test2 </button>
-				<form  method="post" action="api/like.php?operation=like&page=<?php echo $_GET['page'];?>" >
-				<input type="hidden" name="galleryid" value="1" />
-				<input type="text" name="like" value="like 2"/><br/>
-				<input type="submit" name="sub_but">
-				<!-- <input type="text" name="firstname" value="Mickey"><br/> -->
-				</form>
-				<form action="api/like.php?action=like" method="post">
-				<input type="text" name="like" value="test 1"/><br/>
-				<input type="submit">
-				</form>
-				</div>	
 		</div>
 		<!-- middle end -->
 

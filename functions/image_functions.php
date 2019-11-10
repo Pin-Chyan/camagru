@@ -147,8 +147,9 @@ try{
         <div id=\"comment-box_$i\" class=\"column middle comment_container\">";
         }
         if (isset($_SESSION['user_id'])){
+            $page = $_GET['page'];
             echo "
-                <form  action=\"api/comment.php\" method=\"POST\">
+                <form  action=\"api/comment.php?page=$page\" method=\"POST\">
                 <input type=\"hidden\" name=\"action\" value=\"add\">
                 <input type=\"hidden\" name=\"form_id\" value=\"$i\">
                 <label> Comment: <br>

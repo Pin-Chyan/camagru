@@ -65,7 +65,8 @@ function home_get_comment($userid,$galleryid){
             $name = get_specific("username","users","id",$res['userid']);
             echo "<text style=\"color:white\"> $name : $comment<text>";
             if ($res['userid'] == $userid){
-                echo "<form  action=\"api/comment.php?\" method=\"POST\">
+                $page = $_GET['page'];
+                echo "<form  action=\"api/comment.php?page=$page\" method=\"POST\">
                     <input type=\"hidden\" name=\"action\" value=\"delete\">
                     <input type=\"hidden\" name=\"form_id\" value=\"$id\">
                     <input type=\"submit\" name=\"sub_action\" value=\"remove\">
