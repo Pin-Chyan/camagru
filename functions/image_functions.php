@@ -131,51 +131,65 @@ try{
         $img = retrieve_img($i); 
         echo "<div class=\"column middle title\">Title</div>
             <div class=\"column middle subtitle\">Title Description, DATE</div>
-            <img class=\"$class\" src='data:image/jpeg;base64, $img'>
-            <div class=\"column middle icons\">
+            <img class=\"$class\" src='data:image/jpeg;base64, $img'>";
+        if (!isset($_SESSION['user_id']))
+            home_get_comment(0,$i);
+        else{
+            $user  = get_specific("id","users","username",$_SESSION['user_id']);
+            home_get_comment($user,$i);
+        }
+        echo "<div class=\"column middle icons\">
                 <a class=\"icons\">
                     <i class=\"fa fa-thumbs-up w3-hover-opacity\"></i>
                     <i class=\"fa fa-comments w3-hover-opacity\" onclick=\"openDropComment_$i()\"></i>
                 </a>
             </div>
-        <div id=\"comment-box_$i\" class=\"column middle comment_container\">
-            <a class=\"c-btn-close\" onclick=\"openCloseComment_$i()\">&times;</a>
-            <br />
-            <label> Comment: <br>
-                <textarea name=\"Comment_$i\" class=\"Input comment-box\" required></textarea>
-            </label>";
+        <div id=\"comment-box_$i\" class=\"column middle comment_container\">";
         }
         if (isset($_SESSION['user_id'])){
-            $user  = get_specific("id","users","username",$_SESSION['user_id']);
-            if (find_comment($user,$i) == 1){
-                $comment = get_specific("comment","comments","userid",$user);
-                echo "
-                <form  action=\"api/comment.php?\" method=\"POST\">
-                <input type=\"hidden\" name=\"action\" value=\"delete\">
-                <input type=\"hidden\" name=\"form_id\" value=\"$i\">
-                <input type=\"visible\" name=\"comment\" value=\"$comment\">
-                <input type=\"submit\" name=\"sub_action\" value=\"delete comment\">
-                </form>
-                ";
-            }
-            else{
-                echo "
+            echo "
                 <form  action=\"api/comment.php\" method=\"POST\">
                 <input type=\"hidden\" name=\"action\" value=\"add\">
                 <input type=\"hidden\" name=\"form_id\" value=\"$i\">
-                <input type=\"visible\" name=\"comment\" value=\"comment here $user\">
+                <label> Comment: <br>
+                <textarea name=\"comment\" class=\"Input comment-box\" required></textarea>
+                </label><br>
                 <input type=\"submit\" name=\"sub_action\" value=\"comment\">
                 </form>
                 ";
-            }
-        }  
+            // $user  = get_specific("id","users","username",$_SESSION['user_id']);
+            // home_get_comment($user,$i);
+            // if (find_comment($user,$i) == 1){
+            //     $comment = get_comment($user,$i);
+            //     echo "
+            //     <form  action=\"api/comment.php?\" method=\"POST\">
+            //     <input type=\"hidden\" name=\"action\" value=\"delete\">
+            //     <input type=\"hidden\" name=\"form_id\" value=\"$i\">
+            //     <input type=\"visible\" name=\"comment\" value=\"$comment\">
+            //     <input type=\"submit\" name=\"sub_action\" value=\"delete comment\">
+            //     </form>
+            //     ";
+            // }
+            // else{
+            //     echo "
+            //     <form  action=\"api/comment.php\" method=\"POST\">
+            //     <input type=\"hidden\" name=\"action\" value=\"add\">
+            //     <input type=\"hidden\" name=\"form_id\" value=\"$i\">
+            //     <label> Comment: <br>
+            //     <textarea name=\"comment\" class=\"Input comment-box\" required></textarea>
+            //     </label><br>
+            //     <input type=\"submit\" name=\"sub_action\" value=\"comment\">
+            //     </form>
+            //     ";
+            // }
+        }
         if ($posts[$i-1]['username'] === $_SESSION['user_id']) {
             $tag = $_GET["page"];
             echo "<form  action=\"api/posts.php?page=$tag\" method=\"POST\">
             <input type=\"hidden\" name=\"action\" value=\"delete\">
             <input type=\"hidden\" name=\"form_id\" value=\"$i\">
             <input type=\"hidden\" name=\"sub_action\" value=\"null\">
-            <input type=\"submit\" name=\"sub_action\" value=\"button name\">
+            <input type=\"submit\" name=\"sub_action\" value=\"delete this post\">
             </form>";
         }
             echo "</div>";
