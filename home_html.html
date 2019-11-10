@@ -62,95 +62,26 @@
 				</div>
 			<div id="comment-box" class="column middle comment_container">
 				<a class="c-btn-close" onclick="openCloseComment()">&times;</a>
-				<br />
+				<div class="comment-box messages">
+					
+					<!-- left side text box -->
+					<div class="comment-box left">
+
+					</div>
+
+					<!-- right side text box -->
+					<div class="comment-box right">
+
+					</div>
+
+				</div>
 				<label> Comment: <br>
-					<textarea name="Comment" class="Input comment-box" required></textarea>
+					<!-- <input type="text" name="Comment" class="text-box"> -->
+					<textarea name="Comment" class="text-box" required></textarea>
 				</label>
 				<br />
 				<input type="submit" name="Submit" value="Submit Comment" class="Submit">
 			</div>
-			
-			<!-- <div class="column middle title">Title</div>
-			<div class="column middle subtitle">Title Description, DATE</div> -->
-			<img class="column middle image" src="https://c4.wallpaperflare.com/wallpaper/733/75/579/anime-sword-art-online-yuuki-asuna-landscape-wallpaper-b856fde850b01c6870bcd10e2802645a.jpg">
-			<div class="column middle icons">
-				<a class="icons">
-					<i class="fa fa-thumbs-up w3-hover-opacity"></i>
-					<i class="fa fa-comments w3-hover-opacity" onclick="openDropComment_2()"></i>
-				</a>
-			</div>
-			<div id="comment-box_2" class="column middle comment_container">
-				<a class="c-btn-close" onclick="openCloseComment_2()">&times;</a>
-				<br />
-				<label> Comment: <br>
-					<textarea name="Comment" class="Input comment-box" required></textarea>
-				</label>
-				<br />
-				<input type="submit" name="Submit" value="Submit Comment" class="Submit">
-			</div>
-
-			<!-- <div class="column middle title">Title</div>
-			<div class="column middle subtitle">Title Description, DATE</div> -->
-			<img class="column middle image" src="https://img4.goodfon.com/wallpaper/nbig/1/d4/sword-art-online-art-anime-asuna-kirito-2.jpg">
-			<div class="column middle icons">
-				<a class="icons">
-					<i class="fa fa-thumbs-up w3-hover-opacity"></i>
-					<i class="fa fa-comments w3-hover-opacity" onclick="openDropComment_3()"></i>
-				</a>
-			</div>
-			<div id="comment-box_3" class="column middle comment_container">
-				<a class="c-btn-close" onclick="openCloseComment_3()">&times;</a>
-				<br />
-				<label> Comment: <br>
-					<textarea name="Comment" class="Input comment-box" required></textarea>
-				</label>
-				<br />
-				<input type="submit" name="Submit" value="Submit Comment" class="Submit">
-			</div>
-
-			<!-- <div class="column middle title">Title</div>
-			<div class="column middle subtitle">Title Description, DATE</div> -->
-			<img class="column middle image" src="https://www.pixelstalk.net/wp-content/uploads/2016/10/Free-HD-Asuna-Backgrounds.jpg">
-			<div class="column middle icons">
-				<a class="icons">
-					<i class="fa fa-thumbs-up w3-hover-opacity"></i>
-					<i class="fa fa-comments w3-hover-opacity" onclick="openDropComment_4()"></i>
-				</a>
-			</div>
-			<div id="comment-box_4" class="column middle comment_container">
-				<a class="c-btn-close" onclick="openCloseComment_4()">&times;</a>
-				<br />
-				<label> Comment: <br>
-					<textarea name="Comment" class="Input comment-box" required></textarea>
-				</label>
-				<br />
-				<input type="submit" name="Submit" value="Submit Comment" class="Submit">
-			</div>
-
-			<!-- <div class="column middle title">Title</div>
-			<div class="column middle subtitle">Title Description, DATE</div> -->
-			<img class="column middle image" src="https://ih1.redbubble.net/image.354870297.9558/stf,small,600x600-pad,750x1000,f8f8f8.u3.jpg">
-			<div class="column middle icons">
-				<a class="icons">
-					<i class="fa fa-thumbs-up w3-hover-opacity"></i>
-					<i class="fa fa-comments w3-hover-opacity" onclick="openDropComment_5()"></i>
-				</a>
-			</div>
-			<div id="comment-box_5" class="column middle comment_container">
-				<a class="c-btn-close" onclick="openCloseComment_5()">&times;</a>
-				<br />
-				<label> Comment: <br>
-					<textarea name="Comment" class="Input comment-box" required></textarea>
-				</label>
-				<br />
-				<input type="submit" name="Submit" value="Submit Comment" class="Submit">
-			</div>
-
-
-			<!-- <div class="column middle title">Title</div>
-			<div class="column middle subtitle">Title Description, DATE</div>
-			<img class="column middle image" src="http://www.quoteambition.com/wp-content/uploads/2017/04/deep-quotes-816x545.jpg">
-			<div class="column middle comment">jsutafjlaj;lgkfjal;fgjl;fjgl;jsdl;ghjd;lsfjfhl;fjdsl;jghl;dsjkl;jglsdk;jglkjsdlkgjl;sdj;lgfjdsl;jgflsjgf;sjgflsjfglsjflgjsljglsdjfgljdsl</div>			 -->
 
 			<br \>
 			<div class="column middle pager">
@@ -189,10 +120,12 @@
 		function openDropComment() {
 			document.getElementById('comment-box').style.height = 'auto';
 			document.getElementById('comment-box').style.visibility = 'visible';
+			// document.getElementById('comment-box').style.transition = '0.6s';
 		}
 		function openCloseComment() {
 			document.getElementById('comment-box').style.height = '0';
 			document.getElementById('comment-box').style.visibility = 'hidden';
+			// document.getElementById('comment-box').style.transition = '0.6s';
 		}
 		// function CommentOP () {
 		// 	openDropComment();
@@ -207,38 +140,38 @@
 		// 	}
 		// }
 		
-		function openDropComment_2() {
-			document.getElementById('comment-box_2').style.height = 'auto';
-			document.getElementById('comment-box_2').style.visibility = 'visible';
-		}
-		function openCloseComment_2() {
-			document.getElementById('comment-box_2').style.height = '0';
-			document.getElementById('comment-box_2').style.visibility = 'hidden';
-		}
-		function openDropComment_3() {
-			document.getElementById('comment-box_3').style.height = 'auto';
-			document.getElementById('comment-box_3').style.visibility = 'visible';
-		}
-		function openCloseComment_3() {
-			document.getElementById('comment-box_3').style.height = '0';
-			document.getElementById('comment-box_3').style.visibility = 'hidden';
-		}
-		function openDropComment_4() {
-			document.getElementById('comment-box_4').style.height = 'auto';
-			document.getElementById('comment-box_4').style.visibility = 'visible';
-		}
-		function openCloseComment_4() {
-			document.getElementById('comment-box_4').style.height = '0';
-			document.getElementById('comment-box_4').style.visibility = 'hidden';
-		}
-		function openDropComment_4() {
-			document.getElementById('comment-box_5').style.height = 'auto';
-			document.getElementById('comment-box_5').style.visibility = 'visible';
-		}
-		function openCloseComment_4() {
-			document.getElementById('comment-box_5').style.height = '0';
-			document.getElementById('comment-box_5').style.visibility = 'hidden';
-		}
+		// function openDropComment_2() {
+		// 	document.getElementById('comment-box_2').style.height = 'auto';
+		// 	document.getElementById('comment-box_2').style.visibility = 'visible';
+		// }
+		// function openCloseComment_2() {
+		// 	document.getElementById('comment-box_2').style.height = '0';
+		// 	document.getElementById('comment-box_2').style.visibility = 'hidden';
+		// }
+		// function openDropComment_3() {
+		// 	document.getElementById('comment-box_3').style.height = 'auto';
+		// 	document.getElementById('comment-box_3').style.visibility = 'visible';
+		// }
+		// function openCloseComment_3() {
+		// 	document.getElementById('comment-box_3').style.height = '0';
+		// 	document.getElementById('comment-box_3').style.visibility = 'hidden';
+		// }
+		// function openDropComment_4() {
+		// 	document.getElementById('comment-box_4').style.height = 'auto';
+		// 	document.getElementById('comment-box_4').style.visibility = 'visible';
+		// }
+		// function openCloseComment_4() {
+		// 	document.getElementById('comment-box_4').style.height = '0';
+		// 	document.getElementById('comment-box_4').style.visibility = 'hidden';
+		// }
+		// function openDropComment_4() {
+		// 	document.getElementById('comment-box_5').style.height = 'auto';
+		// 	document.getElementById('comment-box_5').style.visibility = 'visible';
+		// }
+		// function openCloseComment_4() {
+		// 	document.getElementById('comment-box_5').style.height = '0';
+		// 	document.getElementById('comment-box_5').style.visibility = 'hidden';
+		// }
 	</script>
 	</body>
 </html>
