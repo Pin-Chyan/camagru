@@ -39,5 +39,6 @@ else if ($action === "delete"){
     delete_specific("comments","id",$_POST['form_id']);
 }
 $page = $_GET['page'];
-header("Location: ../home_html.php?page=$page");
+$prev_pos = $_GET['prev_pos'];
+header("Location: ../home_html.php?page=$page&prev_pos=$prev_pos");
 ?>

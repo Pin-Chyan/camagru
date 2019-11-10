@@ -2,7 +2,7 @@
 session_start();
 require_once("header.php");
 if (!$_GET['page'])
-	header("Location: ./home_html.php?page=1");
+	header("Location: ./home_html.php?page=1&prev_pos=0");
 // session_start();
 function sesh(){
 	if (!isset($_SESSION['user_id']))
@@ -15,6 +15,9 @@ function sesh(){
 	
 	}
 
+}
+function get_pos(){
+	echo $_GET['prev_pos'];
 }
 $imgamm = 5;
 ?>
@@ -29,7 +32,7 @@ $imgamm = 5;
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	</head>
-	<body>
+	<body onload="scroll();">
 <!-- 
 	<h2>CSS Template using Float</h2>
 	<p>In this example, we have created a header, three unequal columns and a footer. On smaller screens, the columns will stack on top of each other.</p>
@@ -95,29 +98,6 @@ $imgamm = 5;
 			<i class="fa fa-linkedin w3-hover-opacity"></i>
 	</div>
 	<script>
-		function Delete_post(str) {
-		    if (str == "") {
-		        document.getElementById("txtHint").innerHTML = "";
-		        return;
-		    } else {
-		        if (window.XMLHttpRequest) {
-		            // code for IE7+, Firefox, Chrome, Opera, Safari
-		            xmlhttp = new XMLHttpRequest();
-		        } else {
-		            // code for IE6, IE5
-		            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-		        }
-		        xmlhttp.onreadystatechange = function() {
-		            if (this.readyState == 4 && this.status == 200) {
-		                document.getElementById("txtHint").innerHTML = this.responseText;
-		            }
-		        };
-		        xmlhttp.open("GET","api/posts.php?action=delete&id=" + str,true);
-		        xmlhttp.send();
-		    }
-		}
-	</script>
-	<script>
 		function api(id,action,sub_action){
 			xhttp = new XMLHttpRequest();
   			xhttp.open("POST", "api/api.php?id=" + id + "&action=" + action + "&sub_action=" + sub_action, true);
@@ -126,16 +106,19 @@ $imgamm = 5;
 	</script>
 	<script>
 		function page_p(){
-			window.location.href = "http://<?php pager(-1,$imgamm);?>";
+			window.location.href = "<?php pager(-1,$imgamm);?>";
 		}
 		function page_n(){
-			window.location.href = "http://<?php pager(1,$imgamm);?>";
+			window.location.href = "<?php pager(1,$imgamm);?>";
 		}
 		function openSlideMenu() {
 			document.getElementById('side-menu').style.width = '250px';
 		}
 		function closeSlideMenu() {
 			document.getElementById('side-menu').style.width = '0';
+		}
+		function scroll(){
+			document.getElementById(<?php get_pos();?>).scrollIntoView(false);
 		}
 		<?php java_comment($imgamm,$_GET['page']);?>
 	</script>

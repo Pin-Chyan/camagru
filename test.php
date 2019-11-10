@@ -106,5 +106,6 @@ echo "\nget image test\n\n";
 echo "\n\nhome page comment print test\n\n";
 add_comment("1","2","liam comments on asuna");
 add_comment("4","2","pc comments on asuna");
-home_get_comment(1,2);
+echo "id_arr_test";
+id_arr();
 ?>
