@@ -1,7 +1,7 @@
 <?php 
 //one api
 require_once("../header.php");
-// session_start();
+session_start();
 
 echo "The time is " . date("h:i:sa") . "<br/>";
 echo "post test ok ".$_POST['id']."<br/>";
@@ -9,20 +9,42 @@ print_r($_POST);
 echo "<br/> get test ok <br/>";
 print_r($_GET);
 
-$user_id = get_specific("id", "users", "username", $_SESSION['user_id']);
-$id = $_POST['galleryid'];
+$err = 0;
+if (!isset($_SESSION['user_id'])){
+    echo "error : no user logged in<br/>";
+    $err = 1; 
+}
+else if (!isset($_POST['action'])){
+    echo "error : unspecified action<br?>";
+    $err = 1;
+}
+if ($err == 0){
+    $user   = get_specific("id","users","username",$_SESSION['user_id']);
+    $action = $_POST['action'];
+    $galleryid = $_POST['form_id'];
+}
 
-is_liked("1", "1", 'like');
-
-$action = $_REQUEST['operation'];
-if (is_liked($user_id, $id, 'like')) {
-    delete_like("like", "userid", $user_id, "galleryid", $id);
+if ($err == 1){
+    output_error("failed fuck my life");
 }
 else if ($action === "like"){
-        add_like($user_id,$id);
+    echo "running is liked"."<br />";
+    $test = is_liked($user, $galleryid);
+    echo "$test"."<br />";
+    echo "action found";
+    if (is_liked($user,$galleryid)){
+        echo "Removing like"."<br />";
+        echo "$user"."<br />";
+        echo "$galleryid";
+        echo "<br />";
+        remove_like($user, $galleryid);
+    }
+    else{
+        echo "adding like";
+        add_like($user,$galleryid);
+    }
 }
-$i = $_REQUEST['page'];
-print_r($i);
-
-header("Location: ../home_html.php?page=$i");
+$page = $_GET['page'];
+$prev_pos = $_GET['prev_pos'];
+// header("Location: ../home_html.php?page=$page&prev_pos=$prev_pos")
 ?>

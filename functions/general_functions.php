@@ -32,6 +32,7 @@ try {
 }
 }
 
+<<<<<<< HEAD
 function is_liked($userid, $galleryid, $table) {
 	$senpai = Call_onee_san();
 	$stmt = $senpai->prepare("SELECT * FROM $table");
@@ -43,6 +44,9 @@ function is_liked($userid, $galleryid, $table) {
 	}
 	return (0);
 }
+=======
+
+>>>>>>> 4a5cf2cfd9ec41f08902c1c6cba20e10bfb0d775
 
 function find_specific($var, $column, $table){
 try {
@@ -75,7 +79,7 @@ catch (PDOException $e) {
 function delete_specific($table, $column, $value){
 try{
 	$senpai = Call_onee_san();
-	$sth = $senpai->prepare("DELETE FROM $table WHERE $column='$value'");
+	$sth = $senpai->prepare("DELETE FROM `$table` WHERE $column='$value'");
 	$sth->execute();
 	$sth->closeCursor();
 }
