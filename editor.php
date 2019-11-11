@@ -74,10 +74,21 @@
 					</div>
 		
 					<div class="column middle block buttons">
+					<script>
+						echo "<form  action=\"api/posts.php?page=$tag\" method=\"POST\">
+            				<input type=\"hidden\" name=\"action\" value=\"delete\">
+            				<input type=\"hidden\" name=\"form_id\" value=\"$i\">
+            				<input type=\"hidden\" name=\"sub_action\" value=\"null\">
+            				<input type=\"submit\" name=\"sub_action\" value=\"delete this post\">
+            				</form>";
+						
+						
+						
 						<button id="snap" class="btn">Capture</button>
 						<button id="upload" class="btn" >Upload</button>
 						<button id="post" class="btn" >Post</button>
 						<button id="btnDisplay" class="btn" >Check</button>
+					</script>
 					</div>	
 				</div>	
 			</div>	
