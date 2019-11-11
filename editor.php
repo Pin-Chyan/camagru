@@ -28,7 +28,7 @@
 			</span>	
 			<ul class="navbar-nav">
 					<li><a class= "over_def" href="home_html.php">Senpai Haven</a></li>
-					<li><a class= "over_right" href="user_page.php">User-Name</a></li>
+					<li><a class= "over_right" href="user_page.php"><?php $name = $_SESSION['user_id']; echo "$name";?></a></li>
 					<li><a class= "over_right_img" href="user_page.php"><img class= "over_image" src="https://i.pinimg.com/736x/32/d0/af/32d0afda44fb2dde8753844f9283cddc.jpg"></a></li>
 				</ul>	
 			</nav>	

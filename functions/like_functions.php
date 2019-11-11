@@ -38,7 +38,6 @@ function remove_like($userid,$galleryid){
 		$sql = "DELETE FROM `like` WHERE userid='$userid' AND galleryid='$galleryid'";
 		$senpai->exec($sql);
 		echo "like removed\n";
-		$senpai->Closecursor();
 	}
 	catch (PDOException $err){
 		echo $err."\n";
