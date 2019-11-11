@@ -392,23 +392,27 @@ overflow: auto !important;
   width: 90%;
   margin-left: 5%;
   margin-right: 5%;
-  height: 200px;
-  background: rgba(54, 54, 54, 0.63);
+  height: 75px;
+  /* background: rgba(54, 54, 54, 0.63) !important; */
   /* transition: 0.6s; */
 }
 
 .comment-box.left {
+  overflow: auto;
   float: left;
   width: 20% !important;
+  background: rgba(54, 54, 54, 0.63) !important;
+  /* margin-left: 20%; */
   /* height: auto !important; */
-  background-color: white;
+  /* background-color: white; */
   /* margin-right: 5%; */
 }
 
 .comment-box.right {
   width: 80% !important;
   float: right;
-  /* height: auto !important; */
-  background-color: blue;
-  /* margin-left: 5%; */
+  overflow: auto;
+  background: rgba(54, 54, 54, 0.63) !important;
+  padding-bottom: 10px;
+  padding-top: 10px;
 }
