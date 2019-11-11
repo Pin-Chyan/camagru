@@ -130,21 +130,24 @@ catch (PDOExeption $e) {
 }
 function home_img($amm,$page_no,$class){
 try{
-    $i = ($amm * ($page_no - 1)) + 1;
-    $amm += $i;
+    // $i = ($amm * ($page_no - 1)) + 1;
+    // $amm += $i;
     $index = $page_no;
+    $arr = id_arr();
+    $max = count($arr);
+    $max -= $amm * ($page_no - 1);
+    $image = 0;
+    $i = 0;
     $posts = get_posts($index);
-    while ($min < $i)
+    while ($image < $amm)
     {
+        $i = $arr[$max-1];
         if (ver_img($i) == 0){
-            if ($i > 100)
-                return (0);
-            $amm++;
-            $i++;
-            continue;
+            return (0);
         }
         else{
         $img = retrieve_img($i); 
+        $likes = get_likes(NULL,$i);
         echo "<div class=\"column middle title\">Title</div>
             <div class=\"column middle subtitle\">Title Description, DATE</div>
             <img class=\"$class\" src='data:image/jpeg;base64, $img'>";
@@ -155,12 +158,14 @@ try{
             home_get_comment($user,$i);
         }
         echo "<div class=\"column middle icons\" id=\"$i\">
+                <text style=\"color=white\">$likes<text/>
                 <a class=\"icons\">
                     <i class=\"fa fa-thumbs-up w3-hover-opacity\"></i>
                     <i class=\"fa fa-comments w3-hover-opacity\" onclick=\"openDropComment_$i()\"></i>
                 </a>
             </div>
         <div id=\"comment-box_$i\" class=\"column middle comment_container\">
+        <text style=\"color=white\">$likes<text/>
         <a class=\"icons\">
             <i class=\"fa fa-thumbs-up w3-hover-opacity\"></i>
             <i class=\"fa fa-comments w3-hover-opacity\" onclick=\"openCloseComment_$i()\"></i>
@@ -190,10 +195,11 @@ try{
             </form>";
         }
         echo "</div>"; 
-        $i++;
+        $image++;
+        $max--;
     }
 } catch (PDOException $e) {
-	echo "failed to print home page img list\n";
+	echo "failed to print home page img list\n $e";
 }
 }
 
@@ -229,10 +235,11 @@ try{
 
 function pager($mode,$amm){
 try{
+    $max = count(id_arr());
     if ($page = $_GET['page']){
         if ($page > 1 && $mode == -1)
             $page--;
-        else if ($mode == 1 && ($page * $amm) <= max_img())
+        else if ($mode == 1 && ($page * $amm) < $max)
             $page++;
     }
     else
