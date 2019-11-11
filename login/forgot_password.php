@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 require("../header.php");
 $msg = NULL;
 if (isset($_POST['submit'])) {
@@ -27,7 +27,8 @@ if (isset($_POST['submit'])) {
             $headers = "MIME-Version: 1.0" . "\r\n";
             $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
             mail($e,$subject,$msg, $headers);
-            header('location: login.php');
+            session_destroy();
+            header('location: pass_sent.html');
         } else {
             $msg = "Please verify your account first";
         }

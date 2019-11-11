@@ -5,13 +5,24 @@ if (!empty($_SESSION['user_id'])) {
     $name = $_SESSION['user_id'];
 	$email = get_specific('email', 'users', 'username', $name);
 	$img = get_userimg($_SESSION['user_id']);
-	$pref = 1;
+	$pref = get_specific('notify', 'users', 'username', $name);
 } else {
 	header('location: http://localhost:8080/camagru/login/login.php');
 }
 
+
 if(array_key_exists('submit_name', $_POST)) {
 	update_name($name, $_POST['new_name']);
+}
+
+if(array_key_exists('submit_pref', $_POST)) {
+	if($_POST['pref'] == 'yes') {
+		$pref = 1;
+		update_notify($name, $pref);
+    } elseif($_POST['pref'] == 'no') {
+		$pref = 0;
+		update_notify($name, $pref);
+    }
 }
 
 if(array_key_exists('reset_pass', $_POST)) {
@@ -32,6 +43,7 @@ if(array_key_exists('submit_pic', $_POST)) {
 	}
 }
 
+
 if(array_key_exists('submit_email', $_POST)) {
 	update_email($name,$email, $_POST['new_email']);
 }
@@ -47,6 +59,11 @@ function update_email($name, &$curr_email, $new_email) {
 	$id = get_specific('id', "users", 'username', $name);
 	$curr_email = $new_email;
 	update_specific("email", $new_email, "users", 'id', $id);
+}
+
+function update_notify($name, $pref) {
+	$id = get_specific('id', "users", 'username', $name);
+	update_specific("notify", $pref, "users", 'id', $id);
 }
 
 
@@ -92,7 +109,7 @@ function update_email($name, &$curr_email, $new_email) {
 				<a href="home_html.php">Home</a>
 				<a href="user_page.php">Profile</a>
 				<a href="editor.php">Editor</a>
-				<a href="login.php">Log-Out</a>
+				<a href="login/logout.php">Log-Out</a>
 			</div>
 	<!-- </div> -->
 	
@@ -116,15 +133,15 @@ function update_email($name, &$curr_email, $new_email) {
 						<div class="context"><?= $email ?></div>  
 						<div class="profile_title">Edit-Details</div>
 						<div class="l_context">Change User-Name:</div>
-						<div class="context"><form action="" method="POST"><input type="TEXT" placeholder="new username" name="new_name" required/><input type="SUBMIT" name="submit_name" value="update"/></div></form>
+						<div class="context"><form action="" method="POST"><input type="TEXT" placeholder="new username" name="new_name" required/><input type="SUBMIT" name="submit_name" value="save"/></div></form>
 						<div class="l_context">Change E-Mail:</div>
-						<div class="context"><form action="" method="POST"><input type="EMAIL" placeholder="new email" name="new_email" required/><input action="" method='POST' type="SUBMIT" name="submit_email" value="update"/></div></form>
+						<div class="context"><form action="" method="POST"><input type="EMAIL" placeholder="new email" name="new_email" required/><input action="" method='POST' type="SUBMIT" name="submit_email" value="save"/></div></form>
 						<div class="l_context">Change Password:</div>
 						<div class="context"><form action="" method="POST"><input type="SUBMIT" value="reset password" name="reset_pass"/></div></form>
 						<div class="l_context">Change Profile Picture:</div>
 						<div class="context"><form action="" method="POST" enctype="multipart/form-data"><input type="file" name="imagefile" required><input type="submit" name="submit_pic" value="upload"></div></form>
 						<div class="l_context">Send Notification Emails:</div>
-						<div class="context"><form action="" method="POST"><input type="radio" name="send_mail" value="yes" <?php echo ($pref)?'checked':'' ?>>Yes  <input type="radio" name="send_mail" value="no" <?php echo !($pref)?'checked':'' ?>>No</div></form>
+						<div class="context"><form action="" method="POST"><input type="radio" name="pref" value="yes" <?php echo ($pref)?'checked':'' ?>>Yes  <input type="radio" name="pref" value="no" <?php echo !($pref)?'checked':'' ?>>No <input type="SUBMIT" name="submit_pref" value="save"></div></form>
 
 					</div>						  
 			</div>

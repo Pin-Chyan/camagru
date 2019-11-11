@@ -33,6 +33,26 @@ if ($err == 1)
 else if ($action === "add"){
     if (isset($_POST['comment'])){
         add_comment($user,$galleryid,$_POST['comment']);
+        $name = $_SESSION['user_id'];
+        $email = get_specific('email', 'users', 'username', $name);
+        $pref = get_specific('notify', 'users', 'username', $name);
+
+        if ($pref) {
+            $subject = "Senpai noticed us";
+            $msg = "
+            <html>
+            <head>
+            <title>Comment</title>
+            </head>
+            <body>
+            <p>User ".$name." said \"".$_POST['comment']."\"</p></br>
+            </body>
+            </html>
+            ";
+            $headers = "MIME-Version: 1.0" . "\r\n";
+            $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+            mail($email,$subject,$msg, $headers);
+        }
     }
 }
 else if ($action === "delete"){

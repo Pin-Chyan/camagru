@@ -1,4 +1,5 @@
 <?php
+session_start();
 require("../header.php");
 $msg = NULL;
 if(isset($_GET['vkey'])) {
@@ -18,6 +19,7 @@ if(isset($_GET['vkey'])) {
                     $id = get_specific('id', "users", 'vkey', $vkey);
                     update_specific("password", $p, "users", 'id', $id);
                     update_specific("vkey", $new_key, "users", 'id', $id);
+                    session_destroy();    
                     header('location: login.php');
                 }
             }
