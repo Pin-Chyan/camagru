@@ -214,10 +214,10 @@
   display: hidden;
   /* margin-left: 25%; */
   /* margin-right: 20%; */
-  border-radius: 5%;
+  /* border-radius: 5%; */
   /* width: 10% !important; */
   padding: 6px;
-  background-color: white;
+  /* background-color: white; */
   text-align: center;
 }
 
@@ -229,3 +229,8 @@
   margin:auto;
   padding: 10px;
 }
+
+ p {
+   color:white;
+   padding: 10px;
+ }

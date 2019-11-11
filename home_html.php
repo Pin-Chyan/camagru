@@ -85,7 +85,7 @@ $imgamm = 5;
 				<button id="prev" class="btn" onclick="page_p()">prev</button>
 				<a class="display" style="color:black"><?php echo $_GET['page'];?></a>
 				<button id="next" class="btn" onclick="page_n()">next</button>
-		</div>
+			</div>
 		<!-- middle end -->
 
 		<!-- right side -->
@@ -96,6 +96,7 @@ $imgamm = 5;
 		<!-- right end -->
 
 	</div>
+	
 	<div class="footer">
 			<p>Find us More on:</p>
 			<i class="fa fa-facebook-official w3-hover-opacity"></i>

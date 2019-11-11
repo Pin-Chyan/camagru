@@ -70,14 +70,18 @@
 				
 					<!-- Webcam video snapshot -->
 					<div class="canvas_photo">
-						<canvas id="canvas" width="640px" height="480px"></canvas>
+						<canvas id="canvas" width="640" height="480"></canvas>
 					</div>
 		
 					<div class="column middle block buttons">
+						<p>Webcam use</p>
 						<button id="snap" class="btn">Capture</button>
-						<button id="upload" class="btn" >Upload</button>
-						<button id="post" class="btn" >Post</button>
-						<button id="btnDisplay" class="btn" >Check</button>
+						<button id="btnDisplay" class="btn" >Save</button>
+						<p>Image upload</p>
+						<form action="" method="post" enctype="multipart/form-data">
+							<input type="file" name="imagefile" id="imageLoader" class="btn">
+							<input type="submit" name="submit" value="Upload" class="btn">
+						</form>
 					</div>	
 				</div>	
 			</div>	
@@ -206,5 +210,43 @@
 			console.log(dataURI);
 		});
 
+		var imageLoader = document.getElementById('imageLoader');
+    		imageLoader.addEventListener('change', handleImage, false);
+		// var canvas = document.getElementById('imageCanvas');
+		// var ctx = canvas.getContext('2d');
+
+		function handleImage(e){
+	    var reader = new FileReader();
+    	reader.onload = function(event){
+        	var img = new Image();
+        	img.onload = function(){
+    	        canvas.width = img.width;
+        	    canvas.height = img.height;
+        	    context.drawImage(img, 0, 0, 640, 480);
+        		}
+        	img.src = event.target.result;
+    		}
+    	reader.readAsDataURL(e.target.files[0]);     
+		}
+
+
 	</script>
+	<?php
+		require("header.php");
+
+		session_start();
+
+		$senpai = Call_onee_san();
+		if (isset($_POST['submit'])) {
+			if (getimagesize($_FILES['imagefile']['tmp_name']) == false) {
+				echo "<br />Please Select An Image.";
+			} else {
+				$image = $_FILES['imagefile']['tmp_name'];
+				if (isset($_SESSION['user_id'])) {
+					$id = $_SESSION['user_id'];
+					upload_img($id , $image, "users");
+				}
+			}
+		}
+	?>
 </html>

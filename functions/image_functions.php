@@ -127,6 +127,8 @@ catch (PDOExeption $e) {
     echo "shit".$e->GetMessage(),"\n";
 }
 
+<?php pager_images($imgamm,$_GET['page']);?>
+
 }
 function home_img($amm,$page_no,$class){
 try{
