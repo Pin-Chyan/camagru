@@ -7,7 +7,7 @@ function find_id($userid,$galleryid){
         $exec->execute();
         while (($res = $exec->fetch(PDO::FETCH_ASSOC))){
             if ($res['galleryid'] == $galleryid && $res['userid'] == $userid) {
-				return (1);
+				return $res['id'];
 			}
 		}
 		return (0);
@@ -16,6 +16,7 @@ function find_id($userid,$galleryid){
         echo $err."\n";
     }
 }
+
 function add_like($userid,$galleryid){
 	try{
 		$senpai = call_onee_san();
@@ -37,11 +38,13 @@ function remove_like($userid,$galleryid){
 		$sql = "DELETE FROM `like` WHERE userid='$userid' AND galleryid='$galleryid'";
 		$senpai->exec($sql);
 		echo "like removed\n";
+		$senpai->Closecursor();
 	}
 	catch (PDOException $err){
 		echo $err."\n";
 	}
 }
+
 
 function get_likes($userid,$galleryid){
 	try{
@@ -70,5 +73,15 @@ function get_likes($userid,$galleryid){
 	catch (PDOException $e){
 		echo $e."\n";
 	}
+}
+
+function is_liked($userid,$galleryid){
+	$senpai = call_onee_san();
+	$sql = $senpai->prepare("SELECT * FROM `like` WHERE userid='$userid' AND galleryid='$galleryid'");
+	$sql->execute();
+	$res = $sql->fetch(PDO::FETCH_ASSOC);
+	if (isset($res['id']))
+		return (1);
+	return (0);
 }
 ?>

@@ -107,5 +107,6 @@ echo "\n\nhome page comment print test\n\n";
 add_comment("1","2","liam comments on asuna");
 add_comment("4","2","pc comments on asuna");
 echo "id_arr_test";
+remove_like(3,1);
 id_arr();
 ?>
