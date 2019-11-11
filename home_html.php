@@ -77,8 +77,8 @@ $imgamm = 5;
 				<button name="like" id="id" class="btn" onclick="api()"> ajax button test2 </button>
 				<form  method="post" action="api/like.php?operation=like&page=<?php echo $_GET['page'];?>" >
 				<input type="hidden" name="galleryid" value="1" />
-				<input type="text" name="like" value="like 2"/><br/>
-				<input type="submit" name="sub_but">
+				<input type="hidden" name="like" value="like 2"/><br/>
+				<input type="Submit" name="sub_but" value="like">
 				<!-- <input type="text" name="firstname" value="Mickey"><br/> -->
 				</form>
 				<form action="api/like.php?action=like" method="post">

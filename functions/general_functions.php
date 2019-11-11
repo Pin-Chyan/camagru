@@ -35,12 +35,13 @@ try {
 function is_liked($userid, $galleryid, $table) {
 	$senpai = Call_onee_san();
 	$stmt = $senpai->prepare("SELECT * FROM $table");
-	$result = $stmt->execute();
+	$stmt->execute();
 	$arrays = $stmt->fetch(PDO::FETCH_ASSOC);
 	foreach($arrays as $array) {
-		
+		if ($array['userid'] == $userid && $array['galleryid'] == $galleryid)
+			return (1);
 	}
-	return ($result);
+	return (0);
 }
 
 function find_specific($var, $column, $table){
@@ -58,6 +59,19 @@ try {
 	echo "failed to find specific $e\n";
 }
 }
+
+function delete_like($table, $colomn1, $userid, $column2, $galleryid){
+try{
+	$senpai = Call_onee_san();
+	$sth = $senpai->prepare("DELETE FROM $table WHERE $column1=$userid AND $column2=$galleryid");
+	$sth->execute();
+	$sth->closeCursor();
+}
+catch (PDOException $e) {
+	echo "failed to delete Like $e\n";
+}
+}
+
 function delete_specific($table, $column, $value){
 try{
 	$senpai = Call_onee_san();
