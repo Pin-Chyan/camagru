@@ -5,7 +5,7 @@ require("./database/install.php");
 echo "\nadd users test\n";
 add_user("CYKO","lmk310500@gmail.com", NULL, "waifu");
 add_user("CYKO","lmk310500@gmail.com", NULL, "waifu");
-upload_img("CYKO","images/Kirito.jpg","users");
+//upload_img("CYKO","images/Kirito.jpg","users");
 update_specific("verified", "1", "users", "username", "CYKO");
 add_user("test","shane@gmail.com", "images/Kirito.jpg", "shane");
 add_user("Shane","shane@gmail.com", "images/Kirito.jpg", "shane");

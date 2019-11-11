@@ -156,15 +156,16 @@ try{
             echo "<div class=\"column middle icons\" >
             <text style=\"color=white\">$likes<text/>
             <a class=\"icons\">
-            <i class=\"fa fa-thumbs-up w3-hover-opacity\"></i>
+            <form  action=\"api/like.php\" method=\"POST\">
+            <input type=\"hidden\" name=\"action\" value=\"like\">
+            <input type=\"hidden\" name=\"form_id\" value=\"$i\">
+            <input type=\"submit\" name=\"sub_action\" value=\"like\">
+            </form>
+            <i class=\"fa fa-thumbs-up w3-hover-opacity\" onclick=\"api/like.php?action=like\"></i>
             <i class=\"fa fa-comments w3-hover-opacity\" onclick=\"openDropComment_$i()\"></i>
             </a>
             </div>
             <div id=\"comment-box_$i\" class=\"column middle comment_container\">
-            <text style=\"color=white\">$likes<text/>
-            <a class=\"icons\">
-            <i class=\"fa fa-thumbs-up w3-hover-opacity\"></i>
-            <i class=\"fa fa-comments w3-hover-opacity\" onclick=\"openCloseComment_$i()\"></i>
             </a>";
             if (!isset($_SESSION['user_id']))
                 home_get_comment(0,$i);
@@ -187,7 +188,6 @@ try{
         <input type=\"submit\" name=\"sub_action\" value=\"comment\">
                 </form>
                 ";
-        }
         if ($posts[$i-1]['username'] === $_SESSION['user_id']) {
             $tag = $_GET["page"];
             echo "<form  action=\"api/posts.php?page=$tag\" method=\"POST\">
@@ -197,13 +197,14 @@ try{
             <input type=\"submit\" name=\"sub_action\" value=\"delete this post\">
             </form>";
         }
-        echo "</div>"; 
-        $image++;
-        $max--;
     }
-} catch (PDOException $e) {
-	echo "failed to print home page img list\n $e";
+    echo "</div>"; 
+    $image++;
+    $max--;
 }
+}catch (PDOException $e) {
+    echo "failed to print home page img list\n $e";
+    }
 }
 
 function java_comment($amm,$page_no){

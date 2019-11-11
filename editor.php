@@ -28,7 +28,7 @@
 			</span>	
 			<ul class="navbar-nav">
 					<li><a class= "over_def" href="home_html.php">Senpai Haven</a></li>
-					<li><a class= "over_right" href="user_page.php">User-Name</a></li>
+					<li><a class= "over_right" href="user_page.php"><?php $name = $_SESSION['user_id']; echo "$name";?></a></li>
 					<li><a class= "over_right_img" href="user_page.php"><img class= "over_image" src="https://i.pinimg.com/736x/32/d0/af/32d0afda44fb2dde8753844f9283cddc.jpg"></a></li>
 				</ul>	
 			</nav>	
@@ -37,7 +37,7 @@
 				<a href="home_html.php">Home</a>
 				<a href="user_page.php">Profile</a>
 				<a href="editor.php">Editor</a>
-				<a href="login.php">Log-Out</a>
+				<a href="login/logout.php">Log-Out</a>
 			</div>	
 			<!-- </div> -->		
 			
@@ -79,7 +79,7 @@
 						<button id="btnDisplay" class="btn" >Save</button>
 						<button onclick="loadState()" class="btn" >Restore</button>
 						<p>Image upload</p>
-						<form action="" method="post" enctype="multipart/form-data">
+						<form action="api/like.php?" method="post" enctype="multipart/form-data">
 							<input type="file" name="imagefile" id="imageLoader" class="btn">
 							<input type="submit" name="submit" value="Upload" class="btn">
 						</form>
@@ -262,8 +262,8 @@
 			} else {
 				$image = $_FILES['imagefile']['tmp_name'];
 				if (isset($_SESSION['user_id'])) {
-					$id = $_SESSION['user_id'];
-					upload_img($id , $image, "users");
+					$id = get_specific("id","users","username",$_SESSION['user_id']);
+					upload_img($id , $image, "gallery");
 				}
 			}
 		}

@@ -46,5 +46,5 @@ else if ($action === "like"){
 }
 $page = $_GET['page'];
 $prev_pos = $_GET['prev_pos'];
-// header("Location: ../home_html.php?page=$page&prev_pos=$prev_pos")
+header("Location: ../home_html.php?page=$page&prev_pos=$prev_pos")
 ?>
