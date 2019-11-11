@@ -222,7 +222,7 @@
         	img.onload = function(){
     	        canvas.width = img.width;
         	    canvas.height = img.height;
-        	    context.drawImage(img, 0, 0, 640, 480);
+        	    context.drawImage(img, 0, 0);
         		}
         	img.src = event.target.result;
     		}
