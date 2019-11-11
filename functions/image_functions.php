@@ -156,7 +156,12 @@ try{
             echo "<div class=\"column middle icons\" >
             <text style=\"color=white\">$likes<text/>
             <a class=\"icons\">
-            <i class=\"fa fa-thumbs-up w3-hover-opacity\"></i>
+            <form  action=\"api/like.php\" method=\"POST\">
+            <input type=\"hidden\" name=\"action\" value=\"like\">
+            <input type=\"hidden\" name=\"form_id\" value=\"$i\">
+            <input type=\"submit\" name=\"sub_action\" value=\"like\">
+            </form>
+            <i class=\"fa fa-thumbs-up w3-hover-opacity\" onclick=\"api/like.php?action=like\"></i>
             <i class=\"fa fa-comments w3-hover-opacity\" onclick=\"openDropComment_$i()\"></i>
             </a>
             </div>

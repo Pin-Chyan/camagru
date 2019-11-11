@@ -78,7 +78,7 @@
 						<button id="snap" class="btn">Capture</button>
 						<button id="btnDisplay" class="btn" >Save</button>
 						<p>Image upload</p>
-						<form action="" method="post" enctype="multipart/form-data">
+						<form action="api/like.php?" method="post" enctype="multipart/form-data">
 							<input type="file" name="imagefile" id="imageLoader" class="btn">
 							<input type="submit" name="submit" value="Upload" class="btn">
 						</form>
@@ -243,8 +243,8 @@
 			} else {
 				$image = $_FILES['imagefile']['tmp_name'];
 				if (isset($_SESSION['user_id'])) {
-					$id = $_SESSION['user_id'];
-					upload_img($id , $image, "users");
+					$id = get_specific("id","users","username",$_SESSION['user_id']);
+					upload_img($id , $image, "gallery");
 				}
 			}
 		}
