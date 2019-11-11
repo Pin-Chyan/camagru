@@ -32,22 +32,6 @@ try {
 }
 }
 
-<<<<<<< HEAD
-function is_liked($userid, $galleryid, $table) {
-	$senpai = Call_onee_san();
-	$stmt = $senpai->prepare("SELECT * FROM $table");
-	$stmt->execute();
-	$arrays = $stmt->fetch(PDO::FETCH_ASSOC);
-	foreach($arrays as $array) {
-		if ($array['userid'] == $userid && $array['galleryid'] == $galleryid)
-			return (1);
-	}
-	return (0);
-}
-=======
-
->>>>>>> 4a5cf2cfd9ec41f08902c1c6cba20e10bfb0d775
-
 function find_specific($var, $column, $table){
 try {
 	$senpai = Call_onee_san();
