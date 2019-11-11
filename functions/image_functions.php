@@ -48,6 +48,21 @@ function ver_img($galleryid){
 	}
 }
 
+function id_arr(){
+    try{
+        $senpai = Call_onee_san();
+		$sth = $senpai->prepare("SELECT id FROM gallery");
+		$sth->execute();
+		$result = $sth->fetchAll(PDO::FETCH_COLUMN);
+		return($result);
+		$sth->closeCursor();
+		//return ($result[$target]);
+    }
+    catch (PDOExecption $e){
+        echo $e."\n";
+    }
+}
+
 function max_img(){
 try{
     $senpai = call_onee_san();
@@ -111,93 +126,94 @@ try {
 catch (PDOExeption $e) {
     echo "shit".$e->GetMessage(),"\n";
 }
+
 }
 function home_img($amm,$page_no,$class){
 try{
-    $i = ($amm * ($page_no - 1)) + 1;
-    $amm += $i;
+    // $i = ($amm * ($page_no - 1)) + 1;
+    // $amm += $i;
     $index = $page_no;
+    $arr = id_arr();
+    $max = count($arr);
+    $max -= $amm * ($page_no - 1);
+    $image = 0;
+    // $i = 0;
     $posts = get_posts($index);
-    while ($i < $amm)
+    while ($image < $amm)
     {
+        $i = $arr[$max-1];
         if (ver_img($i) == 0){
-            if ($i > 100)
-                return (0);
-            $amm++;
-            $i++;
-            continue;
+            return (0);
         }
         else{
         $img = retrieve_img($i); 
+        $likes = get_likes(NULL,$i);
         echo "<div class=\"column middle title\">Title</div>
             <div class=\"column middle subtitle\">Title Description, DATE</div>
-            <img class=\"$class\" src='data:image/jpeg;base64, $img'>
-            <div class=\"column middle icons\">
+            <img class=\"$class\" src='data:image/jpeg;base64, $img'>";
+        if (!isset($_SESSION['user_id']))
+            home_get_comment(0,$i);
+        else{
+            $user  = get_specific("id","users","username",$_SESSION['user_id']);
+            home_get_comment($user,$i);
+        }
+        echo "<div class=\"column middle icons\" id=\"$i\">
+                <text style=\"color=white\">$likes<text/>
                 <a class=\"icons\">
                     <i class=\"fa fa-thumbs-up w3-hover-opacity\"></i>
                     <i class=\"fa fa-comments w3-hover-opacity\" onclick=\"openDropComment_$i()\"></i>
                 </a>
             </div>
         <div id=\"comment-box_$i\" class=\"column middle comment_container\">
-            <a class=\"c-btn-close\" onclick=\"openCloseComment_$i()\">&times;</a>
-            <br />
-            <label> Comment: <br>
-                <textarea name=\"Comment_$i\" class=\"Input comment-box\" required></textarea>
-            </label>";
+        <text style=\"color=white\">$likes<text/>
+        <a class=\"icons\">
+            <i class=\"fa fa-thumbs-up w3-hover-opacity\"></i>
+            <i class=\"fa fa-comments w3-hover-opacity\" onclick=\"openCloseComment_$i()\"></i>
+        </a>";
         }
         if (isset($_SESSION['user_id'])){
-            $user  = get_specific("id","users","username",$_SESSION['user_id']);
-            if (find_comment($user,$i) == 1){
-                $comment = get_specific("comment","comments","userid",$user);
-                echo "
-                <form  action=\"api/comment.php?\" method=\"POST\">
-                <input type=\"hidden\" name=\"action\" value=\"delete\">
-                <input type=\"hidden\" name=\"form_id\" value=\"$i\">
-                <input type=\"visible\" name=\"comment\" value=\"$comment\">
-                <input type=\"submit\" name=\"sub_action\" value=\"delete comment\">
-                </form>
-                ";
-            }
-            else{
-                echo "
-                <form  action=\"api/comment.php\" method=\"POST\">
+            $page = $_GET['page'];
+            $prev_pos = $i;
+            echo "
+                <form  action=\"api/comment.php?page=$page&prev_pos=$i\" method=\"POST\">
                 <input type=\"hidden\" name=\"action\" value=\"add\">
                 <input type=\"hidden\" name=\"form_id\" value=\"$i\">
-                <input type=\"visible\" name=\"comment\" value=\"comment here $user\">
+                <label> Comment: <br>
+                <textarea name=\"comment\" class=\"text-box\" required></textarea>
+                </label><br>
                 <input type=\"submit\" name=\"sub_action\" value=\"comment\">
                 </form>
                 ";
-            }
-        }  
+        }
         if ($posts[$i-1]['username'] === $_SESSION['user_id']) {
             $tag = $_GET["page"];
             echo "<form  action=\"api/posts.php?page=$tag\" method=\"POST\">
             <input type=\"hidden\" name=\"action\" value=\"delete\">
             <input type=\"hidden\" name=\"form_id\" value=\"$i\">
             <input type=\"hidden\" name=\"sub_action\" value=\"null\">
-            <input type=\"submit\" name=\"sub_action\" value=\"button name\">
+            <input type=\"submit\" name=\"sub_action\" value=\"delete this post\">
             </form>";
         }
-            echo "</div>";
-        $i++;
+        echo "</div>"; 
+        $image++;
+        $max--;
     }
 } catch (PDOException $e) {
-	echo "failed to print home page img list\n";
+	echo "failed to print home page img list\n $e";
 }
 }
 
 function java_comment($amm,$page_no){
 try{
-    $i = ($amm * ($page_no - 1)) + 1;
-    $amm += $i;
-    while ($i < $amm)
+    $arr = id_arr();
+    $max = count($arr);
+    $max -= $amm * ($page_no - 1);
+    $image = 0;
+    while ($image < $amm)
     {
+        $i = $arr[$max-1];
         if (ver_img($i) == 0){
-            if ($i > 100)
-                return (0);
-            $amm++;
-            $i++;
-            continue;
+            return (0);
         }
         else{
         echo"function openDropComment_$i() {
@@ -209,7 +225,8 @@ try{
 			document.getElementById('comment-box_$i').style.visibility = 'hidden';
         }";
         }
-        $i++;
+        $image++;
+        $max--;
     }
 } catch (PDOException $e) {
 	echo "failed to printf comment boxes\n";
@@ -218,16 +235,17 @@ try{
 
 function pager($mode,$amm){
 try{
+    $max = count(id_arr());
     if ($page = $_GET['page']){
         if ($page > 1 && $mode == -1)
             $page--;
-        else if ($mode == 1 && ($page * $amm) <= max_img())
+        else if ($mode == 1 && ($page * $amm) < $max)
             $page++;
     }
     else
         $page = 1;
     //echo $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']."?page=$page";
-    echo "localhost:8080/camagru/home_html.php?page=$page";
+    echo "./home_html.php?page=$page";
     //echo "localhost:8080/camagru/test.php?page=$page";
 } catch (PDOException $e) {
 	echo "failed to get next page link\n";
@@ -236,7 +254,7 @@ try{
 
 function pager_images($no,$page){
 try{
-    echo "<div class=\"column middle c\">";
+    echo "<div class=\"column middle c\" onload=\"scroltest();\">";
     home_img($no,$page,"column middle image");
 } catch (PDOException $e) {
 	echo "failed to print home mage img\n";

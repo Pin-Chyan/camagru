@@ -20,8 +20,11 @@ if (!isset($_SESSION['user_id'])){
 else if ($action === "delete") {
 	if (!isset($_REQUEST['form_id']))
 		echo "error : gallery id not specified<br/>";
-	else
- 		delete_specific("gallery", "id", $galleryid);
+	else{
+		delete_specific("gallery", "id", $galleryid);
+		delete_specific("comments","galleryid", $galleryid);
+		delete_specific("like","galleryid", $galleryid);
+	}
 }
 else if ($action === "upload"){
 	if (!isset($_REQUEST['img']))
