@@ -33,21 +33,25 @@ if ($err == 1)
 else if ($action === "add"){
     if (isset($_POST['comment'])){
         add_comment($user,$galleryid,$_POST['comment']);
-        if (get_specific('notify', 'users', 'username', $name) == 1) {
+        $name = $_SESSION['user_id'];
+        $email = get_specific('email', 'users', 'username', $name);
+        $pref = get_specific('notify', 'users', 'username', $name);
+
+        if ($pref) {
+            $subject = "Senpai noticed us";
             $msg = "
             <html>
             <head>
-            <title>Verify</title>
+            <title>Comment</title>
             </head>
             <body>
-            <p>User ".$_SESSION['user_id']." made comment:</p></br>
-            <p>".$_POST['comment']."</p>
+            <p>User ".$name." said \"".$_POST['comment']."\"</p></br>
             </body>
             </html>
             ";
             $headers = "MIME-Version: 1.0" . "\r\n";
             $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-            mail($e,$subject,$msg, $headers);
+            mail($email,$subject,$msg, $headers);
         }
     }
 }
