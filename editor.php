@@ -77,6 +77,7 @@
 						<p>Webcam use</p>
 						<button id="snap" class="btn">Capture</button>
 						<button id="btnDisplay" class="btn" >Save</button>
+						<button onclick="loadState()" class="btn" >Restore</button>
 						<p>Image upload</p>
 						<form action="api/like.php?" method="post" enctype="multipart/form-data">
 							<input type="file" name="imagefile" id="imageLoader" class="btn">
@@ -161,11 +162,14 @@
 		var context = canvas.getContext('2d');
 			width = 640;
 			height = 480;
+		var img = new Image;
+		var	s_canvas;
 		snap.addEventListener("click",function(){
 			context.save();
 			context.scale(-1, 1);
 			context.drawImage(video, 0, 0, width * -1, height);
 			context.restore();
+			saveState(canvas);
 		});
 
 		function miku() {
@@ -227,6 +231,21 @@
         	img.src = event.target.result;
     		}
     	reader.readAsDataURL(e.target.files[0]);     
+		}
+
+		function saveState(c) {
+ 			s_canvas = c.toDataURL('image/jpeg', 1.0);
+  			//copy the data into some variable
+			console.log(s_canvas);
+		}
+
+		function loadState() {
+  		//load the data from the variable and apply to canvas
+			context.clearRect(0, 0, canvas.width, canvas.height);
+  			img.onload = function() {
+    			context.drawImage(img, 0, 0);
+  			}
+  			img.src = s_canvas;
 		}
 
 
