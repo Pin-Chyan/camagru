@@ -148,8 +148,10 @@ try{
         else{
         $img = retrieve_img($i); 
         $likes = get_likes(NULL,$i);
-        echo "<div class=\"column middle title\">Title</div>
-            <div class=\"column middle subtitle\">Title Description, DATE</div>
+        $name = get_specific("username","users","id",get_specific("userid","gallery","id",$i));
+        $date = get_specific("up_date","gallery","id",$i);
+        echo "<div class=\"column middle title\">Posted by: $name</div>
+            <div class=\"column middle subtitle\">on: $date</div>
             <img class=\"$class\" src='data:image/jpeg;base64, $img'>";
             echo "<div class=\"column middle icons\" >
             <text style=\"color=white\">$likes<text/>
