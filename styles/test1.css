@@ -402,6 +402,9 @@ overflow: auto !important;
   float: left;
   width: 20% !important;
   background: rgba(54, 54, 54, 0.2) !important;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  text-align: center;
   /* margin-left: 20%; */
   /* height: auto !important; */
   /* background-color: white; */
@@ -413,6 +416,7 @@ overflow: auto !important;
   float: right;
   overflow: auto;
   background: rgba(54, 54, 54, 0.2) !important;
+  text-align: center;
   padding-bottom: 10px;
   padding-top: 10px;
 }

@@ -127,8 +127,6 @@ catch (PDOExeption $e) {
     echo "shit".$e->GetMessage(),"\n";
 }
 
-<?php pager_images($imgamm,$_GET['page']);?>
-
 }
 function home_img($amm,$page_no,$class){
 try{
@@ -153,37 +151,38 @@ try{
         echo "<div class=\"column middle title\">Title</div>
             <div class=\"column middle subtitle\">Title Description, DATE</div>
             <img class=\"$class\" src='data:image/jpeg;base64, $img'>";
-        if (!isset($_SESSION['user_id']))
-            home_get_comment(0,$i);
-        else{
-            $user  = get_specific("id","users","username",$_SESSION['user_id']);
-            home_get_comment($user,$i);
-        }
-        echo "<div class=\"column middle icons\" id=\"$i\">
-                <text style=\"color=white\">$likes<text/>
-                <a class=\"icons\">
-                    <i class=\"fa fa-thumbs-up w3-hover-opacity\"></i>
-                    <i class=\"fa fa-comments w3-hover-opacity\" onclick=\"openDropComment_$i()\"></i>
-                </a>
+            echo "<div class=\"column middle icons\" >
+            <text style=\"color=white\">$likes<text/>
+            <a class=\"icons\">
+            <i class=\"fa fa-thumbs-up w3-hover-opacity\"></i>
+            <i class=\"fa fa-comments w3-hover-opacity\" onclick=\"openDropComment_$i()\"></i>
+            </a>
             </div>
-        <div id=\"comment-box_$i\" class=\"column middle comment_container\">
-        <text style=\"color=white\">$likes<text/>
-        <a class=\"icons\">
+            <div id=\"comment-box_$i\" class=\"column middle comment_container\">
+            <text style=\"color=white\">$likes<text/>
+            <a class=\"icons\">
             <i class=\"fa fa-thumbs-up w3-hover-opacity\"></i>
             <i class=\"fa fa-comments w3-hover-opacity\" onclick=\"openCloseComment_$i()\"></i>
-        </a>";
-        }
-        if (isset($_SESSION['user_id'])){
-            $page = $_GET['page'];
-            $prev_pos = $i;
-            echo "
-                <form  action=\"api/comment.php?page=$page&prev_pos=$i\" method=\"POST\">
-                <input type=\"hidden\" name=\"action\" value=\"add\">
-                <input type=\"hidden\" name=\"form_id\" value=\"$i\">
-                <label> Comment: <br>
-                <textarea name=\"comment\" class=\"text-box\" required></textarea>
-                </label><br>
-                <input type=\"submit\" name=\"sub_action\" value=\"comment\">
+            </a>";
+            if (!isset($_SESSION['user_id']))
+                home_get_comment(0,$i);
+            else{
+                $user  = get_specific("id","users","username",$_SESSION['user_id']);
+                home_get_comment($user,$i);
+            }
+            echo "<br/><a class=\"c-btn-close\" onclick=\"openCloseComment_$i()\">&times;</a><br/>";
+    }
+    if (isset($_SESSION['user_id'])){
+        $page = $_GET['page'];
+        $prev_pos = $i;
+        echo "
+        <form  action=\"api/comment.php?page=$page&prev_pos=$i\" method=\"POST\">
+        <input type=\"hidden\" name=\"action\" value=\"add\">
+        <input type=\"hidden\" name=\"form_id\" value=\"$i\">
+        <label> Comment: <br>
+        <textarea id=\"$i\" name=\"comment\" class=\"text-box\" required></textarea>
+        </label><br>
+        <input type=\"submit\" name=\"sub_action\" value=\"comment\">
                 </form>
                 ";
         }

@@ -128,6 +128,7 @@ $imgamm = 5;
 		}
 		function scroll(){
 			document.getElementById(<?php get_pos();?>).scrollIntoView(false);
+			openDropComment_<?php get_pos();?>();
 		}
 		<?php java_comment($imgamm,$_GET['page']);?>
 	</script>
