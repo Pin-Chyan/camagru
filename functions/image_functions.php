@@ -258,6 +258,7 @@ function pager_images($no,$page){
 try{
     echo "<div class=\"column middle c\" onload=\"scroltest();\">";
     home_img($no,$page,"column middle image");
+    echo "</div>";
 } catch (PDOException $e) {
 	echo "failed to print home mage img\n";
 }

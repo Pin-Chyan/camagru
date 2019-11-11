@@ -32,16 +32,7 @@ try {
 }
 }
 
-function is_liked($userid, $galleryid, $table) {
-	$senpai = Call_onee_san();
-	$stmt = $senpai->prepare("SELECT * FROM $table");
-	$result = $stmt->execute();
-	$arrays = $stmt->fetch(PDO::FETCH_ASSOC);
-	foreach($arrays as $array) {
-		
-	}
-	return ($result);
-}
+
 
 function find_specific($var, $column, $table){
 try {
@@ -61,7 +52,7 @@ try {
 function delete_specific($table, $column, $value){
 try{
 	$senpai = Call_onee_san();
-	$sth = $senpai->prepare("DELETE FROM $table WHERE $column='$value'");
+	$sth = $senpai->prepare("DELETE FROM `$table` WHERE $column='$value'");
 	$sth->execute();
 	$sth->closeCursor();
 }
