@@ -205,7 +205,7 @@
 		}
 
 		btnDisplay.addEventListener("click", function () {
-			const dataURI = canvas.toDataURL();
+			const dataURI = canvas.toDataURL('image/jpeg', 1.0);
 
 			console.log(dataURI);
 		});
