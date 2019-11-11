@@ -33,6 +33,22 @@ if ($err == 1)
 else if ($action === "add"){
     if (isset($_POST['comment'])){
         add_comment($user,$galleryid,$_POST['comment']);
+        if (get_specific('notify', 'users', 'username', $name) == 1) {
+            $msg = "
+            <html>
+            <head>
+            <title>Verify</title>
+            </head>
+            <body>
+            <p>User ".$_SESSION['user_id']." made comment:</p></br>
+            <p>".$_POST['comment']."</p>
+            </body>
+            </html>
+            ";
+            $headers = "MIME-Version: 1.0" . "\r\n";
+            $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+            mail($e,$subject,$msg, $headers);
+        }
     }
 }
 else if ($action === "delete"){

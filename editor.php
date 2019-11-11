@@ -37,7 +37,7 @@
 				<a href="home_html.php">Home</a>
 				<a href="user_page.php">Profile</a>
 				<a href="editor.php">Editor</a>
-				<a href="login.php">Log-Out</a>
+				<a href="login/logout.php">Log-Out</a>
 			</div>	
 			<!-- </div> -->		
 			
