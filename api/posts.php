@@ -38,8 +38,8 @@ else if ($action === "upload"){
 	else
 		echo "error : unknown sub action";
 }
-$page = $_GET['page'];
-header("Location: ../home_html.php?page=$page");
+// $page = $_GET['page'];
+// header("Location: ../home_html.php?page=$page");
 // $i = 1;
 // $max = 11;
 
