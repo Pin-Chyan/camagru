@@ -3,6 +3,14 @@ session_start();
 require_once("header.php");
 if (!$_GET['page'])
 	header("Location: ./home_html.php?page=1&prev_pos=0");
+	$max = count(id_arr());
+	$page = $_GET['page'];
+	
+	if ($page * 5 > $max){
+		while ($page * 5 > $max)
+			$page--;
+	header("Location: ./home_html.php?page=1&prev_pos=$page");
+	}
 // session_start();
 function sesh(){
 	if (!isset($_SESSION['user_id']))

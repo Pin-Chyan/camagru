@@ -29,21 +29,14 @@ $max = 11;
 // <input type=\"submit\" name=\"sub_action\" value=\"comment\">
 // </form>
 // ";
-// echo "
-// <form  action=\"api/comment.php\" method=\"POST\">
-// <input type=\"hidden\" name=\"action\" value=\"delete\">
-// <input type=\"visible\" name=\"form_id\" value=\"id\">
-// <input type=\"submit\" name=\"sub_action\" value=\"delete\">
-// </form>
-// ";
-$like = get_likes(NULL,1);
-echo "<text>$like<tetx/><br/>";
-$like = get_likes(NULL,3);
-echo "<text>$like<tetx/><br/>";
-$like = id_arr();
-echo "<text>$like<tetx/><br/>";
-$like = count($like);
-echo "<text>$like<tetx/><br/>";
+echo "
+<form  action=\"api/like.php\" method=\"POST\">
+<input type=\"hidden\" name=\"action\" value=\"like\">
+<input type=\"visible\" name=\"form_id\" value=\"id\">
+<input type=\"submit\" name=\"sub_action\" value=\"like\">
+</form>
+";
+
 ?>
 
 </body>

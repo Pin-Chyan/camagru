@@ -137,7 +137,7 @@ try{
     $max = count($arr);
     $max -= $amm * ($page_no - 1);
     $image = 0;
-    $i = 0;
+    // $i = 0;
     $posts = get_posts($index);
     while ($image < $amm)
     {
@@ -205,16 +205,15 @@ try{
 
 function java_comment($amm,$page_no){
 try{
-    $i = ($amm * ($page_no - 1)) + 1;
-    $amm += $i;
-    while ($i < $amm)
+    $arr = id_arr();
+    $max = count($arr);
+    $max -= $amm * ($page_no - 1);
+    $image = 0;
+    while ($image < $amm)
     {
+        $i = $arr[$max-1];
         if (ver_img($i) == 0){
-            if ($i > 100)
-                return (0);
-            $amm++;
-            $i++;
-            continue;
+            return (0);
         }
         else{
         echo"function openDropComment_$i() {
@@ -226,7 +225,8 @@ try{
 			document.getElementById('comment-box_$i').style.visibility = 'hidden';
         }";
         }
-        $i++;
+        $image++;
+        $max--;
     }
 } catch (PDOException $e) {
 	echo "failed to printf comment boxes\n";
