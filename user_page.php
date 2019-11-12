@@ -12,7 +12,8 @@ if (!empty($_SESSION['user_id'])) {
 
 
 if(array_key_exists('submit_name', $_POST)) {
-	update_name($name, $_POST['new_name']);
+	$new_name = strip_tags($_POST['new_name']);
+	update_name($name, $new_name);
 }
 
 if(array_key_exists('submit_pref', $_POST)) {

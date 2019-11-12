@@ -41,9 +41,6 @@ else if ($action === "add"){
             $subject = "Senpai noticed us";
             $msg = "
             <html>
-            <head>
-            <title>Comment</title>
-            </head>
             <body>
             <p>User ".$name." said \"".$_POST['comment']."\"</p></br>
             </body>
