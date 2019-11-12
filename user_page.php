@@ -7,12 +7,13 @@ if (!empty($_SESSION['user_id'])) {
 	$img = get_userimg($_SESSION['user_id']);
 	$pref = get_specific('notify', 'users', 'username', $name);
 } else {
-	header('location: http://localhost:8080/camagru/login/login.php');
+	header('location: ./login/login.php');
 }
 
 
 if(array_key_exists('submit_name', $_POST)) {
-	update_name($name, $_POST['new_name']);
+	$new_name = strip_tags($_POST['new_name']);
+	update_name($name, $new_name);
 }
 
 if(array_key_exists('submit_pref', $_POST)) {
@@ -27,7 +28,12 @@ if(array_key_exists('submit_pref', $_POST)) {
 
 if(array_key_exists('reset_pass', $_POST)) {
 	$vkey = get_specific('vkey', 'users', 'username', $name);
-	header("location: http://localhost:8080/camagru/login/reset_pass.php?vkey=$vkey");
+	$dir = $_SERVER['PHP_SELF'];
+    $len = strrpos($dir, "user_page.php");
+	$reg_dir = substr($dir, 0, $len);
+    $reg_dir = $reg_dir."login/reset_pass.php";
+	$page_dir = $_SERVER['HTTP_HOST'].$reg_dir;
+	header("location: http://$page_dir?vkey=$vkey");
 }
 
 if(array_key_exists('submit_pic', $_POST)) {
