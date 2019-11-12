@@ -10,8 +10,8 @@
 function get_specific($target, $table, $column, $value){
 	try {
 		$senpai = Call_onee_san();
-		$sth = $senpai->prepare("SELECT * FROM $table WHERE $column='$value'");
-		$sth->execute();
+		$sth = $senpai->prepare("SELECT * FROM `$table` WHERE `$column`=:value");
+		$sth->execute(array('value' => $value));
 		$result = $sth->fetch(PDO::FETCH_ASSOC);
 		if (!$result[$target])
 			return (0);
@@ -24,8 +24,8 @@ function get_specific($target, $table, $column, $value){
 function update_specific($target, $new_var, $table, $column, $value){
 try {
 	$senpai = Call_onee_san();
-	$sth = $senpai->prepare("UPDATE $table SET $target=':newvar' WHERE $column=':value'");
-	$sth->execute(array(':newvar' => $new_var, ':value' => $value));
+	$sth = $senpai->prepare("UPDATE $table SET `$target`=:newvar WHERE `$column`=:value");
+	$sth->execute(array('newvar' => $new_var, 'value' => $value));
 	$sth->closeCursor();
 } catch (PDOException $e) {
 	echo "failed to update specific $e\n";
