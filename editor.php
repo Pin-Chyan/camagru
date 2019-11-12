@@ -1,3 +1,13 @@
+<?php 		
+	require("header.php");
+	session_start();
+	if (!empty($_SESSION['user_id'])) {
+		$name = $_SESSION['user_id'];
+		$img = get_userimg($_SESSION['user_id']);
+	} else {
+		header('location: ./login/login.php');
+	}
+?>
 <link rel="stylesheet" href="./styles/editor.css">
 <!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> -->
 <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat"> -->
@@ -28,8 +38,8 @@
 			</span>	
 			<ul class="navbar-nav">
 					<li><a class= "over_def" href="home_html.php">Senpai Haven</a></li>
-					<li><a class= "over_right" href="user_page.php"><?php $name = $_SESSION['user_id']; echo "$name";?></a></li>
-					<li><a class= "over_right_img" href="user_page.php"><img class= "over_image" src="https://i.pinimg.com/736x/32/d0/af/32d0afda44fb2dde8753844f9283cddc.jpg"></a></li>
+					<li><a class= "over_right" href="user_page.php"><?= $name ?></a></li>
+					<li><a class= "over_right_img" href="user_page.php"><img class= "over_image" <?= $img?>></a></li>
 				</ul>	
 			</nav>	
 			<div id="side-menu" class="side-nav">
@@ -284,10 +294,6 @@
 
 	</script>
 	<?php
-		require("header.php");
-
-		session_start();
-
 		$senpai = Call_onee_san();
 		if (isset($_POST['submit'])) {
 			if (getimagesize($_FILES['imagefile']['tmp_name']) == false) {
