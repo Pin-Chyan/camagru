@@ -32,7 +32,8 @@ if ($err == 1)
 }
 else if ($action === "add"){
     if (isset($_POST['comment'])){
-        add_comment($user,$galleryid,$_POST['comment']);
+        $comment = htmlspecialchars($_POST['comment'], ENT_QUOTES);
+        add_comment($user,$galleryid, $comment);
         $name = $_SESSION['user_id'];
         $email = get_specific('email', 'users', 'username', $name);
         $pref = get_specific('notify', 'users', 'username', $name);
