@@ -9,13 +9,14 @@ $img = get_specific("img","gallery","id",3);
 <div id="demo">
   <h2>Let AJAX change this text</h2>
   <button type="button" onclick="XHR()">butt</button>
+  <text>Stuff<?php echo $img;?></text>
 </div>
 
 <script>
 function XHR()
 {
   // build the request object and actions
-  var img = "<?php echo $img?>";
+  let img = canvas.toDataURL();
   console.log(img);
   var xhttp = new XMLHttpRequest();
   xhttp.open("POST", "api/posts.php");

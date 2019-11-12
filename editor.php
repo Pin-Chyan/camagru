@@ -95,7 +95,7 @@
 					<div class="column middle block buttons">
 						<p>Webcam use</p>
 						<button id="snap" class="btn">Capture</button>
-						<button onclick="canvas_image()" id="btnDisplay" class="btn" >Save</button>
+						<button onclick="XHR()" id="btnDisplay" class="btn" >Post</button>
 						<button onclick="loadState()" class="btn" >Restore</button>
 						<p>Image upload</p>
 						<button type="button" onclick="ajax_upload()">upload</button>
@@ -228,26 +228,18 @@
 			context.drawImage(drawing, 0, 30, 300, 450);
 		}
 
-		function canvas_image(){
-  			let pngUrl = canvas.toDataURL();
-			var xhr = new XMLHttpRequest();
-			xhr.open('POST', "api/posts.php");
-			xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-			var str = "action=test1&img=".concat(pngUrl," ok ");
-			xhr.send(str);
+		function XHR()
+		{
+		  // build the request object and actions
+		  img = canvas.toDataURL('image/jpeg', 1.0);
+		  console.log(img);
+		  var xhttp = new XMLHttpRequest();
+		  xhttp.open("POST", "api/posts.php");
+		  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		  var str = "action=upload&sub_action=canvas&img=" + img;
+		  xhttp.send(str);
 		}
-		// btnDisplay.addEventListener("click", function () {
-		// 	var dataURI = canvas.toDataURL('image/jpeg', 1.0);
-		// 	window.location = dataURI." ";
-		// 	// ç
-		// 	// xhr.open('POST', "api/posts.php");
-		// 	// xhr.setRequestHeader('Content-Type', 'multipart/form-data');
-		// 	// // var image = JSON.parse(dataURI);
-		// 	var str = "action=test1&img=".concat(image);
-		// 	// xhr.send(str);
-		// 	console.log(str);
-		// });
-
+		
 		function ajax_upload(){
 			var xhr = new XMLHttpRequest();
 			xhr.open('POST', "api/posts.php");

@@ -5,7 +5,7 @@ session_start();
 $galleryid	= $_POST['form_id'];
 $action		= $_POST['action'];
 $sub_action	= $_POST['sub_action'];
-$user		= $_SESSION['user_id'];
+$user   	= get_specific("id","users","username",$_SESSION['user_id']);
 $img		= $_POST['img'];
 
 // echo "The time is " . date("h:i:sa") . "<br/>";
@@ -17,10 +17,7 @@ $img		= $_POST['img'];
 if (isset($_POST['img'])){
 	add_comment(1,2,"img is set");
 }
-if ($action === "test1"){
-	add_comment(1,2,"try");
-	add_comment(1,1,$_POST['img']);
-}
+
 // add_comment(1,2,"upload end");
 if (!isset($_SESSION['user_id'])){
 	echo "error : unknown user<br/>";
@@ -43,6 +40,12 @@ else if ($action === "upload"){
 		upload_img($user,$img,"gallery");
 	else if ($sub_action === "users")
 		upload_img($user,$img,"users");
+	else if ($sub_action === "canvas") {
+		$img = str_replace('data:image/png;base64,', '', $img);
+		$img = str_replace(' ', '+', $img);
+		$data = base64_decode($img);
+		upload_img2($user,$img, "gallery");
+	}
 	else
 		echo "error : unknown sub action";
 }
