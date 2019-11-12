@@ -48,7 +48,7 @@ try {
 }
 }
 
-function delete_like($table, $colomn1, $userid, $column2, $galleryid){
+function delete_like($table, $column1, $userid, $column2, $galleryid){
 try{
 	$senpai = Call_onee_san();
 	$sth = $senpai->prepare("DELETE FROM $table WHERE $column1=$userid AND $column2=$galleryid");
