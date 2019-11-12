@@ -43,11 +43,30 @@
 			
 		<div class="row">
 				
-			<!-- right side -->
+			<!--left side -->
 			<div class="column side c">
-				<br \>
+				<img class="left_block prev_image" src="https://assets3.thrillist.com/v1/image/2813543/size/gn-gift_guide_variable_c.jpg" onclick="cute()">
+				<p class="prev_date">2019:01:01</p>
+				<img class="left_block prev_image" src="https://assets3.thrillist.com/v1/image/2813543/size/gn-gift_guide_variable_c.jpg" onclick="cute()">
+				<p class="prev_date">2019:01:01</p>
+				<img class="left_block prev_image" src="https://assets3.thrillist.com/v1/image/2813543/size/gn-gift_guide_variable_c.jpg" onclick="cute()">
+				<p class="prev_date">2019:01:01</p>
+				<img class="left_block prev_image" src="https://assets3.thrillist.com/v1/image/2813543/size/gn-gift_guide_variable_c.jpg" onclick="cute()">
+				<p class="prev_date">2019:01:01</p>
+				<img class="left_block prev_image" src="https://assets3.thrillist.com/v1/image/2813543/size/gn-gift_guide_variable_c.jpg" onclick="cute()">
+				<p class="prev_date">2019:01:01</p>
+				<img class="left_block prev_image" src="https://assets3.thrillist.com/v1/image/2813543/size/gn-gift_guide_variable_c.jpg" onclick="cute()">
+				<p class="prev_date">2019:01:01</p>
+				<img class="left_block prev_image" src="https://assets3.thrillist.com/v1/image/2813543/size/gn-gift_guide_variable_c.jpg" onclick="cute()">
+				<p class="prev_date">2019:01:01</p>
+				<img class="left_block prev_image" src="https://assets3.thrillist.com/v1/image/2813543/size/gn-gift_guide_variable_c.jpg" onclick="cute()">
+				<p class="prev_date">2019:01:01</p>
+				<img class="left_block prev_image" src="https://assets3.thrillist.com/v1/image/2813543/size/gn-gift_guide_variable_c.jpg" onclick="cute()">
+				<p class="prev_date">2019:01:01</p>
+				<img class="left_block prev_image" src="https://assets3.thrillist.com/v1/image/2813543/size/gn-gift_guide_variable_c.jpg" onclick="cute()">
+				<p class="prev_date">2019:01:01</p>
 			</div>
-			<!-- right side end -->
+			<!-- left side end -->
 
 				<!-- middle -->
 			<div class="column middle">
