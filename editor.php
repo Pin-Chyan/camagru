@@ -95,13 +95,14 @@
 					<div class="column middle block buttons">
 						<p>Webcam use</p>
 						<button id="snap" class="btn">Capture</button>
-						<button id="btnDisplay" class="btn" >Save</button>
+						<button onclick="canvas_image()" id="btnDisplay" class="btn" >Save</button>
 						<button onclick="loadState()" class="btn" >Restore</button>
 						<p>Image upload</p>
-						<form action="api/like.php?" method="post" enctype="multipart/form-data">
+						<button type="button" onclick="ajax_upload()">upload</button>
+						<!-- <form action="api/post.php?" method="post" enctype="multipart/form-data">
 							<input type="file" name="imagefile" id="imageLoader" class="btn">
 							<input type="submit" name="submit" value="Upload" class="btn">
-						</form>
+						</form> -->
 					</div>	
 				</div>	
 			</div>	
@@ -227,11 +228,32 @@
 			context.drawImage(drawing, 0, 30, 300, 450);
 		}
 
-		btnDisplay.addEventListener("click", function () {
-			const dataURI = canvas.toDataURL('image/jpeg', 1.0);
+		function canvas_image(){
+  			let pngUrl = canvas.toDataURL();
+			var xhr = new XMLHttpRequest();
+			xhr.open('POST', "api/posts.php");
+			xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+			var str = "action=test1&img=".concat(pngUrl," ok ");
+			xhr.send(str);
+		}
+		// btnDisplay.addEventListener("click", function () {
+		// 	var dataURI = canvas.toDataURL('image/jpeg', 1.0);
+		// 	window.location = dataURI." ";
+		// 	// ç
+		// 	// xhr.open('POST', "api/posts.php");
+		// 	// xhr.setRequestHeader('Content-Type', 'multipart/form-data');
+		// 	// // var image = JSON.parse(dataURI);
+		// 	var str = "action=test1&img=".concat(image);
+		// 	// xhr.send(str);
+		// 	console.log(str);
+		// });
 
-			console.log(dataURI);
-		});
+		function ajax_upload(){
+			var xhr = new XMLHttpRequest();
+			xhr.open('POST', "api/posts.php");
+			xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+			xhr.send("action=test&img=uploaded");
+		}
 
 		var imageLoader = document.getElementById('imageLoader');
     		imageLoader.addEventListener('change', handleImage, false);

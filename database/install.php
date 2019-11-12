@@ -84,7 +84,7 @@ try {
 	  `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	  `userid` INT(11) NOT NULL,
 	  `galleryid` INT(11) NOT NULL,
-	  `comment` TEXT NOT NULL/*,
+	  `comment` TEXT/*,
 	  FOREIGN KEY (userid) REFERENCES users(id),
 	  FOREIGN KEY (galleryid) REFERENCES gallery(id)*/
 	)";
