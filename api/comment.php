@@ -43,7 +43,7 @@ else if ($action === "add"){
             $msg = "
             <html>
             <body>
-            <p>User ".$name." said \"".$_POST['comment']."\"</p></br>
+            <p>User ".$name." said \"".$comment."\"</p></br>
             </body>
             </html>
             ";
