@@ -32,8 +32,6 @@ try {
 }
 }
 
-
-
 function find_specific($var, $column, $table){
 try {
 	$senpai = Call_onee_san();
@@ -49,6 +47,19 @@ try {
 	echo "failed to find specific $e\n";
 }
 }
+
+function delete_like($table, $colomn1, $userid, $column2, $galleryid){
+try{
+	$senpai = Call_onee_san();
+	$sth = $senpai->prepare("DELETE FROM $table WHERE $column1=$userid AND $column2=$galleryid");
+	$sth->execute();
+	$sth->closeCursor();
+}
+catch (PDOException $e) {
+	echo "failed to delete Like $e\n";
+}
+}
+
 function delete_specific($table, $column, $value){
 try{
 	$senpai = Call_onee_san();

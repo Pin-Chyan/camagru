@@ -28,7 +28,7 @@
 			</span>	
 			<ul class="navbar-nav">
 					<li><a class= "over_def" href="home_html.php">Senpai Haven</a></li>
-					<li><a class= "over_right" href="user_page.php">User-Name</a></li>
+					<li><a class= "over_right" href="user_page.php"><?php $name = $_SESSION['user_id']; echo "$name";?></a></li>
 					<li><a class= "over_right_img" href="user_page.php"><img class= "over_image" src="https://i.pinimg.com/736x/32/d0/af/32d0afda44fb2dde8753844f9283cddc.jpg"></a></li>
 				</ul>	
 			</nav>	
@@ -43,11 +43,30 @@
 			
 		<div class="row">
 				
-			<!-- right side -->
+			<!--left side -->
 			<div class="column side c">
-				<br \>
+				<img class="left_block prev_image" src="https://assets3.thrillist.com/v1/image/2813543/size/gn-gift_guide_variable_c.jpg" onclick="cute()">
+				<p class="prev_date">2019:01:01</p>
+				<img class="left_block prev_image" src="https://assets3.thrillist.com/v1/image/2813543/size/gn-gift_guide_variable_c.jpg" onclick="cute()">
+				<p class="prev_date">2019:01:01</p>
+				<img class="left_block prev_image" src="https://assets3.thrillist.com/v1/image/2813543/size/gn-gift_guide_variable_c.jpg" onclick="cute()">
+				<p class="prev_date">2019:01:01</p>
+				<img class="left_block prev_image" src="https://assets3.thrillist.com/v1/image/2813543/size/gn-gift_guide_variable_c.jpg" onclick="cute()">
+				<p class="prev_date">2019:01:01</p>
+				<img class="left_block prev_image" src="https://assets3.thrillist.com/v1/image/2813543/size/gn-gift_guide_variable_c.jpg" onclick="cute()">
+				<p class="prev_date">2019:01:01</p>
+				<img class="left_block prev_image" src="https://assets3.thrillist.com/v1/image/2813543/size/gn-gift_guide_variable_c.jpg" onclick="cute()">
+				<p class="prev_date">2019:01:01</p>
+				<img class="left_block prev_image" src="https://assets3.thrillist.com/v1/image/2813543/size/gn-gift_guide_variable_c.jpg" onclick="cute()">
+				<p class="prev_date">2019:01:01</p>
+				<img class="left_block prev_image" src="https://assets3.thrillist.com/v1/image/2813543/size/gn-gift_guide_variable_c.jpg" onclick="cute()">
+				<p class="prev_date">2019:01:01</p>
+				<img class="left_block prev_image" src="https://assets3.thrillist.com/v1/image/2813543/size/gn-gift_guide_variable_c.jpg" onclick="cute()">
+				<p class="prev_date">2019:01:01</p>
+				<img class="left_block prev_image" src="https://assets3.thrillist.com/v1/image/2813543/size/gn-gift_guide_variable_c.jpg" onclick="cute()">
+				<p class="prev_date">2019:01:01</p>
 			</div>
-			<!-- right side end -->
+			<!-- left side end -->
 
 				<!-- middle -->
 			<div class="column middle">
@@ -77,8 +96,9 @@
 						<p>Webcam use</p>
 						<button id="snap" class="btn">Capture</button>
 						<button id="btnDisplay" class="btn" >Save</button>
+						<button onclick="loadState()" class="btn" >Restore</button>
 						<p>Image upload</p>
-						<form action="" method="post" enctype="multipart/form-data">
+						<form action="api/like.php?" method="post" enctype="multipart/form-data">
 							<input type="file" name="imagefile" id="imageLoader" class="btn">
 							<input type="submit" name="submit" value="Upload" class="btn">
 						</form>
@@ -161,11 +181,14 @@
 		var context = canvas.getContext('2d');
 			width = 640;
 			height = 480;
+		var img = new Image;
+		var	s_canvas;
 		snap.addEventListener("click",function(){
 			context.save();
 			context.scale(-1, 1);
 			context.drawImage(video, 0, 0, width * -1, height);
 			context.restore();
+			saveState(canvas);
 		});
 
 		function miku() {
@@ -229,6 +252,21 @@
     	reader.readAsDataURL(e.target.files[0]);     
 		}
 
+		function saveState(c) {
+ 			s_canvas = c.toDataURL('image/jpeg', 1.0);
+  			//copy the data into some variable
+			console.log(s_canvas);
+		}
+
+		function loadState() {
+  		//load the data from the variable and apply to canvas
+			context.clearRect(0, 0, canvas.width, canvas.height);
+  			img.onload = function() {
+    			context.drawImage(img, 0, 0);
+  			}
+  			img.src = s_canvas;
+		}
+
 
 	</script>
 	<?php
@@ -243,8 +281,8 @@
 			} else {
 				$image = $_FILES['imagefile']['tmp_name'];
 				if (isset($_SESSION['user_id'])) {
-					$id = $_SESSION['user_id'];
-					upload_img($id , $image, "users");
+					$id = get_specific("id","users","username",$_SESSION['user_id']);
+					upload_img($id , $image, "gallery");
 				}
 			}
 		}
