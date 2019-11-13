@@ -69,7 +69,7 @@
 			<!-- left side end -->
 
 				<!-- middle -->
-			<div class="column middle">
+			<div class="column middle c">
 				<div class="column middle block">
 					<br />
 					<br />
@@ -112,9 +112,13 @@
 			<img class="stickers" src="./stickers/miku.png" onclick="miku()">
 			<img class="stickers" src="./stickers/sao.png" onclick="sao()">
 			<img class="stickers" src="./stickers/naruto.png" onclick="naruto()">
-			<img class="stickers" src="./stickers/guilty.png" onclick="guilty()">
 			<img class="stickers" src="./stickers/coffee.png" onclick="coffee()">
 			<img class="stickers" src="./stickers/cute.png" onclick="cute()">
+			<img class="stickers" src="./stickers/nani.png" onclick="nani_1()">
+			<img class="stickers" src="./stickers/nani_2.png" onclick="nani_2()">
+			<img class="stickers" src="./stickers/ears.png" onclick="ears()">
+			<img class="stickers" src="./stickers/borders.png" onclick="border_1()">
+			<img class="stickers" src="./stickers/trick.png" onclick="trick()">
 		</div>
 		<!-- right end -->
 
@@ -209,12 +213,6 @@
 			context.drawImage(drawing,320,200, 320, 280);
 		}
 
-		function guilty() {
-			drawing = new Image() 
-			drawing.src = "./stickers/guilty.png" 
-			context.drawImage(drawing, 0, 150, 640, 330);
-		}
-
 		function coffee() {
 			drawing = new Image() 
 			drawing.src = "./stickers/coffee.png" 
@@ -226,6 +224,37 @@
 			drawing.src = "./stickers/cute.png"  // 640 / 480
 			context.drawImage(drawing, 0, 30, 300, 450);
 		}
+
+		function nani_1() {
+			drawing = new Image() 
+			drawing.src = "./stickers/nani.png"  // 640 / 480
+			context.drawImage(drawing, 20, 300, 600, 160);
+		}
+
+		function nani_2() {
+			drawing = new Image() 
+			drawing.src = "./stickers/nani_2.png"  // 640 / 480
+			context.drawImage(drawing, 310, 240, 320, 280);
+		}
+
+		function ears() {
+			drawing = new Image() 
+			drawing.src = "./stickers/ears.png"  // 640 / 480
+			context.drawImage(drawing, 160, 30, 320, 240);
+		}
+
+		function border_1() {
+			drawing = new Image() 
+			drawing.src = "./stickers/borders.png"  // 640 / 480
+			context.drawImage(drawing, 0, 0, 640, 480);
+		}
+
+		function trick() {
+			drawing = new Image() 
+			drawing.src = "./stickers/trick.png"  // 640 / 480
+			context.drawImage(drawing, 0, 0, 150, 200);
+		}
+
 
 		btnDisplay.addEventListener("click", function () {
 			const dataURI = canvas.toDataURL('image/jpeg', 1.0);
@@ -255,7 +284,7 @@
 		function saveState(c) {
  			s_canvas = c.toDataURL('image/jpeg', 1.0);
   			//copy the data into some variable
-			console.log(s_canvas);
+			// console.log(s_canvas);
 		}
 
 		function loadState() {

@@ -73,10 +73,20 @@
   /* end of right column */
   
   /* Middle column */
-  .column.middle {
+  .column.middle.c {
     width: 50%;
     height:91%;
-  }  
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;  /* IE 10+ */
+    overflow-y:scroll;
+    overflow-x:hidden;
+    -ms-overflow-style: none;
+    overflow: -moz-scrollbars-none; 
+  } 
+  
+  .column.middle.c::-webkit-scrollbar {
+    display: none;
+  }
 
   .column.middle.block {
     width: 80%;
@@ -138,7 +148,7 @@
 .over_right {
   padding: 14px 8px !important;
   float: right !important;
-  color: white;
+  color: white !important;
 }
 
 .over_right_img {
