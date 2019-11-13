@@ -168,6 +168,6 @@ if ($_POST['Submit']) {
     fwrite($write, $string);
     fclose($write);
 	fclose($old);
-	header("Location : http://localhost:8080/camagru/home_html.php?page=1");
+	header("Location : ./home_html.php?page=1");
 }
 ?>

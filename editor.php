@@ -1,3 +1,13 @@
+<?php 		
+	require("header.php");
+	session_start();
+	if (!empty($_SESSION['user_id'])) {
+		$name = $_SESSION['user_id'];
+		$img = get_userimg($_SESSION['user_id']);
+	} else {
+		header('location: ./login/login.php');
+	}
+?>
 <link rel="stylesheet" href="./styles/editor.css">
 <!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> -->
 <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat"> -->
@@ -28,8 +38,8 @@
 			</span>	
 			<ul class="navbar-nav">
 					<li><a class= "over_def" href="home_html.php">Senpai Haven</a></li>
-					<li><a class= "over_right" href="user_page.php"><?php $name = $_SESSION['user_id']; echo "$name";?></a></li>
-					<li><a class= "over_right_img" href="user_page.php"><img class= "over_image" src="https://i.pinimg.com/736x/32/d0/af/32d0afda44fb2dde8753844f9283cddc.jpg"></a></li>
+					<li><a class= "over_right" href="user_page.php"><?= $name ?></a></li>
+					<li><a class= "over_right_img" href="user_page.php"><img class= "over_image" <?= $img?>></a></li>
 				</ul>	
 			</nav>	
 			<div id="side-menu" class="side-nav">
@@ -95,13 +105,14 @@
 					<div class="column middle block buttons">
 						<p>Webcam use</p>
 						<button id="snap" class="btn">Capture</button>
-						<button id="btnDisplay" class="btn" >Save</button>
+						<button onclick="XHR()" id="btnDisplay" class="btn" >Post</button>
 						<button onclick="loadState()" class="btn" >Restore</button>
 						<p>Image upload</p>
-						<form action="api/like.php?" method="post" enctype="multipart/form-data">
+						<button type="button" onclick="ajax_upload()">upload</button>
+						<!-- <form action="api/post.php?" method="post" enctype="multipart/form-data">
 							<input type="file" name="imagefile" id="imageLoader" class="btn">
 							<input type="submit" name="submit" value="Upload" class="btn">
-						</form>
+						</form> -->
 					</div>	
 				</div>	
 			</div>	
@@ -225,6 +236,7 @@
 			context.drawImage(drawing, 0, 30, 300, 450);
 		}
 
+
 		function nani_1() {
 			drawing = new Image() 
 			drawing.src = "./stickers/nani.png"  // 640 / 480
@@ -261,6 +273,26 @@
 
 			console.log(dataURI);
 		});
+
+		function XHR()
+		{
+		  // build the request object and actions
+		  img = canvas.toDataURL('image/jpeg', 1.0);
+		  console.log(img);
+		  var xhttp = new XMLHttpRequest();
+		  xhttp.open("POST", "api/posts.php");
+		  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		  var str = "action=upload&sub_action=canvas&img=" + img;
+		  xhttp.send(str);
+		}
+		
+		function ajax_upload(){
+			var xhr = new XMLHttpRequest();
+			xhr.open('POST', "api/posts.php");
+			xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+			xhr.send("action=test&img=uploaded");
+		}
+
 
 		var imageLoader = document.getElementById('imageLoader');
     		imageLoader.addEventListener('change', handleImage, false);
@@ -299,10 +331,6 @@
 
 	</script>
 	<?php
-		require("header.php");
-
-		session_start();
-
 		$senpai = Call_onee_san();
 		if (isset($_POST['submit'])) {
 			if (getimagesize($_FILES['imagefile']['tmp_name']) == false) {

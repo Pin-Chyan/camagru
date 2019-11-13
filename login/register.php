@@ -16,12 +16,13 @@ if (isset($_POST['submit'])) {
         } else if (find_specific($e, "email", "users")) {
             $error = "Email already in use";
         } else {
+            $img = "https://images.discordapp.net/avatars/408785106942164992/7f7a07bfad0ad6a2faaaccd9421e5392.png?size=512";
+            add_user($u, $e,$img, $p);
             $dir = $_SERVER['PHP_SELF'];
             $len = strrpos($dir, "register.php");
             $reg_dir = substr($dir, 0, $len);
             $reg_dir = $reg_dir."verify.php";
             $page_dir = $_SERVER['HTTP_HOST'].$reg_dir;
-            add_user($u, $e, $display, $p);
             $vkey = get_specific("vkey", "users", "username", $u);
             $subject = "Email Verification";
             $msg = "
@@ -70,7 +71,8 @@ function strongPassword($pwd, &$error) {
 <html lang="en">
 	<head>
 		<title>Register</title>
-		<meta charset="UTF-8">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link href="styles/custom.css" rel="stylesheet" type="text/css" />
 	</head>
 	<body>

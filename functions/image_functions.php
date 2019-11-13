@@ -17,19 +17,70 @@ try {
     }
 }
 
+function upload_img2($userid, $img, $table) {
+    try {
+        $senpai = Call_onee_san();
+        $arr = explode($img);
+        $binary_senpai = $img;
+        if ($table == "gallery")
+        {
+        //$userid = get_specific("user_id","user","username",$userid);
+        $senpai->exec("INSERT INTO gallery (img,userid) VALUES ('$binary_senpai','$userid')");
+        }
+        if ($table == "users")
+            $senpai->exec("UPDATE users SET display='$binary_senpai' WHERE username='$userid'");
+    }
+    catch (PDOException $e) {
+
+    }
+}
+
+function str_comp($img){
+    $str = "data:image";
+    $i = 0;
+    while ($str[$i]){
+        if ($img[$i] != $str[$i]){
+            return (0);
+        }
+        $i++;
+    }
+    return(1);
+}
+
 function get_img($galleryid,$class){
 try{
     $binary_senpai = get_specific("img","gallery","id",$galleryid);
     if ($binary_senpai == false)
         return (0);
     //$binary_senpai = "this is the image";
-    if ($class)
-        echo /*"img class ".$galleryid."\n";*/"<img class=\"$class\" src='data:image/jpeg;base64, $binary_senpai' />";
-    else
-        echo /*"img ncl ".$galleryid."\n";*/"<img src='data:image/jpeg;base64, $binary_senpai' />";
-    return (1);
+    if (str_comp($binary_senpai)){
+        if ($class)
+            $return = "<img class=\"$class\" src='$binary_senpai' />";
+        else
+            $return = "<img src='$binary_senpai' />";
+    }
+    else{
+        if ($class)
+            $return = "<img class=\"$class\" src='data:image/jpeg;base64, $binary_senpai' />";
+        else
+            $return = "<img src='data:image/jpeg;base64, $binary_senpai' />";
+    }
+    return ($return);
 } catch (PDOException $e) {
 	echo "failed to find get img \n";
+}
+}
+
+function retrieve_img($i, $class){
+try{
+    if (ver_img($i) == 0){
+        return (0);
+    }
+    else{
+        return get_img($i, $class);
+    }
+} catch (PDOException $e) {
+	echo "failed to retrive img\n";
 }
 }
 
@@ -76,19 +127,6 @@ try{
     return $max."\n";
 } catch (PDOException $e) {
 	echo "failed to find count img\n";
-}
-}
-
-function retrieve_img($i){
-try{
-    if (ver_img($i) == 0){
-        return (0);
-    }
-    else{
-        return get_specific("img","gallery","id",$i);
-    }
-} catch (PDOException $e) {
-	echo "failed to retrive img\n";
 }
 }
 
@@ -146,13 +184,13 @@ try{
             return (0);
         }
         else{
-        $img = retrieve_img($i); 
+        $img = retrieve_img($i, $class); 
         $likes = get_likes(NULL,$i);
         $name = get_specific("username","users","id",get_specific("userid","gallery","id",$i));
         $date = get_specific("up_date","gallery","id",$i);
         echo "<div class=\"column middle title\">Posted by: $name</div>
             <div class=\"column middle subtitle\">on: $date</div>
-            <img class=\"$class\" src='data:image/jpeg;base64, $img'>";
+            $img";
             echo "<div class=\"column middle icons\" >
             <text style=\"color=white\">$likes<text/>
             <a class=\"icons\">

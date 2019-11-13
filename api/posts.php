@@ -5,15 +5,20 @@ session_start();
 $galleryid	= $_POST['form_id'];
 $action		= $_POST['action'];
 $sub_action	= $_POST['sub_action'];
-$user		= $_SESSION['user_id'];
+$user   	= get_specific("id","users","username",$_SESSION['user_id']);
 $img		= $_POST['img'];
 
-echo "The time is " . date("h:i:sa") . "<br/>";
-echo "post test ok ".$_POST['id']."<br/>";
-print_r($_POST);
-echo "<br/> get test ok <br/>";
-print_r($_GET);
+// echo "The time is " . date("h:i:sa") . "<br/>";
+// echo "post test ok ".$_POST['id']."<br/>";
+// print_r($_POST);
+// echo "<br/> get test ok <br/>";
+// print_r($_GET);
+// add_comment(1,2,"upload start");
+if (isset($_POST['img'])){
+	add_comment(1,2,"img is set");
+}
 
+// add_comment(1,2,"upload end");
 if (!isset($_SESSION['user_id'])){
 	echo "error : unknown user<br/>";
 }
@@ -35,6 +40,12 @@ else if ($action === "upload"){
 		upload_img($user,$img,"gallery");
 	else if ($sub_action === "users")
 		upload_img($user,$img,"users");
+	else if ($sub_action === "canvas") {
+		$img = str_replace('data:image/png;base64,', '', $img);
+		$img = str_replace(' ', '+', $img);
+		$data = base64_decode($img);
+		upload_img2($user,$img, "gallery");
+	}
 	else
 		echo "error : unknown sub action";
 }
@@ -42,15 +53,4 @@ else if ($action === "upload"){
 // header("Location: ../home_html.php?page=$page");
 // $i = 1;
 // $max = 11;
-
-// while ($i < $max){
-// echo "
-// <form  action=\"api/posts.php\" method=\"POST\">
-// <input type=\"hidden\" name=\"action\" value=\"the desired action\">
-// <input type=\"hidden\" name=\"form_id\" value=\"the respective image id\">
-// <input type=\"hidded\" name=\"sub_action\" value=\"the sub action\">
-// <input type=\"submit\" name=\"sub_action\" value=\"button name\">
-// </form>
-// ";
-// $i++;
 ?>
