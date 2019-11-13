@@ -9,8 +9,7 @@
   } */
 
   body {
-    /* background: url(https://images.alphacoders.com/105/thumb-1920-1050187.jpg) no-repeat center center fixed; */
-    background: url(https://images4.alphacoders.com/102/thumb-1920-1029784.jpg) no-repeat center center fixed;
+    background: url(../background/wallpaper.jpg) no-repeat center center fixed;
     -moz-osx-font-smoothing: grayscale;  
     -webkit-font-smoothing: antialiased;
     -webkit-background-size: cover;
