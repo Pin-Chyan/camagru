@@ -399,24 +399,41 @@ overflow: auto !important;
 
 .comment-box.left {
   overflow: auto;
-  float: left;
-  width: 20% !important;
+  /* float: left; */
+  width: 100% !important;
   background: rgba(54, 54, 54, 0.2) !important;
-  padding-bottom: 10px;
-  padding-top: 10px;
-  text-align: center;
+  /* background: red !important; */
+  padding-bottom: 5px;
+  padding-top: 5px;
+  text-align: center !important;
   /* margin-left: 20%; */
-  /* height: auto !important; */
+  height: auto !important;
   /* background-color: white; */
   /* margin-right: 5%; */
 }
 
 .comment-box.right {
-  width: 80% !important;
-  float: right;
+  width: 100% !important;
+  /* float: right; */
   overflow: auto;
   background: rgba(54, 54, 54, 0.2) !important;
+  /* background: blue !important; */
   text-align: center;
   padding-bottom: 10px;
   padding-top: 10px;
 }
+
+.comment-image {
+  /* float: right !important; */
+  /* padding: 0px 0px !important; */
+  height: 35px !important;
+  width: 37px !important;
+  border-radius: 50% !important;
+  object-fit: contain !important;
+  text-align: center !important;
+  float: left;
+  }
+
+  .comment-title {
+    float: left;
+  }
