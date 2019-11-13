@@ -33,23 +33,26 @@ if ($err == 1)
 else if ($action === "add"){
     if (isset($_POST['comment'])){
         $comment = htmlspecialchars($_POST['comment'], ENT_QUOTES);
+        $posterid = get_specific('userid', 'gallery', 'id', $galleryid);
         add_comment($user,$galleryid, $comment);
-        $name = $_SESSION['user_id'];
-        $email = get_specific('email', 'users', 'username', $name);
-        $pref = get_specific('notify', 'users', 'username', $name);
-
-        if ($pref) {
-            $subject = "Senpai noticed us";
-            $msg = "
-            <html>
-            <body>
-            <p>User ".$name." said \"".$comment."\"</p></br>
-            </body>
-            </html>
-            ";
-            $headers = "MIME-Version: 1.0" . "\r\n";
-            $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-            mail($email,$subject,$msg, $headers);
+        if ($user != $posterid) {
+            $name = $_SESSION['user_id'];
+            $userid = get_specific('userid', 'gallery', 'galleryid', $galleryid);
+            $email = get_specific('email', 'users', 'id', $user);
+            $pref = get_specific('notify', 'users', 'id', $user);
+            if ($pref) {
+                $subject = "Senpai noticed us";
+                $msg = "
+                <html>
+                <body>
+                <p>User ".$name." said \"".$comment."\"</p></br>
+                </body>
+                </html>
+                ";
+                $headers = "MIME-Version: 1.0" . "\r\n";
+                $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+                mail($email,$subject,$msg, $headers);
+            }
         }
     }
 }
