@@ -105,7 +105,7 @@
 						<button onclick="XHR()" id="btnDisplay" class="btn" >Post</button>
 						<button onclick="loadState()" class="btn" >Restore</button>
 						<p>Image upload</p>
-						<button type="button" onclick="ajax_upload()">upload</button>
+						<!-- <button type="button" onclick="ajax_upload()">upload</button> -->
 						<!-- <form action="api/post.php?" method="post" enctype="multipart/form-data">
 							<input type="file" name="imagefile" id="imageLoader" class="btn">
 							<input type="submit" name="submit" value="Upload" class="btn">

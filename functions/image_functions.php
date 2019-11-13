@@ -221,7 +221,7 @@ try{
         <input type=\"hidden\" name=\"action\" value=\"add\">
         <input type=\"hidden\" name=\"form_id\" value=\"$i\">
         <label> Comment: <br>
-        <textarea id=\"$i\" name=\"comment\" class=\"text-box\" required></textarea>
+        <textarea id=\"com_$i\" name=\"comment\" class=\"text-box\" required></textarea>
         </label><br>
         <input type=\"submit\" name=\"sub_action\" value=\"comment\">
                 </form>
