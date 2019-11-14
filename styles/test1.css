@@ -392,7 +392,7 @@ overflow: auto !important;
   width: 90%;
   margin-left: 5%;
   margin-right: 5%;
-  height: 75px;
+  height: 100px;
   /* background: rgba(54, 54, 54, 0.63) !important; */
   /* transition: 0.6s; */
 }
@@ -401,22 +401,23 @@ overflow: auto !important;
   overflow: auto;
   /* float: left; */
   width: 100% !important;
-  background: rgba(54, 54, 54, 0.2) !important;
+  background: rgba(54, 54, 54, 0.4) !important;
   /* background: red !important; */
-  padding-bottom: 5px;
-  padding-top: 5px;
+  padding-bottom: 2px;
+  padding-top: 2px;
   text-align: center !important;
   /* margin-left: 20%; */
-  height: auto !important;
+  height: 40px !important;
   /* background-color: white; */
   /* margin-right: 5%; */
 }
 
 .comment-box.right {
   width: 100% !important;
-  /* float: right; */
+  /* float: left; */
   overflow: auto;
   background: rgba(54, 54, 54, 0.2) !important;
+  height: 60px;
   /* background: blue !important; */
   text-align: center;
   padding-bottom: 10px;
@@ -426,6 +427,7 @@ overflow: auto !important;
 .comment-image {
   /* float: right !important; */
   /* padding: 0px 0px !important; */
+  margin-left: 5%;
   height: 35px !important;
   width: 37px !important;
   border-radius: 50% !important;
@@ -435,5 +437,10 @@ overflow: auto !important;
   }
 
   .comment-title {
-    float: left;
+    margin-top: 10px;
+    float: left !important;
+  }
+
+  .comment-def {
+    float:none !important;
   }

@@ -94,7 +94,7 @@ function home_get_comment($userid,$galleryid){
             <!-- left side text box -->
                 <div class=\"comment-box left\">
                     <img class=\"comment-image\" src=\"https://images5.alphacoders.com/105/thumb-350-1051496.png\">
-				    <a class=\"comment_title\">$name</a>
+				    <a class=\"comment-title\">$name</a>
 			    </div>
 						
 		    <!-- right side text box -->

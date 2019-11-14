@@ -220,7 +220,9 @@ try{
         <form  action=\"api/comment.php?page=$page&prev_pos=$i\" method=\"POST\">
         <input type=\"hidden\" name=\"action\" value=\"add\">
         <input type=\"hidden\" name=\"form_id\" value=\"$i\">
-        <label> Comment: <br>
+        <label class=\"comment-def\"> 
+        Comment:
+        <br \>
         <textarea id=\"com_$i\" name=\"comment\" class=\"text-box\" required></textarea>
         </label><br>
         <input type=\"submit\" name=\"sub_action\" value=\"comment\">
