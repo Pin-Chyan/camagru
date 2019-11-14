@@ -176,10 +176,11 @@ try{
     $max -= $amm * ($page_no - 1);
     $image = 0;
     // $i = 0;
-    $posts = get_posts($index);
+    // $posts = get_posts($index);
     while ($image < $amm)
     {
         $i = $arr[$max-1];
+        $page = $_GET['page'];
         if (ver_img($i) == 0){
             return (0);
         }
@@ -194,7 +195,7 @@ try{
             echo "<div class=\"column middle icons\" >
             <text style=\"color=white\">$likes<text/>
             <a class=\"icons\">
-            <form  action=\"api/like.php\" method=\"POST\">
+            <form  action=\"api/like.php?page=$page&prev_pos=$i\" method=\"POST\">
             <input type=\"hidden\" name=\"action\" value=\"like\">
             <input type=\"hidden\" name=\"form_id\" value=\"$i\">
             <input type=\"submit\" name=\"sub_action\" value=\"like\">
@@ -214,7 +215,6 @@ try{
             echo "<br/><a class=\"c-btn-close\" onclick=\"openCloseComment_$i()\">&times;</a><br/>";
     }
     if (isset($_SESSION['user_id'])){
-        $page = $_GET['page'];
         $prev_pos = $i;
         echo "
         <form  action=\"api/comment.php?page=$page&prev_pos=$i\" method=\"POST\">
