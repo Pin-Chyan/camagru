@@ -24,12 +24,10 @@
 
 <html lang="en">
 <link rel="stylesheet" href="../styles/login.css">
-<script src="../styles/login.js"></script>
 <head>
 <title>Login</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="styles/custom.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
         <div class="login-page">
