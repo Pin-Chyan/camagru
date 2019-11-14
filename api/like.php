@@ -3,11 +3,11 @@
 require_once("../header.php");
 session_start();
 
-echo "The time is " . date("h:i:sa") . "<br/>";
-echo "post test ok ".$_POST['id']."<br/>";
-print_r($_POST);
-echo "<br/> get test ok <br/>";
-print_r($_GET);
+// echo "The time is " . date("h:i:sa") . "<br/>";
+// echo "post test ok ".$_POST['id']."<br/>";
+// print_r($_POST);
+// echo "<br/> get test ok <br/>";
+// print_r($_GET);
 
 $err = 0;
 if (!isset($_SESSION['user_id'])){
