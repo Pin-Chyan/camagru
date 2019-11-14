@@ -35,6 +35,7 @@ function get_pos(){
 $imgamm = 5;
 ?>
 <link rel="stylesheet" href="./styles/test1.css">
+<!-- <link rel="stylesheet" href="./styles/icons.css"> -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <!DOCTYPE html>
 <html lang="en">
@@ -117,6 +118,7 @@ $imgamm = 5;
 		}
 	</script>
 	<script>
+		<?php java_comment($imgamm,$_GET['page']);?>
 		function page_p(){
 			window.location.href = "<?php pager(-1,$imgamm);?>";
 		}
@@ -140,7 +142,6 @@ $imgamm = 5;
 			// 	str = null;
 			// }
 		}
-		<?php java_comment($imgamm,$_GET['page']);?>
 	</script>
 </body>
 </html>
