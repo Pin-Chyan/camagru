@@ -7,6 +7,7 @@
 	} else {
 		header('location: ./login/login.php');
 	}
+	$userid = get_specific("id","users","username",$_SESSION['user_id']);
 ?>
 <link rel="stylesheet" href="./styles/editor.css">
 <!DOCTYPE html>
@@ -50,9 +51,12 @@
 			
 		<div class="row">
 				
-			<!--left side -->
+			<!-- left side -->
 			<div class="column side c">
-				<img class="left_block prev_image" src="https://assets3.thrillist.com/v1/image/2813543/size/gn-gift_guide_variable_c.jpg" onclick="cute()">
+				<?php get_editor_image($userid);?>
+				<!-- <img class="left_block prev_image" src="https://assets3.thrillist.com/v1/image/2813543/size/gn-gift_guide_variable_c.jpg" onclick="cute()"> -->
+				<!-- <p class="prev_date">2019:01:01</p> -->
+			<!--<img class="left_block prev_image" src="https://assets3.thrillist.com/v1/image/2813543/size/gn-gift_guide_variable_c.jpg" onclick="cute()">
 				<p class="prev_date">2019:01:01</p>
 				<img class="left_block prev_image" src="https://assets3.thrillist.com/v1/image/2813543/size/gn-gift_guide_variable_c.jpg" onclick="cute()">
 				<p class="prev_date">2019:01:01</p>
@@ -69,9 +73,7 @@
 				<img class="left_block prev_image" src="https://assets3.thrillist.com/v1/image/2813543/size/gn-gift_guide_variable_c.jpg" onclick="cute()">
 				<p class="prev_date">2019:01:01</p>
 				<img class="left_block prev_image" src="https://assets3.thrillist.com/v1/image/2813543/size/gn-gift_guide_variable_c.jpg" onclick="cute()">
-				<p class="prev_date">2019:01:01</p>
-				<img class="left_block prev_image" src="https://assets3.thrillist.com/v1/image/2813543/size/gn-gift_guide_variable_c.jpg" onclick="cute()">
-				<p class="prev_date">2019:01:01</p>
+				<p class="prev_date">2019:01:01</p> -->
 			</div>
 			<!-- left side end -->
 
@@ -318,7 +320,7 @@
 
 		function loadState() {
   		//load the data from the variable and apply to canvas
-			context.clearRect(0, 0, canvas.width, canvas.height);
+			// context.clearRect(0, 0, canvas.width, canvas.height);
   			img.onload = function() {
     			context.drawImage(img, 0, 0);
   			}

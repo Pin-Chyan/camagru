@@ -101,13 +101,14 @@ echo "\n\nget user_img test\n\n";
 echo get_userimg("CYKO")."\n";
 echo get_userimg("Shame")."\n";
 echo get_userimg("PC")."\n";
-print_r(get_posts("1"));
-remove_user(2);
-remove_user(2);
+// remove_user(2);
+// remove_user(2);
 echo "\n\nhome page comment print test\n\n";
 add_comment("1","2","liam comments on asuna");
 add_comment("4","2","pc comments on asuna");
 echo "id_arr_test";
 remove_like(3,1);
 id_arr();
+print_r(get_posts("1"));
+// get_editor_image(1);
 ?>

@@ -4,13 +4,14 @@ function upload_img($userid,$imglocation,$table){
 try {
     $senpai = Call_onee_san();
     $binary_senpai = base64_encode(file_get_contents($imglocation));
+    $n_senpai = "data:image/jpeg;base64, ".$binary_senpai;
     if ($table == "gallery")
     {
         //$userid = get_specific("user_id","user","username",$userid);
-        $senpai->exec("INSERT INTO gallery (img,userid) VALUES ('$binary_senpai','$userid')");
+        $senpai->exec("INSERT INTO gallery (img,userid) VALUES ('$n_senpai','$userid')");
     }
     if ($table == "users")
-        $senpai->exec("UPDATE users SET display='$binary_senpai' WHERE username='$userid'");
+        $senpai->exec("UPDATE users SET display='$n_senpai' WHERE username='$userid'");
     
 } catch (PDOException $e) {
         echo "file not found". $e->getMessage()."\n";
@@ -35,17 +36,17 @@ function upload_img2($userid, $img, $table) {
     }
 }
 
-function str_comp($img){
-    $str = "data:image";
-    $i = 0;
-    while ($str[$i]){
-        if ($img[$i] != $str[$i]){
-            return (0);
-        }
-        $i++;
-    }
-    return(1);
-}
+// function str_comp($img){
+//     $str = "data:image";
+//     $i = 0;
+//     while ($str[$i]){
+//         if ($img[$i] != $str[$i]){
+//             return (0);
+//         }
+//         $i++;
+//     }
+//     return(1);
+// }
 
 function get_img($galleryid,$class){
 try{
@@ -53,18 +54,18 @@ try{
     if ($binary_senpai == false)
         return (0);
     //$binary_senpai = "this is the image";
-    if (str_comp($binary_senpai)){
+    // if (str_comp($binary_senpai)){
         if ($class)
             $return = "<img class=\"$class\" src='$binary_senpai' />";
         else
             $return = "<img src='$binary_senpai' />";
-    }
-    else{
-        if ($class)
-            $return = "<img class=\"$class\" src='data:image/jpeg;base64, $binary_senpai' />";
-        else
-            $return = "<img src='data:image/jpeg;base64, $binary_senpai' />";
-    }
+    // }
+    // else{
+    //     if ($class)
+            // $return = "<img class=\"$class\" src='data:image/jpeg;base64, $binary_senpai' />";
+        // else
+            // $return = "<img src='data:image/jpeg;base64, $binary_senpai' />";
+    // }
     return ($return);
 } catch (PDOException $e) {
 	echo "failed to find get img \n";
@@ -141,8 +142,8 @@ try {
                         `gallery`
                     INNER JOIN `users` ON `gallery`.`userid` = `users`.`id`
                     ORDER BY 
-                        `up_date` ASC,
-                        `id` ASC
+                        `up_date` DESC,
+                        `id` DESC
                     LIMIT
                         :limit1, :limit2
                     ;");
@@ -226,8 +227,8 @@ try{
         <input type=\"submit\" name=\"sub_action\" value=\"comment\">
                 </form>
                 ";
-        if ($posts[$i-1]['username'] === $_SESSION['user_id']) {
-            $tag = $_GET["page"];
+        if ($posts[$i]['username'] === $_SESSION['user_id']) {
+            $tag = $_GET['page'];
             echo "<form  action=\"api/posts.php?page=$tag\" method=\"POST\">
             <input type=\"hidden\" name=\"action\" value=\"delete\">
             <input type=\"hidden\" name=\"form_id\" value=\"$i\">
@@ -310,9 +311,28 @@ try{
     if ($binary_senpai == NULL)
         return "src=\"https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwjitNri3NXlAhUIFRQKHRJeDhoQjRx6BAgBEAQ&url=http%3A%2F%2Fwww.clker.com%2Fclipart-no-image-icon.html&psig=AOvVaw0E1jpBuv733GOlkoJjhEdF&ust=1573134419626111\"";
     else
-        return "src='data:image/jpeg;base64, $binary_senpai'";
+        return "src='".$binary_senpai."'";
 } catch (PDOException $e) {
 	echo "failed to get usrimg\n";
+}
+}
+
+function get_editor_image($session_var){
+try {
+    // $img = get_specific("img","gallery","id",$session_var);
+    $senpai = call_onee_san();
+    $image_arr = $senpai->prepare("SELECT * FROM gallery WHERE userid='$session_var'");
+    $image_arr->execute();
+    // echo "<div class=\"column side c\">";
+    while (($image = $image_arr->fetch(PDO::FETCH_ASSOC))){
+        $img = $image['img'];
+        echo "<img class=\"left_block prev_image\" src='$img'>";
+        echo "<p class=\"prev_date\">".$image['up_date']."</p>";
+    }
+    // echo "</div>";
+}
+catch(PDOExecption $e){
+    echo $e;
 }
 }
 ?>
