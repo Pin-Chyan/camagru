@@ -16,7 +16,7 @@ if (isset($_POST['submit'])) {
         } else if (find_specific($e, "email", "users")) {
             $error = "Email already in use";
         } else {
-            $img = "https://images.discordapp.net/avatars/408785106942164992/7f7a07bfad0ad6a2faaaccd9421e5392.png?size=512";
+            $img = "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSl9A5F4slh_zasbCOpP6V0TSWIss1o6F7Lcsp9w3xyNXlglxgZ";
             add_user($u, $e,$img, $p);
             $dir = $_SERVER['PHP_SELF'];
             $len = strrpos($dir, "register.php");

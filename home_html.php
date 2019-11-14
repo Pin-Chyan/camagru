@@ -44,7 +44,10 @@ $imgamm = 5;
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	</head>
-	<body onload="scroll();">
+	<script>
+		window.onload = scroll();
+	</script>
+	<body>
 <!-- 
 	<h2>CSS Template using Float</h2>
 	<p>In this example, we have created a header, three unequal columns and a footer. On smaller screens, the columns will stack on top of each other.</p>

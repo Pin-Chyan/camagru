@@ -327,7 +327,10 @@
 
 
 		var imageLoader = document.getElementById('imageLoader');
-    		imageLoader.addEventListener('change', handleImage, false);
+
+    	if (imageLoader) {
+			imageLoader.addEventListener('change', handleImage, false);
+		}
 		// var canvas = document.getElementById('imageCanvas');
 		// var ctx = canvas.getContext('2d');
 
