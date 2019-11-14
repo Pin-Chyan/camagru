@@ -163,7 +163,7 @@
 		const btnDisplay = document.getElementById('btnDisplay');
 		const btnDownload = document.getElementById('btnDownload');
 		const errorMsgElement = document.getElementById('span#ErrorMsg');
-
+		var capture = 0;
 		const constraints = {
 			// audio: true,
 			video: {
@@ -198,6 +198,7 @@
 		var img = new Image;
 		var	s_canvas;
 		snap.addEventListener("click",function(){
+			capture = 1;
 			context.save();
 			context.scale(-1, 1);
 			context.drawImage(video, 0, 0, width * -1, height);
@@ -283,16 +284,18 @@
 
 		function XHR()
 		{
-		  // build the request object and actions
-		  img = canvas.toDataURL('image/jpeg', 1.0);
-		  console.log(img);
-		  var xhttp = new XMLHttpRequest();
-		  xhttp.open("POST", "api/posts.php");
-		  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-		  var str = "action=upload&sub_action=canvas&img=" + img;
-		  xhttp.send(str);
-		  wait(500);
-		  location.reload();
+			if (capture == 1){
+				// build the request object and actions
+				img = canvas.toDataURL('image/jpeg', 1.0);
+				console.log(img);
+				var xhttp = new XMLHttpRequest();
+				xhttp.open("POST", "api/posts.php");
+				xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+				var str = "action=upload&sub_action=canvas&img=" + img;
+				xhttp.send(str);
+				wait(500);
+				location.reload();
+			}
 		}
 		
 		function ajax_upload(){
