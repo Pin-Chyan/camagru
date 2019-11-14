@@ -273,6 +273,14 @@
 			console.log(dataURI);
 		});
 
+		function wait(ms){
+   			var start = new Date().getTime();
+   			var end = start;
+   			while(end < start + ms) {
+     			end = new Date().getTime();
+  			}
+		}
+
 		function XHR()
 		{
 		  // build the request object and actions
@@ -283,6 +291,8 @@
 		  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 		  var str = "action=upload&sub_action=canvas&img=" + img;
 		  xhttp.send(str);
+		  wait(500);
+		  location.reload();
 		}
 		
 		function ajax_upload(){

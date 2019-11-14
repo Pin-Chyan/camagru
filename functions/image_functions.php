@@ -328,8 +328,15 @@ try {
     // echo "<div class=\"column side c\">";
     while (($image = $image_arr->fetch(PDO::FETCH_ASSOC))){
         $img = $image['img'];
+        $id = $image['id'];
         echo "<img class=\"left_block prev_image\" src='$img'>";
         echo "<p class=\"prev_date\">".$image['up_date']."</p>";
+        echo "<form  action=\"api/posts.php\" method=\"POST\">
+            <input type=\"hidden\" name=\"action\" value=\"delete\">
+            <input type=\"hidden\" name=\"form_id\" value=\"$id\">
+            <input type=\"hidden\" name=\"sub_action\" value=\"editor_redirect\">
+            <input type=\"submit\" name=\"butt\" value=\"delete this post\">
+            </form>";
     }
     // echo "</div>";
 }

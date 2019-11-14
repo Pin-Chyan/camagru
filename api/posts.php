@@ -14,16 +14,16 @@ $img		= $_POST['img'];
 // echo "<br/> get test ok <br/>";
 // print_r($_GET);
 // add_comment(1,2,"upload start");
-if (isset($_POST['img'])){
-	add_comment(1,2,"img is set");
-}
+// if (isset($_POST['img'])){
+// 	add_comment(1,2,"img is set");
+// }
 
 // add_comment(1,2,"upload end");
 if (!isset($_SESSION['user_id'])){
 	echo "error : unknown user<br/>";
 }
 else if ($action === "delete") {
-	if (!isset($_REQUEST['form_id']))
+	if (!isset($_POST['form_id']))
 		echo "error : gallery id not specified<br/>";
 	else{
 		delete_specific("gallery", "id", $galleryid);
@@ -49,8 +49,13 @@ else if ($action === "upload"){
 	else
 		echo "error : unknown sub action";
 }
-// $page = $_GET['page'];
-// header("Location: ../home_html.php?page=$page");
-// $i = 1;
-// $max = 11;
+$page = $_GET['page'];
+$prev_pos = $_GET['prev_pos'];
+if (isset($_POST['sub_action'])){
+    $sub = $_POST['sub_action'];
+    if ($sub === "editor_redirect")
+        header("Location: ../editor.php");
+}
+else
+	header("Location: ../home_html.php?page=$page&prev_pos=$prev_pos");
 ?>
