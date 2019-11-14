@@ -207,64 +207,84 @@
 		});
 
 		function miku() {
-			drawing = new Image() 
-			drawing.src = "./stickers/miku.png" 
-			context.drawImage(drawing,320,200, 320, 280);
+			if (capture == 1){
+				drawing = new Image();
+				drawing.src = "./stickers/miku.png";
+				context.drawImage(drawing,320,200, 320, 280);
+			}
 		}
 
 		function sao() {
-			drawing = new Image() 
-			drawing.src = "./stickers/sao.png" 
-			context.drawImage(drawing,320,200, 320, 280);
+			if (capture == 1){
+				drawing = new Image();
+				drawing.src = "./stickers/sao.png";
+				context.drawImage(drawing,320,200, 320, 280);
+			}
 		}
 
 		function naruto() {
-			drawing = new Image() 
-			drawing.src = "./stickers/naruto.png" 
-			context.drawImage(drawing,320,200, 320, 280);
+			if (capture == 1){
+				drawing = new Image(); 
+				drawing.src = "./stickers/naruto.png"; 
+				context.drawImage(drawing,320,200, 320, 280);
+			}
 		}
 
 		function coffee() {
-			drawing = new Image() 
-			drawing.src = "./stickers/coffee.png" 
-			context.drawImage(drawing, 270, 80, 370, 400);
+			if (capture == 1){
+				drawing = new Image();
+				drawing.src = "./stickers/coffee.png";
+				context.drawImage(drawing, 270, 80, 370, 400);
+			}
 		}
 
 		function cute() {
-			drawing = new Image() 
-			drawing.src = "./stickers/cute.png"  // 640 / 480
-			context.drawImage(drawing, 0, 30, 300, 450);
+			if (capture == 1){
+				drawing = new Image();
+				drawing.src = "./stickers/cute.png"; // 640 / 480
+				context.drawImage(drawing, 0, 30, 300, 450);
+			}
 		}
 
 
 		function nani_1() {
-			drawing = new Image() 
-			drawing.src = "./stickers/nani.png"  // 640 / 480
-			context.drawImage(drawing, 20, 300, 600, 160);
+			if (capture == 1){
+				drawing = new Image(); 
+				drawing.src = "./stickers/nani.png"; // 640 / 480
+				context.drawImage(drawing, 20, 300, 600, 160);
+			}
 		}
 
 		function nani_2() {
-			drawing = new Image() 
-			drawing.src = "./stickers/nani_2.png"  // 640 / 480
+			if (capture == 1){
+			drawing = new Image();
+			drawing.src = "./stickers/nani_2.png"; // 640 / 480
 			context.drawImage(drawing, 310, 240, 320, 280);
+			}
 		}
 
 		function ears() {
-			drawing = new Image() 
-			drawing.src = "./stickers/ears.png"  // 640 / 480
-			context.drawImage(drawing, 160, 30, 320, 240);
+			if (capture == 1){
+				drawing = new Image(); 
+				drawing.src = "./stickers/ears.png";  // 640 / 480
+				context.drawImage(drawing, 160, 30, 320, 240);
+			}
 		}
 
 		function border_1() {
-			drawing = new Image() 
-			drawing.src = "./stickers/borders.png"  // 640 / 480
-			context.drawImage(drawing, 0, 0, 640, 480);
+			if (capture == 1){
+				drawing = new Image();
+				drawing.src = "./stickers/borders.png";  // 640 / 480
+				context.drawImage(drawing, 0, 0, 640, 480);
+			}
 		}
 
 		function trick() {
-			drawing = new Image() 
-			drawing.src = "./stickers/trick.png"  // 640 / 480
-			context.drawImage(drawing, 0, 0, 150, 200);
+			if (capture == 1){
+				drawing = new Image();
+				drawing.src = "./stickers/trick.png"; // 640 / 480
+				context.drawImage(drawing, 0, 0, 150, 200);
+			}
 		}
 
 
