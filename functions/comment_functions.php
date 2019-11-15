@@ -89,7 +89,7 @@ function home_get_comment($userid,$galleryid){
             $comment = $res['comment'];
             $id = $res['id'];
             $name = get_specific("username","users","id",$res['userid']);
-            $img = get_userimg($name); // need user image
+            $img = get_userimg($name);
             echo "
             <div class=\"comment-box messages\">
             <!-- left side text box -->
