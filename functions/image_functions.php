@@ -335,7 +335,7 @@ try {
             <input type=\"hidden\" name=\"action\" value=\"delete\">
             <input type=\"hidden\" name=\"form_id\" value=\"$id\">
             <input type=\"hidden\" name=\"sub_action\" value=\"editor_redirect\">
-            <input type=\"submit\" name=\"butt\" value=\"delete this post\">
+            <input type=\"submit\" name=\"butt\" value=\"delete this post\" class=\"del_btn\">
             </form>";
     }
     // echo "</div>";
