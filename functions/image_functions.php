@@ -173,7 +173,6 @@ try{
     // $amm += $i;
     $index = $page_no;
     $arr = id_arr();
-    $tag = $_GET['page'];
     $counter = 0;
     $max = count($arr);
     $max -= $amm * ($page_no - 1);
@@ -202,8 +201,10 @@ try{
             <input type=\"hidden\" name=\"form_id\" value=\"$i\">
             <text style=\"color=white\">$likes<text/>
             <button class=\"fa fa-thumbs-up w3-hover-opacity\" name=\"sub_action\" style=\"background: none; border: none; color:white !important;\"></button>
-            <i class=\"fa fa-comments w3-hover-opacity\" onclick=\"openDropComment_$i()\"></i>";
+            <i class=\"fa fa-comments w3-hover-opacity\" onclick=\"openDropComment_$i()\"></i>
+            </form>";
             if ($posts[$image]['username'] === $_SESSION['user_id']) {
+                $tag = $_GET['page'];
                 echo "<form  action=\"api/posts.php?page=$tag\" method=\"POST\">
                 <input type=\"hidden\" name=\"action\" value=\"delete\">
                 <input type=\"hidden\" name=\"form_id\" value=\"$i\">
