@@ -260,3 +260,10 @@ p {
   width: 50%;
   margin:auto;
  }
+ 
+ .del_btn {
+   text-align: center;
+   margin: auto;
+   display: block;
+   /* padding-bottom: px; */
+ }
