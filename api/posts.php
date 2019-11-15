@@ -57,9 +57,9 @@ if (isset($_POST['sub_action'])){
     if ($sub === "editor_redirect")
 		header("Location: ../editor.php");
 	else
-		header("Location: ../home_html.php?page=$page&prev_pos=$prev_pos");
+		header("Location: ../index.php?page=$page&prev_pos=$prev_pos");
 }
 else {
-	header("Location: ../home_html.php?page=$page&prev_pos=$prev_pos");
+	header("Location: ../index.php?page=$page&prev_pos=$prev_pos");
 }
 ?>

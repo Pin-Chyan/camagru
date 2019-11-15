@@ -4,7 +4,7 @@
     session_start();
 
     if (!empty($_SESSION['user_id']))
-        header('location: ../home_html.php?page=1');
+        header('location: ../index.php?page=1');
     else if (isset($_POST['submit'])) {
         $u = $_POST['usr'];
         $p = hasher($_POST['pwd']);
@@ -12,7 +12,7 @@
         if (find_specific($u, "username", "users") and find_specific($p, "password", "users")) {
             if (get_specific("verified", "users", 'username', $u) == 1) {
                 $_SESSION['user_id'] = $u;
-                header('location: ../home_html.php?page=1');
+                header('location: ../index.php?page=1');
             } else {
                 $error = "Please verify your account first";
             }

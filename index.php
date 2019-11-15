@@ -3,7 +3,7 @@ session_start();
 require_once("header.php");
 
 if (!isset($_GET['page']))
-	header("Location: ./home_html.php?page=1&prev_pos=1");
+	header("Location: ./index.php?page=1&prev_pos=1");
 // if (!isset($_GET['prev_pos'])){
 // 	$max = count(id_arr());
 // 	$page = $_GET['page'];
@@ -13,7 +13,7 @@ if (!isset($_GET['page']))
 // 			$page--;
 // 	if ($page == 0)
 // 		$page = 1;
-// 	header("Location: ./home_html.php?page=$page&prev_pos=$page");
+// 	header("Location: ./index.php?page=$page&prev_pos=$page");
 // 	}
 // }
 // session_start();
@@ -66,13 +66,13 @@ $imgamm = 5;
 					</a>
 				</span>
 				<ul class="navbar-nav">
-					<li><a class= "over_def" href="home_html.php">Senpai Haven</a></li>
+					<li><a class= "over_def" href="index.php">Senpai Haven</a></li>
 					<?php sesh();?>
 				</ul>
 			</nav>
 			<div id="side-menu" class="side-nav">
 				<a href="#" class="btn-close" onclick="closeSlideMenu()">&times;</a>
-				<a href="home_html.php">Home</a>
+				<a href="index.php">Home</a>
 				<a href="user_page.php">Profile</a>
 				<a href="editor.php">Editor</a>
 				<a href="login/logout.php">Log-Out</a>
@@ -172,6 +172,6 @@ if ($_POST['Submit']) {
     fwrite($write, $string);
     fclose($write);
 	fclose($old);
-	header("Location : ./home_html.php?page=1");
+	header("Location : ./index.php?page=1");
 }
 ?>

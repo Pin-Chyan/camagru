@@ -291,7 +291,7 @@ try{
     else
         $page = 1;
     //echo $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']."?page=$page";
-    echo "./home_html.php?page=$page";
+    echo "./index.php?page=$page";
     //echo "localhost:8080/camagru/test.php?page=$page";
 } catch (PDOException $e) {
 	echo "failed to get next page link\n";

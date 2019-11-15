@@ -104,14 +104,14 @@ function update_notify($name, $pref) {
 					</a>
 				</span>
 				<ul class="navbar-nav">
-					<li><a class= "over_def" href="home_html.php">Senpai Haven</a></li>
+					<li><a class= "over_def" href="index.php">Senpai Haven</a></li>
 					<li><a class= "over_right" href="user_page.php"><?= $name?></a></li>
 					<li><a class= "over_right_img" href="user_page.php"><img class= "over_image" <?= $img?>></a></li>
 				</ul>
 			</nav>
 			<div id="side-menu" class="side-nav">
 				<a href="#" class="btn-close" onclick="closeSlideMenu()">&times;</a>
-				<a href="home_html.php">Home</a>
+				<a href="index.php">Home</a>
 				<a href="user_page.php">Profile</a>
 				<a href="editor.php">Editor</a>
 				<a href="login/logout.php">Log-Out</a>
