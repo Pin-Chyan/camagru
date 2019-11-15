@@ -38,8 +38,8 @@ else if ($action === "add"){
         if ($user != $posterid) {
             $name = $_SESSION['user_id'];
             $userid = get_specific('userid', 'gallery', 'galleryid', $galleryid);
-            $email = get_specific('email', 'users', 'id', $user);
-            $pref = get_specific('notify', 'users', 'id', $user);
+            $email = get_specific('email', 'users', 'id', $posterid);
+            $pref = get_specific('notify', 'users', 'id', $posterid);
             if ($pref) {
                 $subject = "Senpai noticed us";
                 $msg = "
