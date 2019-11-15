@@ -209,6 +209,7 @@ try{
                 <input type=\"hidden\" name=\"form_id\" value=\"$i\">
                 <input type=\"hidden\" name=\"sub_action\" value=\"null\">
                 <input type=\"submit\" name=\"sub_action\" value=\"Delete this post\">
+                <button class=\"fa fa-trash w3-hover-opacity\" name=\"sub_action\" style=\"background: none; border: none; color:white !important;\"></button>
                 </form>";
             }
 
