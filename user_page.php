@@ -77,6 +77,7 @@ function update_notify($name, $pref) {
 
 
 <link rel="stylesheet" href="./styles/user_page.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <!DOCTYPE html>
 <html lang="en">
 	<head>
