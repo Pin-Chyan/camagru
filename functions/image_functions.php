@@ -196,15 +196,15 @@ try{
             <div class=\"column middle subtitle\">on: $date</div>
             $img";
             echo "<div class=\"column middle icons\" >
-            <text style=\"color=white\">$likes<text/>
             <a class=\"icons\">
             <form  action=\"api/like.php?page=$page&prev_pos=$i\" method=\"POST\">
             <input type=\"hidden\" name=\"action\" value=\"like\">
             <input type=\"hidden\" name=\"form_id\" value=\"$i\">
-            <input type=\"submit\" name=\"sub_action\" value=\"like\">
-            </form>
-            <i class=\"fa fa-thumbs-up w3-hover-opacity\" onclick=\"api/like.php?action=like\"></i>
+            <text style=\"color=white\">$likes<text/>
+            <button class=\"fa fa-thumbs-up w3-hover-opacity\" name=\"sub_action\" style=\"background: none; border: none; color:white !important;\"></button>
             <i class=\"fa fa-comments w3-hover-opacity\" onclick=\"openDropComment_$i()\"></i>
+            </form>
+            
             </a>
             </div>
             <div id=\"comment-box_$i\" class=\"column middle comment_container\">
