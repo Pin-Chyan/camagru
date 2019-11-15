@@ -25,7 +25,7 @@ if ($err == 0){
 }
 
 if ($err == 1){
-    output_error("failed fuck my life");
+    //output_error("failed fuck my life");
 }
 else if ($action === "like"){
     echo "running is liked"."<br />";
