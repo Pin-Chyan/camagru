@@ -49,13 +49,17 @@ else if ($action === "upload"){
 	else
 		echo "error : unknown sub action";
 }
+
 $page = $_GET['page'];
 $prev_pos = $_GET['prev_pos'];
 if (isset($_POST['sub_action'])){
     $sub = $_POST['sub_action'];
     if ($sub === "editor_redirect")
-        header("Location: ../editor.php");
+		header("Location: ../editor.php");
+	else
+		header("Location: ../home_html.php?page=$page&prev_pos=$prev_pos");
 }
-else
+else {
 	header("Location: ../home_html.php?page=$page&prev_pos=$prev_pos");
+}
 ?>

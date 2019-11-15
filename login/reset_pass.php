@@ -59,8 +59,8 @@ function strongPassword($pwd, &$error) {
     <title>Reset password</title>
     <html lang="en">
     <link rel="stylesheet" href="../styles/login.css">
+	<link rel="shortcut icon" href="#">
     <meta charset="UTF-8">
-    <link href="styles/custom.css" rel="stylesheet" type="text/css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 </head>
