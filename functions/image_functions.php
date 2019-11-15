@@ -173,11 +173,13 @@ try{
     // $amm += $i;
     $index = $page_no;
     $arr = id_arr();
+    $tag = $_GET['page'];
+    $counter = 0;
     $max = count($arr);
     $max -= $amm * ($page_no - 1);
     $image = 0;
     // $i = 0;
-    // $posts = get_posts($index);
+    $posts = get_posts($page_no);
     while ($image < $amm)
     {
         $i = $arr[$max-1];
@@ -229,13 +231,12 @@ try{
         <input type=\"submit\" name=\"sub_action\" value=\"comment\">
                 </form>
                 ";
-        if ($posts[$i]['username'] === $_SESSION['user_id']) {
-            $tag = $_GET['page'];
+        if ($posts[$image]['username'] === $_SESSION['user_id']) {
             echo "<form  action=\"api/posts.php?page=$tag\" method=\"POST\">
             <input type=\"hidden\" name=\"action\" value=\"delete\">
             <input type=\"hidden\" name=\"form_id\" value=\"$i\">
             <input type=\"hidden\" name=\"sub_action\" value=\"null\">
-            <input type=\"submit\" name=\"sub_action\" value=\"delete this post\">
+            <input type=\"submit\" name=\"sub_action\" value=\"Delete this post\">
             </form>";
         }
     }
