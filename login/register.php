@@ -67,6 +67,7 @@ function strongPassword($pwd, &$error) {
 ?>
 
 <link rel="stylesheet" href="../styles/login.css">
+<link rel="shortcut icon" href="#">
 <html lang="en">
 	<head>
 		<title>Register</title>

@@ -24,6 +24,7 @@
 
 <html lang="en">
 <link rel="stylesheet" href="../styles/login.css">
+<link rel="shortcut icon" href="#">
 <head>
 <title>Login</title>
 <meta charset="UTF-8">
