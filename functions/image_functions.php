@@ -173,11 +173,13 @@ try{
     // $amm += $i;
     $index = $page_no;
     $arr = id_arr();
+    $tag = $_GET['page'];
+    $counter = 0;
     $max = count($arr);
     $max -= $amm * ($page_no - 1);
     $image = 0;
     // $i = 0;
-    // $posts = get_posts($index);
+    $posts = get_posts($page_no);
     while ($image < $amm)
     {
         $i = $arr[$max-1];
@@ -193,20 +195,28 @@ try{
         echo "<div class=\"column middle title\">Posted by: $name</div>
             <div class=\"column middle subtitle\">on: $date</div>
             $img";
-            echo "<div class=\"column middle icons\" >
+        echo "<div class=\"column middle icons\" >
             <a class=\"icons\">
             <form  action=\"api/like.php?page=$page&prev_pos=$i\" method=\"POST\">
             <input type=\"hidden\" name=\"action\" value=\"like\">
             <input type=\"hidden\" name=\"form_id\" value=\"$i\">
             <text style=\"color=white\">$likes<text/>
             <button class=\"fa fa-thumbs-up w3-hover-opacity\" name=\"sub_action\" style=\"background: none; border: none; color:white !important;\"></button>
-            <i class=\"fa fa-comments w3-hover-opacity\" onclick=\"openDropComment_$i()\"></i>
-            </form>
-            
-            </a>
+            <i class=\"fa fa-comments w3-hover-opacity\" onclick=\"openDropComment_$i()\"></i>";
+            if ($posts[$image]['username'] === $_SESSION['user_id']) {
+                echo "<form  action=\"api/posts.php?page=$tag\" method=\"POST\">
+                <input type=\"hidden\" name=\"action\" value=\"delete\">
+                <input type=\"hidden\" name=\"form_id\" value=\"$i\">
+                <input type=\"hidden\" name=\"sub_action\" value=\"null\">
+                <input type=\"submit\" name=\"sub_action\" value=\"Delete this post\">
+                </form>";
+            }
+
+            echo "<a>
             </div>
             <div id=\"comment-box_$i\" class=\"column middle comment_container\">
             </a>";
+
             if (!isset($_SESSION['user_id']))
                 home_get_comment(0,$i);
             else{
@@ -229,13 +239,12 @@ try{
         <input type=\"submit\" name=\"sub_action\" value=\"comment\">
                 </form>
                 ";
-        if ($posts[$i]['username'] === $_SESSION['user_id']) {
-            $tag = $_GET['page'];
+        if ($posts[$image]['username'] === $_SESSION['user_id']) {
             echo "<form  action=\"api/posts.php?page=$tag\" method=\"POST\">
             <input type=\"hidden\" name=\"action\" value=\"delete\">
             <input type=\"hidden\" name=\"form_id\" value=\"$i\">
             <input type=\"hidden\" name=\"sub_action\" value=\"null\">
-            <input type=\"submit\" name=\"sub_action\" value=\"delete this post\">
+            <input type=\"submit\" name=\"sub_action\" value=\"Delete this post\">
             </form>";
         }
     }
