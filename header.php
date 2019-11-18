@@ -1,5 +1,5 @@
 <?php
-include_once("database/init.php");
+include_once("Config/database.php");
 include_once("functions/comment_functions.php");
 include_once("functions/general_functions.php");
 include_once("functions/image_functions.php");

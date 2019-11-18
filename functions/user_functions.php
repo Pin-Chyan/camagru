@@ -12,10 +12,10 @@ try {
 	$hashed_pass = hasher($password);
 	$vkey = random_key("6");
 	if (!$display)
-		$display = '#';
+		$display = "images/Default.jpg";
 	$onee_chan = $senpai->prepare("INSERT INTO users $column VALUES ('$username','$email','$display','$hashed_pass','$vkey')");
 	$onee_chan->execute();
-	if ($display && $display != "#") {
+	if ($display) {
 		$id = get_specific('id', 'users', 'username', $username);
 		upload_img($id , $display, 'users');
 	}
