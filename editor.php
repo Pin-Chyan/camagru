@@ -90,7 +90,7 @@
 						<button onclick="loadState()" class="btn" >Restore</button>
 						<p>Image upload</p>
 						<!-- <button type="button" onclick="ajax_upload()">upload</button> -->
-						<form action="api/post.php?" method="post" enctype="multipart/form-data">
+						<form method="post" enctype="multipart/form-data">
 							<input type="file" name="imagefile" id="imageLoader" class="btn">
 						</form>
 					</div>	
@@ -322,6 +322,7 @@
         	img.onload = function(){
     	        // canvas.width = img.width;
         	    // canvas.height = img.height;
+				capture = 1;
         	    context.drawImage(img, 0, 0, 640, 480);
         		}
         	img.src = event.target.result;
