@@ -2,6 +2,7 @@
 
 function upload_img($userid,$imglocation,$table){
 try {
+    if ($imglocation) {
     $senpai = Call_onee_san();
     $binary_senpai = base64_encode(file_get_contents($imglocation));
     $n_senpai = "data:image/jpeg;base64, ".$binary_senpai;
@@ -12,7 +13,7 @@ try {
     }
     if ($table == "users")
         $senpai->exec("UPDATE users SET display='$n_senpai' WHERE username='$userid'");
-    
+}
 } catch (PDOException $e) {
         echo "file not found". $e->getMessage()."\n";
     }
