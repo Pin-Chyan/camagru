@@ -4,18 +4,20 @@ require_once("header.php");
 
 if (!isset($_GET['page']))
 	header("Location: ./index.php?page=1&prev_pos=1");
-// if (!isset($_GET['prev_pos'])){
-// 	$max = count(id_arr());
-// 	$page = $_GET['page'];
+if (!isset($_GET['prev_pos'])){
+	$page = $_GET['page'];
+	header("Location: ./index.php?page=$page&prev_pos=1");
+	// $max = count(id_arr());
+	// $page = $_GET['page'];
 	
-// 	if ($page * 5 > $max){
-// 		while ($page * 5 > $max)
-// 			$page--;
-// 	if ($page == 0)
-// 		$page = 1;
-// 	header("Location: ./index.php?page=$page&prev_pos=$page");
-// 	}
-// }
+	// if ($page * 5 > $max){
+	// 	while ($page * 5 > $max)
+	// 		$page--;
+	// if ($page == 0)
+	// 	$page = 1;
+	// header("Location: ./index.php?page=$page&prev_pos=$page");
+	// }
+}
 // session_start();
 function sesh(){
 	if (!isset($_SESSION['user_id']))
@@ -49,7 +51,7 @@ $imgamm = 5;
 	<script>
 		window.onload = scroll();
 	</script>
-	<body>
+	<body onload ="scroll();">
 <!-- 
 	<h2>CSS Template using Float</h2>
 	<p>In this example, we have created a header, three unequal columns and a footer. On smaller screens, the columns will stack on top of each other.</p>
@@ -138,15 +140,11 @@ $imgamm = 5;
 			document.getElementById('side-menu').style.width = '0';
 		}
 		function scroll(){
-			element = document.getElementById("comment-box_<?php get_pos();?>");
-			// if (element != null) {
-				// openCloseComment_<?php get_pos();?>();
+			element = document.getElementById("com_<?php get_pos();?>");
+			if (element != null) {
 				openDropComment_<?php get_pos();?>();
 				element.scrollIntoView(false);
-			// }
-			// else {
-			// 	str = null;
-			// }
+			}
 		}
 	</script>
 </body>
