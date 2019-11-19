@@ -1,7 +1,7 @@
 <?php
 session_start();
 require("./header.php");
-// require("./Config/database.php");
+require("./Config/setup.php");
 echo "\nRunning install\n";
 add_user("CYKO","lmk310500@gmail.com", NULL, "waifu");
 add_user("CYKO","lmk310500@gmail.com", NULL, "waifu");
