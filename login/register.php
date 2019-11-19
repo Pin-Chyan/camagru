@@ -7,7 +7,9 @@ if (isset($_POST['submit'])) {
     $p2 = $_POST['pwd2'];
     $e = $_POST['email'];
 
-    if ($p2 != $p)
+    if (strlen($u) > 49)
+        $error = "username to long";
+    else if ($p2 != $p)
         $error = "Password don't match";
     else if (strongPassword($p, $error) == 0);
     else {
