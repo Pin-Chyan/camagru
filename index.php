@@ -3,10 +3,10 @@ session_start();
 require_once("header.php");
 
 if (!isset($_GET['page']))
-	header("Location: ./index.php?page=1&prev_pos=1");
+	header("Location: ./index.php?page=1&prev_pos=0");
 if (!isset($_GET['prev_pos'])){
 	$page = $_GET['page'];
-	header("Location: ./index.php?page=$page&prev_pos=1");
+	header("Location: ./index.php?page=$page&prev_pos=0");
 	// $max = count(id_arr());
 	// $page = $_GET['page'];
 	
@@ -49,7 +49,7 @@ $imgamm = 5;
 	<link rel="shortcut icon" href="#">
 	</head>
 	<script>
-		window.onload = scroll();
+		// window.onload = scroll();
 	</script>
 	<body onload ="scroll();">
 <!-- 
