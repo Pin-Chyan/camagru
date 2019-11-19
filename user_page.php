@@ -105,6 +105,7 @@ function update_notify($name, $pref) {
 				</span>
 				<ul class="navbar-nav">
 					<li><a class= "over_def" href="index.php">Senpai Haven</a></li>
+					<a href="login/logout.php" style="color: white; float: right;">Log-Out</a>
 					<li><a class= "over_right" href="user_page.php"><?= $name?></a></li>
 					<li><a class= "over_right_img" href="user_page.php"><img class= "over_image" <?= $img?>></a></li>
 				</ul>

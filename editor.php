@@ -38,6 +38,7 @@
 			</span>	
 			<ul class="navbar-nav">
 					<li><a class= "over_def" href="index.php">Senpai Haven</a></li>
+					<a href="login/logout.php" style="color: white; float: right;">Log-Out</a>
 					<li><a class= "over_right" href="user_page.php"><?= $name ?></a></li>
 					<li><a class= "over_right_img" href="user_page.php"><img class= "over_image" <?= $img?>></a></li>
 				</ul>	
@@ -272,7 +273,7 @@
 		btnDisplay.addEventListener("click", function () {
 			const dataURI = canvas.toDataURL('image/jpeg', 1.0);
 
-			console.log(dataURI);
+			// console.log(dataURI);
 		});
 
 		function wait(ms){
@@ -288,7 +289,7 @@
 			if (capture == 1){
 				// build the request object and actions
 				img = canvas.toDataURL('image/jpeg', 1.0);
-				console.log(img);
+				// console.log(img);
 				var xhttp = new XMLHttpRequest();
 				xhttp.open("POST", "api/posts.php");
 				xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -332,17 +333,19 @@
 
 		function saveState(c) {
  			s_canvas = c.toDataURL('image/jpeg', 1.0);
-  			//copy the data into some variable
+			//copy the data into some variable
 			// console.log(s_canvas);
 		}
 
 		function loadState() {
   		//load the data from the variable and apply to canvas
 			// context.clearRect(0, 0, canvas.width, canvas.height);
-  			img.onload = function() {
-    			context.drawImage(img, 0, 0);
-  			}
-  			img.src = s_canvas;
+			if (capture == 1){
+				img.onload = function() {
+					context.drawImage(img, 0, 0);
+				}
+				img.src = s_canvas;
+			}
 		}
 
 

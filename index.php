@@ -23,6 +23,7 @@ function sesh(){
 	else{
 		$name = $_SESSION['user_id'];
 		$img = get_userimg($_SESSION['user_id']);
+		echo "<a href=\"login/logout.php\" style=\"color: white; float: right;\">Log-Out</a>";
 		echo "<li><a class= \"over_right\" href=\"user_page.php\">$name</a></li>";
 		echo "<li><a class= \"over_right_img\" href=\"user_page.php\"><img class= \"over_image\" $img\"></a></li>";
 	
@@ -67,6 +68,7 @@ $imgamm = 5;
 				</span>
 				<ul class="navbar-nav">
 					<li><a class= "over_def" href="index.php">Senpai Haven</a></li>
+					
 					<?php sesh();?>
 				</ul>
 			</nav>
