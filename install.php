@@ -4,7 +4,7 @@ require("./header.php");
 require("./Config/setup.php");
 echo "\nRunning install\n";
 add_user("CYKO","lmk30500@gmail.com", NULL, "waifu");
-add_user("CYKO","lmk30500@gmail.com", NULL, "waifu");
+// add_user("CYKO","lmk30500@gmail.com", NULL, "waifu");
 update_specific("verified", "1", "users", "username", "CYKO");
 echo "\x1b[1m\n\t\t\t ADDING GOD\n\x1b[0m";
 add_user("shane","shane@gmail.com", "images/Kirito.jpg", "shane");
