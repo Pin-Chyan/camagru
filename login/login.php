@@ -6,7 +6,7 @@
     if (!empty($_SESSION['user_id']))
         header('location: ../index.php?page=1');
     else if (isset($_POST['submit'])) {
-        $u = $_POST['usr'];
+        $u = htmlspecialchars($_POST['usr'], ENT_QUOTES);
         $p = hasher($_POST['pwd']);
 
         if (find_specific($u, "username", "users") and find_specific($p, "password", "users")) {

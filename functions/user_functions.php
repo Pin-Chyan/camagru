@@ -14,7 +14,7 @@ try {
 	if (!$display)
 		$display = "images/Default.jpg";
 		$onee_chan = $senpai->prepare("INSERT INTO users $column VALUES (:name,'$email','$display','$hashed_pass','$vkey')");
-		$onee_chan->execute(array('name' => strip_tags($username)));
+		$onee_chan->execute(array('name' => htmlspecialchars(strip_tags($username), ENT_QUOTES)));
 	if ($display) {
 		$id = get_specific('id', 'users', 'username', $username);
 		upload_img($id , $display, 'users');
