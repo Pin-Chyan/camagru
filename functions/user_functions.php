@@ -13,8 +13,8 @@ try {
 	$vkey = random_key("6");
 	if (!$display)
 		$display = "images/Default.jpg";
-	$onee_chan = $senpai->prepare("INSERT INTO users $column VALUES ('$username','$email','$display','$hashed_pass','$vkey')");
-	$onee_chan->execute();
+		$onee_chan = $senpai->prepare("INSERT INTO users $column VALUES (:name,'$email','$display','$hashed_pass','$vkey')");
+		$onee_chan->execute(array('name' => strip_tags($username)));
 	if ($display) {
 		$id = get_specific('id', 'users', 'username', $username);
 		upload_img($id , $display, 'users');

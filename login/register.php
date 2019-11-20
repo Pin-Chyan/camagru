@@ -20,6 +20,7 @@ if (isset($_POST['submit'])) {
         } else {
             $img = "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSl9A5F4slh_zasbCOpP6V0TSWIss1o6F7Lcsp9w3xyNXlglxgZ";
             add_user($u, $e,$img, $p);
+            $u = strip_tags($u);
             $dir = $_SERVER['PHP_SELF'];
             $len = strrpos($dir, "register.php");
             $reg_dir = substr($dir, 0, $len);
