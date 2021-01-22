@@ -1,8 +1,8 @@
 <?php
 function call_Onee_san() {
     $DB_DSN = "localhost:3306";
-    $DB_USER = "senpai";
-    $DB_PASSWORD = "noticeme";
+    $DB_USER = "root";
+    $DB_PASSWORD = "root";
     // $user = "senpai";
     // $pass = "noticeme";
     // $host = "localhost:3306";

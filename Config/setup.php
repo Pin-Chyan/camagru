@@ -1,8 +1,8 @@
 <?php
 require("header.php");
 
-$user = "senpai";
-$pass = "noticeme";
+$user = "root";
+$pass = "root";
 $host = "localhost:3306";
 $name = "senpai";
 
