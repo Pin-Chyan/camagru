@@ -3,15 +3,19 @@ session_start();
 require("./header.php");
 require("./Config/setup.php");
 echo "\nRunning install\n";
+add_user("dummy_acc","dummy@gmail.com", NULL, "none");
 add_user("CYKO","lmk30500@gmail.com", NULL, "waifu");
-// add_user("CYKO","lmk30500@gmail.com", NULL, "waifu");
-update_specific("verified", "1", "users", "username", "CYKO");
-echo "\x1b[1m\n\t\t\t ADDING GOD\n\x1b[0m";
-add_user("shane","shane@gmail.com", "images/Kirito.jpg", "shane");
-update_specific("verified", "1", "users", "username", "shane");
-echo "\nShane(GOD) added.\n";
-add_user("PC","PC@gmail.com", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZ1Im8WuIZAVJ6v5IXV7tFIfi6K3YwAhKWnmNUb3qS7ZsJr0hz&s", "PC");
 add_user("marvy","marthen@gmail.com", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4Ufw4pHLi7Uj3CMzdK72oGXqGHDCSR8Hm6eZw6glNU6HYBRKD&s", "marvan");
+add_user("PC","PC@gmail.com", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZ1Im8WuIZAVJ6v5IXV7tFIfi6K3YwAhKWnmNUb3qS7ZsJr0hz&s", "PC");
+add_user("shane","shane@gmail.com", "images/Kirito.jpg", "shane");
+
+
+update_specific("verified", "1", "users", "username", "dummy_acc");
+update_specific("verified", "1", "users", "username", "CYKO");
+update_specific("verified", "1", "users", "username", "shane");
+update_specific("verified", "1", "users", "username", "PC");
+update_specific("verified", "1", "users", "username", "marvy");
+
 echo "\nupload image test\n";
 upload_img("4","images/Kirito.jpg","gallery");
 upload_img("1","https://i.pinimg.com/736x/32/d0/af/32d0afda44fb2dde8753844f9283cddc.jpg","gallery");
@@ -19,6 +23,7 @@ upload_img("3","images/Kirito.jpg","gallery");
 upload_img("2","images/senpai.jpeg","gallery");
 upload_img("2","images/Kirito.jpg","gallery");
 upload_img("4","images/senpai.jpeg","gallery");
+
 echo "\nadd comment\n\n";
 add_comment("1","1","is that kirito?");
 add_comment("2","2","senpai is kawaii! ~GOD");
