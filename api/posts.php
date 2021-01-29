@@ -32,7 +32,7 @@ else if ($action === "delete") {
 	}
 }
 else if ($action === "upload"){
-	if (!isset($_REQU	EST['img']))
+	if (!isset($_REQUEST['img']))
 		echo "error : no image specified<br/>";
 	else if (!isset($_REQUEST['sub_action']))
 		echo "error : no sub action specififed";
