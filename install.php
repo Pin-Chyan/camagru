@@ -9,7 +9,6 @@ add_user("marvy","marthen@gmail.com", "https://encrypted-tbn0.gstatic.com/images
 add_user("PC","PC@gmail.com", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZ1Im8WuIZAVJ6v5IXV7tFIfi6K3YwAhKWnmNUb3qS7ZsJr0hz&s", "PC");
 add_user("shane","shane@gmail.com", "images/Kirito.jpg", "shane");
 
-
 update_specific("verified", "1", "users", "username", "dummy_acc");
 update_specific("verified", "1", "users", "username", "CYKO");
 update_specific("verified", "1", "users", "username", "shane");
@@ -51,4 +50,3 @@ add_comment("1","2","liam comments on asuna");
 add_comment("4","2","pc comments on asuna");
 
 ?>
-
