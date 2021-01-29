@@ -12,7 +12,7 @@ function call_Onee_san() {
         $senpai->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     }
     catch(PDOException $e){
-        echo "ok fuck\n".$e->getMessage();
+        echo "Exception in conencting to the DB\n".$e->getMessage();
         die ();
     }
     return ($senpai);
