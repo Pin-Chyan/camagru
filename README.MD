@@ -5,4 +5,4 @@ https://downloads.mamp.info/MAMP-PRO-WINDOWS/releases/4.2.0/MAMP_MAMP_PRO_4.2.0.
 
 3) Open a web browser and go to http://localhost/install.php
 
-4) added stuff
+4) Now go to http://localhost to view the website
