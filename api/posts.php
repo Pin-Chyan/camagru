@@ -62,4 +62,5 @@ if (isset($_POST['sub_action'])){
 else {
 	header("Location: ../index.php?page=$page&prev_pos=$prev_pos");
 }
+
 ?>
