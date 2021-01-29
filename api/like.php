@@ -9,6 +9,7 @@ print_r($_POST);
 echo "<br/> get test ok <br/>";
 print_r($_GET);
 
+
 $err = 0;
 if (!isset($_SESSION['user_id'])){
     echo "error : no user logged in<br/>";
